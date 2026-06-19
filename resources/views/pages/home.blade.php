@@ -133,8 +133,11 @@
                 <a href="{{ route('loans.personal') }}" class="text-decoration-none">
                     <div class="glass-card p-4 h-100 position-relative overflow-hidden">
                         <div class="accent-bar accent-bar-indigo"></div>
-                        <div class="icon-box gradient-card-1 mb-3">
-                            <i class="fas fa-user text-white fs-5"></i>
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-box gradient-card-1">
+                                <i class="fas fa-user text-white fs-5"></i>
+                            </div>
+                            <img src="{{ asset('images/personal-loan.svg') }}" alt="Personal Loan" style="height:45px;opacity:0.8;">
                         </div>
                         <h5 class="text-white fw-bold mb-2">Personal Loan</h5>
                         <p class="text-muted-custom small mb-3">Fulfill your personal dreams — wedding, travel, medical expenses, or home renovation.</p>
@@ -153,8 +156,11 @@
                 <a href="{{ route('loans.business') }}" class="text-decoration-none">
                     <div class="glass-card p-4 h-100 position-relative overflow-hidden">
                         <div class="accent-bar accent-bar-cyan"></div>
-                        <div class="icon-box gradient-card-2 mb-3">
-                            <i class="fas fa-briefcase text-white fs-5"></i>
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-box gradient-card-2">
+                                <i class="fas fa-briefcase text-white fs-5"></i>
+                            </div>
+                            <img src="{{ asset('images/business-loan.svg') }}" alt="Business Loan" style="height:45px;opacity:0.8;">
                         </div>
                         <h5 class="text-white fw-bold mb-2">Business Loan</h5>
                         <p class="text-muted-custom small mb-3">Grow your business with working capital, equipment purchase, or expansion funding.</p>
@@ -173,8 +179,11 @@
                 <a href="{{ route('loans.car') }}" class="text-decoration-none">
                     <div class="glass-card p-4 h-100 position-relative overflow-hidden">
                         <div class="accent-bar accent-bar-amber"></div>
-                        <div class="icon-box gradient-card-3 mb-3">
-                            <i class="fas fa-car text-white fs-5"></i>
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-box gradient-card-3">
+                                <i class="fas fa-car text-white fs-5"></i>
+                            </div>
+                            <img src="{{ asset('images/car-loan.svg') }}" alt="Car Loan" style="height:45px;opacity:0.8;">
                         </div>
                         <h5 class="text-white fw-bold mb-2">Car Loan</h5>
                         <p class="text-muted-custom small mb-3">Drive your dream car home today with up to 100% on-road financing.</p>
@@ -193,8 +202,11 @@
                 <a href="{{ route('loans.education') }}" class="text-decoration-none">
                     <div class="glass-card p-4 h-100 position-relative overflow-hidden">
                         <div class="accent-bar accent-bar-emerald"></div>
-                        <div class="icon-box gradient-card-4 mb-3">
-                            <i class="fas fa-graduation-cap text-white fs-5"></i>
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-box gradient-card-4">
+                                <i class="fas fa-graduation-cap text-white fs-5"></i>
+                            </div>
+                            <img src="{{ asset('images/education-loan.svg') }}" alt="Education Loan" style="height:45px;opacity:0.8;">
                         </div>
                         <h5 class="text-white fw-bold mb-2">Education Loan</h5>
                         <p class="text-muted-custom small mb-3">Invest in your future with loans covering tuition, hostel, and living expenses.</p>
@@ -260,7 +272,7 @@
 <!-- ====== HOW IT WORKS ====== -->
 <section class="section-padding section-gradient">
     <div class="container position-relative" style="z-index:2;">
-        <div class="text-center mb-5">
+        <div class="text-center mb-4">
             <span class="badge-glass text-warning mb-3">Simple Process</span>
             <h2 class="display-6 fw-bold text-white mb-3">How It <span class="gradient-text">Works</span></h2>
             <p class="text-muted-custom mx-auto" style="max-width:600px;">Get your loan in just 3 simple steps. We've made the process quick and hassle-free.</p>
@@ -305,7 +317,7 @@
 <section class="section-padding section-dark">
     <div class="orb" style="width:300px;height:300px;background:#8b5cf6;bottom:10%;left:5%;"></div>
     <div class="container position-relative" style="z-index:2;">
-        <div class="text-center mb-5">
+        <div class="text-center mb-4">
             <span class="badge-glass text-success mb-3">Our Advantage</span>
             <h2 class="display-6 fw-bold text-white mb-3">Why Choose <span class="gradient-text">Aastha Capital</span></h2>
         </div>
@@ -354,7 +366,7 @@
 <!-- ====== TESTIMONIALS ====== -->
 <section class="section-padding section-gradient">
     <div class="container position-relative" style="z-index:2;">
-        <div class="text-center mb-5">
+        <div class="text-center mb-4">
             <span class="badge-glass text-info mb-3">Testimonials</span>
             <h2 class="display-6 fw-bold text-white mb-3">What Our <span class="gradient-text">Customers Say</span></h2>
         </div>

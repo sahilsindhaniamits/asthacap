@@ -6,7 +6,7 @@
 @section('content')
 
 <!-- Page Header -->
-<section class="position-relative overflow-hidden" style="padding-top:8rem;padding-bottom:5rem;">
+<section class="position-relative overflow-hidden" class="page-header">
     <div class="position-absolute top-0 start-0 w-100 h-100 gradient-hero"></div>
     <div class="orb" style="width:250px;height:250px;background:#6366f1;top:20%;right:10%;"></div>
     <div class="container position-relative text-center" style="z-index:2;">
@@ -101,7 +101,7 @@
 <!-- Core Values -->
 <section class="section-padding section-dark">
     <div class="container position-relative" style="z-index:2;">
-        <div class="text-center mb-5">
+        <div class="text-center mb-4">
             <span class="badge-glass text-warning mb-3">Our Values</span>
             <h2 class="display-6 fw-bold text-white mb-3">Values That <span class="gradient-text">Define Us</span></h2>
             <p class="text-muted-custom mx-auto" style="max-width:600px;">Our core values guide every decision we make and every interaction we have with our customers.</p>
@@ -151,7 +151,7 @@
 <!-- Team Section -->
 <section class="section-padding section-gradient">
     <div class="container position-relative" style="z-index:2;">
-        <div class="text-center mb-5">
+        <div class="text-center mb-4">
             <span class="badge-glass text-success mb-3">Leadership</span>
             <h2 class="display-6 fw-bold text-white mb-3">Meet Our <span class="gradient-text">Team</span></h2>
             <p class="text-muted-custom mx-auto" style="max-width:600px;">Led by experienced professionals with decades of combined experience in banking and finance.</p>

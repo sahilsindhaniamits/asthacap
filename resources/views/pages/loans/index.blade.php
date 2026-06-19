@@ -6,7 +6,7 @@
 @section('content')
 
 <!-- Page Header -->
-<section class="position-relative overflow-hidden" style="padding-top:8rem;padding-bottom:5rem;">
+<section class="position-relative overflow-hidden" class="page-header">
     <div class="position-absolute top-0 start-0 w-100 h-100 gradient-hero"></div>
     <div class="orb" style="width:250px;height:250px;background:#06b6d4;top:20%;left:5%;"></div>
     <div class="container position-relative text-center" style="z-index:2;">
@@ -132,7 +132,7 @@
 <!-- Comparison Table -->
 <section class="section-padding section-gradient">
     <div class="container position-relative" style="z-index:2;">
-        <div class="text-center mb-5">
+        <div class="text-center mb-4">
             <span class="badge-glass text-warning mb-3">Compare</span>
             <h2 class="display-6 fw-bold text-white mb-3">Quick <span class="gradient-text">Comparison</span></h2>
         </div>
