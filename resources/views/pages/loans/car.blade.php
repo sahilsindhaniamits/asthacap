@@ -14,7 +14,7 @@
     'accentTextClass' => 'text-amber-300',
     'iconClass' => 'fas fa-car',
     'loanAmount' => '100% On-Road',
-    'interestRate' => '8.5% onwards',
+    'interestRate' => 'Same Day Approval',
     'tenure' => 'Up to 7 Years',
     'processing' => '24 Hours',
     'features' => [

@@ -14,7 +14,7 @@
     'accentTextClass' => 'text-indigo-300',
     'iconClass' => 'fas fa-user',
     'loanAmount' => 'Up to ₹25 Lakhs',
-    'interestRate' => '10.5% onwards',
+    'interestRate' => 'Quick Approval',
     'tenure' => 'Up to 5 Years',
     'processing' => '24 Hours',
     'features' => [

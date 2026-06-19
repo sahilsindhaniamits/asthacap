@@ -28,7 +28,7 @@
                     <span class="gradient-text">Our Finance.</span>
                 </h1>
                 <p class="lead text-muted-custom mb-4" style="max-width:500px;">
-                    Get instant loan approvals with competitive interest rates. From personal needs to business growth, we've got the right financial solution for you.
+                    Get instant loan approvals with fast processing. From personal needs to business growth, we've got the right financial solution for you.
                 </p>
                 <div class="d-flex flex-column flex-sm-row gap-3 mb-5">
                     <a href="{{ route('loans') }}" class="btn-gradient text-center">
@@ -56,31 +56,60 @@
                 </div>
             </div>
 
-            <!-- Right Content - Hero Visual Card -->
+            <!-- Right Content - Hero Visual with 3 Cards -->
             <div class="col-lg-6 d-none d-lg-block animate-fade-in">
-                <div class="glass-card p-4 p-md-5 mx-auto" style="max-width:400px;">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <div class="icon-box gradient-card-2" style="width:48px;height:48px;">
-                            <i class="fas fa-wallet text-white fs-5"></i>
+                <div class="position-relative" style="min-height:380px;">
+                    <!-- Main Card -->
+                    <div class="glass-card p-4 mx-auto" style="max-width:320px;">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="icon-box gradient-card-2" style="width:44px;height:44px;">
+                                <i class="fas fa-wallet text-white"></i>
+                            </div>
+                            <span class="text-success small fw-semibold"><i class="fas fa-check-circle me-1"></i>Approved</span>
                         </div>
-                        <span class="text-success small fw-semibold"><i class="fas fa-check-circle me-1"></i>Approved</span>
-                    </div>
-                    <p class="text-muted-custom small mb-1">Loan Amount</p>
-                    <p class="text-white fw-bold display-6 mb-3">&#8377;5,00,000</p>
-                    <div class="row g-3 mb-4">
-                        <div class="col-6">
-                            <p class="text-muted-custom small mb-0">Interest Rate</p>
-                            <p class="text-white fw-semibold mb-0">10.5% p.a.</p>
+                        <p class="text-muted-custom small mb-1">Loan Amount</p>
+                        <p class="text-white fw-bold fs-2 mb-2">&#8377;5,00,000</p>
+                        <div class="row g-2 mb-3">
+                            <div class="col-6">
+                                <p class="text-muted-custom small mb-0">Tenure</p>
+                                <p class="text-white fw-semibold small mb-0">36 Months</p>
+                            </div>
+                            <div class="col-6">
+                                <p class="text-muted-custom small mb-0">Status</p>
+                                <p class="text-success fw-semibold small mb-0">Disbursed</p>
+                            </div>
                         </div>
-                        <div class="col-6">
-                            <p class="text-muted-custom small mb-0">Tenure</p>
-                            <p class="text-white fw-semibold mb-0">36 Months</p>
+                        <div class="progress-gradient">
+                            <div class="progress-bar" style="width:75%;"></div>
+                        </div>
+                        <p class="text-muted-custom small mt-1 mb-0">75% disbursed</p>
+                    </div>
+
+                    <!-- Floating Card 2 - Top Right -->
+                    <div class="glass-card p-3 position-absolute animate-float" style="top:-10px;right:10px;animation-delay:1s;">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="icon-box gradient-card-4" style="width:36px;height:36px;border-radius:50%;">
+                                <i class="fas fa-arrow-up text-white small"></i>
+                            </div>
+                            <div>
+                                <p class="text-muted-custom small mb-0" style="font-size:0.7rem;">Monthly EMI</p>
+                                <p class="text-white fw-bold small mb-0">&#8377;16,253</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="progress-gradient">
-                        <div class="progress-bar" style="width:75%;"></div>
+
+                    <!-- Floating Card 3 - Bottom Left -->
+                    <div class="glass-card p-3 position-absolute animate-float" style="bottom:10px;left:0;animation-delay:3s;">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="icon-box gradient-card-1" style="width:36px;height:36px;border-radius:50%;">
+                                <i class="fas fa-users text-white small"></i>
+                            </div>
+                            <div>
+                                <p class="text-muted-custom small mb-0" style="font-size:0.7rem;">Happy Customers</p>
+                                <p class="text-white fw-bold small mb-0">10,000+</p>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-muted-custom small mt-2 mb-0">75% disbursed</p>
                 </div>
             </div>
         </div>
@@ -91,10 +120,11 @@
 <section class="section-padding section-dark">
     <div class="orb" style="width:350px;height:350px;background:#6366f1;top:10%;right:0;"></div>
     <div class="container position-relative" style="z-index:2;">
-        <div class="text-center mb-5">
+        <div class="text-center mb-4">
             <span class="badge-glass text-info mb-3">Our Services</span>
-            <h2 class="display-6 fw-bold text-white mb-3">Loan Solutions for <span class="gradient-text">Every Need</span></h2>
+            <h2 class="display-6 fw-bold text-white mb-2">Loan Solutions for <span class="gradient-text">Every Need</span></h2>
             <p class="text-muted-custom mx-auto" style="max-width:600px;">Choose from our wide range of loan products designed to meet your specific financial requirements.</p>
+            <img src="{{ asset('images/hero-finance.svg') }}" alt="Finance Solutions" class="img-fluid mt-3 mb-2" style="max-height:160px;opacity:0.85;">
         </div>
 
         <div class="row g-4">
@@ -110,7 +140,7 @@
                         <p class="text-muted-custom small mb-3">Fulfill your personal dreams — wedding, travel, medical expenses, or home renovation.</p>
                         <ul class="list-unstyled small mb-3">
                             <li class="text-muted-custom mb-1"><i class="fas fa-check text-primary me-2 small"></i>Up to &#8377;25 Lakhs</li>
-                            <li class="text-muted-custom mb-1"><i class="fas fa-check text-primary me-2 small"></i>Interest from 10.5% p.a.</li>
+                            <li class="text-muted-custom mb-1"><i class="fas fa-check text-primary me-2 small"></i>Quick 24hr approval</li>
                             <li class="text-muted-custom"><i class="fas fa-check text-primary me-2 small"></i>Tenure up to 5 years</li>
                         </ul>
                         <span class="small fw-semibold" style="color:#818cf8;">Learn More <i class="fas fa-arrow-right ms-1"></i></span>
@@ -130,7 +160,7 @@
                         <p class="text-muted-custom small mb-3">Grow your business with working capital, equipment purchase, or expansion funding.</p>
                         <ul class="list-unstyled small mb-3">
                             <li class="text-muted-custom mb-1"><i class="fas fa-check text-info me-2 small"></i>Up to &#8377;50 Lakhs</li>
-                            <li class="text-muted-custom mb-1"><i class="fas fa-check text-info me-2 small"></i>Interest from 12% p.a.</li>
+                            <li class="text-muted-custom mb-1"><i class="fas fa-check text-info me-2 small"></i>Minimal documentation</li>
                             <li class="text-muted-custom"><i class="fas fa-check text-info me-2 small"></i>Tenure up to 7 years</li>
                         </ul>
                         <span class="small fw-semibold" style="color:#22d3ee;">Learn More <i class="fas fa-arrow-right ms-1"></i></span>
@@ -150,7 +180,7 @@
                         <p class="text-muted-custom small mb-3">Drive your dream car home today with up to 100% on-road financing.</p>
                         <ul class="list-unstyled small mb-3">
                             <li class="text-muted-custom mb-1"><i class="fas fa-check text-warning me-2 small"></i>Up to 100% financing</li>
-                            <li class="text-muted-custom mb-1"><i class="fas fa-check text-warning me-2 small"></i>Interest from 8.5% p.a.</li>
+                            <li class="text-muted-custom mb-1"><i class="fas fa-check text-warning me-2 small"></i>Same day approval</li>
                             <li class="text-muted-custom"><i class="fas fa-check text-warning me-2 small"></i>Tenure up to 7 years</li>
                         </ul>
                         <span class="small fw-semibold" style="color:#fbbf24;">Learn More <i class="fas fa-arrow-right ms-1"></i></span>
@@ -170,7 +200,7 @@
                         <p class="text-muted-custom small mb-3">Invest in your future with loans covering tuition, hostel, and living expenses.</p>
                         <ul class="list-unstyled small mb-3">
                             <li class="text-muted-custom mb-1"><i class="fas fa-check text-success me-2 small"></i>Up to &#8377;75 Lakhs</li>
-                            <li class="text-muted-custom mb-1"><i class="fas fa-check text-success me-2 small"></i>Interest from 9% p.a.</li>
+                            <li class="text-muted-custom mb-1"><i class="fas fa-check text-success me-2 small"></i>Easy eligibility</li>
                             <li class="text-muted-custom"><i class="fas fa-check text-success me-2 small"></i>Moratorium period available</li>
                         </ul>
                         <span class="small fw-semibold" style="color:#34d399;">Learn More <i class="fas fa-arrow-right ms-1"></i></span>
@@ -183,8 +213,11 @@
                 <a href="{{ route('loans.unsecured') }}" class="text-decoration-none">
                     <div class="glass-card p-4 h-100 position-relative overflow-hidden">
                         <div class="accent-bar accent-bar-pink"></div>
-                        <div class="icon-box gradient-card-5 mb-3">
-                            <i class="fas fa-shield-alt text-white fs-5"></i>
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-box gradient-card-5">
+                                <i class="fas fa-shield-alt text-white fs-5"></i>
+                            </div>
+                            <img src="{{ asset('images/unsecured-loan.svg') }}" alt="Unsecured Loan" style="height:50px;opacity:0.7;">
                         </div>
                         <h5 class="text-white fw-bold mb-2">Unsecured Loan</h5>
                         <p class="text-muted-custom small mb-3">No collateral required. Get funds based on your credit score and income.</p>
@@ -203,8 +236,11 @@
                 <a href="{{ route('loans.home') }}" class="text-decoration-none">
                     <div class="glass-card p-4 h-100 position-relative overflow-hidden">
                         <div class="accent-bar accent-bar-orange"></div>
-                        <div class="icon-box gradient-card-6 mb-3">
-                            <i class="fas fa-home text-white fs-5"></i>
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="icon-box gradient-card-6">
+                                <i class="fas fa-home text-white fs-5"></i>
+                            </div>
+                            <img src="{{ asset('images/home-loan.svg') }}" alt="Home Loan" style="height:50px;opacity:0.7;">
                         </div>
                         <h5 class="text-white fw-bold mb-2">Home Loan</h5>
                         <p class="text-muted-custom small mb-3">Make your dream home a reality with attractive rates and long tenure.</p>
@@ -287,10 +323,10 @@
             <div class="col-md-6 col-lg-3">
                 <div class="glass-card p-4 text-center h-100">
                     <div class="icon-box gradient-card-2 mx-auto mb-3">
-                        <i class="fas fa-percentage text-white"></i>
+                        <i class="fas fa-file-alt text-white"></i>
                     </div>
-                    <h6 class="text-white fw-bold mb-2">Best Rates</h6>
-                    <p class="text-muted-custom small mb-0">Competitive interest rates starting from just 8.5% per annum.</p>
+                    <h6 class="text-white fw-bold mb-2">Minimal Documents</h6>
+                    <p class="text-muted-custom small mb-0">Simple paperwork — just basic KYC and income proof needed.</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
@@ -379,6 +415,82 @@
     </div>
 </section>
 
+<!-- ====== EMI CALCULATOR SECTION ====== -->
+<section class="section-padding section-dark">
+    <div class="container position-relative" style="z-index:2;">
+        <div class="text-center mb-4">
+            <span class="badge-glass text-warning mb-3">Financial Tool</span>
+            <h2 class="display-6 fw-bold text-white mb-2">Loan EMI <span class="gradient-text">Calculator</span></h2>
+            <p class="text-muted-custom">Calculate your monthly EMI easily and plan your loan better</p>
+        </div>
+
+        <div class="row g-4 align-items-stretch">
+            <!-- EMI Input Form -->
+            <div class="col-lg-4">
+                <div class="glass-card p-4 h-100 position-relative overflow-hidden">
+                    <div class="accent-bar accent-bar-indigo"></div>
+                    <h5 class="text-white fw-bold mb-4 mt-2">Enter Loan Details</h5>
+
+                    <label class="form-label-glass">Loan Amount</label>
+                    <input type="number" id="homeLoanAmount" class="form-control form-control-glass mb-3" placeholder="Enter loan amount">
+
+                    <label class="form-label-glass">Interest Rate (%)</label>
+                    <input type="number" id="homeInterestRate" class="form-control form-control-glass mb-3" placeholder="Enter interest rate" step="0.1">
+
+                    <label class="form-label-glass">Loan Tenure</label>
+                    <div class="input-group mb-3">
+                        <input type="number" id="homeLoanTenure" class="form-control form-control-glass" placeholder="Enter tenure">
+                        <select id="homeTenureOption" class="form-select form-select-glass" style="max-width:120px;">
+                            <option value="months">Months</option>
+                            <option value="years">Years</option>
+                        </select>
+                    </div>
+
+                    <button class="btn-gradient w-100" onclick="calculateHomeEMI()">
+                        Calculate EMI <i class="fas fa-calculator ms-2"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- EMI Details -->
+            <div class="col-lg-4">
+                <div class="glass-card p-4 h-100 position-relative overflow-hidden">
+                    <div class="accent-bar accent-bar-emerald"></div>
+                    <h5 class="text-white fw-bold mb-4 mt-2">EMI Details</h5>
+                    <div class="mb-3">
+                        <div class="glass p-3 mb-2" style="border-radius:0.75rem;">
+                            <small class="text-muted-custom d-block">Monthly EMI</small>
+                            <span class="text-white fw-bold fs-5" id="homeEmiAmount">&mdash;</span>
+                        </div>
+                        <div class="glass p-3 mb-2" style="border-radius:0.75rem;">
+                            <small class="text-muted-custom d-block">Interest Payable</small>
+                            <span class="text-white fw-bold fs-5" id="homeInterestPayable">&mdash;</span>
+                        </div>
+                        <div class="glass p-3" style="border-radius:0.75rem;">
+                            <small class="text-muted-custom d-block">Total Payment</small>
+                            <span class="text-white fw-bold fs-5" id="homeTotalPayment">&mdash;</span>
+                        </div>
+                    </div>
+                    <a href="{{ route('contact') }}" class="btn-outline-glass w-100 text-center d-block small py-2">
+                        Apply for Loan <i class="fas fa-arrow-right ms-1"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- EMI Chart -->
+            <div class="col-lg-4">
+                <div class="glass-card p-4 h-100 position-relative overflow-hidden">
+                    <div class="accent-bar accent-bar-cyan"></div>
+                    <h5 class="text-white fw-bold mb-4 mt-2">Payment Breakup</h5>
+                    <div class="d-flex justify-content-center align-items-center" style="min-height:220px;">
+                        <canvas id="homeEmiChart" width="220" height="220"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- ====== CTA SECTION ====== -->
 <section class="section-padding position-relative overflow-hidden">
     <div class="position-absolute top-0 start-0 w-100 h-100 gradient-hero"></div>
@@ -400,3 +512,63 @@
 </section>
 
 @endsection
+
+@push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+let homeChart;
+document.addEventListener('DOMContentLoaded', function() {
+    const ctx = document.getElementById('homeEmiChart').getContext('2d');
+    homeChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Principal', 'Interest'],
+            datasets: [{
+                data: [50, 50],
+                backgroundColor: ['#6366f1', '#06b6d4'],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: true,
+            cutout: '65%',
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: { color: '#94a3b8', padding: 15, font: { size: 12 } }
+                }
+            }
+        }
+    });
+});
+
+function calculateHomeEMI() {
+    const principal = parseFloat(document.getElementById('homeLoanAmount').value);
+    const rate = parseFloat(document.getElementById('homeInterestRate').value);
+    const tenure = parseFloat(document.getElementById('homeLoanTenure').value);
+    const tenureOpt = document.getElementById('homeTenureOption').value;
+
+    if (isNaN(principal) || isNaN(rate) || isNaN(tenure) || principal <= 0 || rate <= 0 || tenure <= 0) {
+        alert('Please enter valid values.');
+        return;
+    }
+
+    const monthlyRate = rate / 100 / 12;
+    const months = tenureOpt === 'months' ? tenure : tenure * 12;
+    const emi = principal * monthlyRate * Math.pow(1 + monthlyRate, months) / (Math.pow(1 + monthlyRate, months) - 1);
+    const totalPayment = emi * months;
+    const interestPayable = totalPayment - principal;
+
+    document.getElementById('homeEmiAmount').innerHTML = '&#8377;' + Math.round(emi).toLocaleString('en-IN');
+    document.getElementById('homeInterestPayable').innerHTML = '&#8377;' + Math.round(interestPayable).toLocaleString('en-IN');
+    document.getElementById('homeTotalPayment').innerHTML = '&#8377;' + Math.round(totalPayment).toLocaleString('en-IN');
+
+    homeChart.data.datasets[0].data = [
+        ((principal / totalPayment) * 100).toFixed(1),
+        ((interestPayable / totalPayment) * 100).toFixed(1)
+    ];
+    homeChart.update();
+}
+</script>
+@endpush

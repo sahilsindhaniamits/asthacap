@@ -14,7 +14,7 @@
     'accentTextClass' => 'text-orange-300',
     'iconClass' => 'fas fa-home',
     'loanAmount' => 'Up to ₹5 Crore',
-    'interestRate' => '8.5% onwards',
+    'interestRate' => 'Easy Process',
     'tenure' => 'Up to 30 Years',
     'processing' => '5-7 Days',
     'features' => [

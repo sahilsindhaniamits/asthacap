@@ -17,6 +17,21 @@
             </div>
             <!-- Quick Info Card -->
             <div class="col-lg-6">
+                <!-- Loan Image -->
+                @php
+                    $imageMap = [
+                        'fas fa-user' => 'personal-loan.svg',
+                        'fas fa-briefcase' => 'business-loan.svg',
+                        'fas fa-car' => 'car-loan.svg',
+                        'fas fa-graduation-cap' => 'education-loan.svg',
+                        'fas fa-shield-alt' => 'unsecured-loan.svg',
+                        'fas fa-home' => 'home-loan.svg',
+                    ];
+                    $img = $imageMap[$iconClass] ?? 'hero-finance.svg';
+                @endphp
+                <div class="text-center mb-4">
+                    <img src="{{ asset('images/' . $img) }}" alt="{{ $loanTitle }}" class="img-fluid" style="max-height:180px;opacity:0.9;">
+                </div>
                 <div class="glass-card p-4 position-relative overflow-hidden">
                     <div class="accent-bar accent-bar-indigo"></div>
                     <div class="d-flex align-items-center gap-3 mb-4 mt-2">
@@ -30,7 +45,7 @@
                     </div>
                     <div class="row g-3">
                         <div class="col-6"><div class="glass p-3"><small class="text-muted-custom d-block">Loan Amount</small><span class="text-white fw-bold">{{ $loanAmount }}</span></div></div>
-                        <div class="col-6"><div class="glass p-3"><small class="text-muted-custom d-block">Interest Rate</small><span class="text-white fw-bold">{{ $interestRate }}</span></div></div>
+                        <div class="col-6"><div class="glass p-3"><small class="text-muted-custom d-block">Highlight</small><span class="text-white fw-bold">{{ $interestRate }}</span></div></div>
                         <div class="col-6"><div class="glass p-3"><small class="text-muted-custom d-block">Tenure</small><span class="text-white fw-bold">{{ $tenure }}</span></div></div>
                         <div class="col-6"><div class="glass p-3"><small class="text-muted-custom d-block">Processing</small><span class="text-white fw-bold">{{ $processing }}</span></div></div>
                     </div>

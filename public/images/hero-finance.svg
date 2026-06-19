@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" fill="none">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0.1"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  <!-- Background shape -->
+  <ellipse cx="250" cy="200" rx="200" ry="180" fill="url(#g1)"/>
+  <!-- Building -->
+  <rect x="180" y="100" width="140" height="200" rx="8" fill="#1e1b4b" stroke="#6366f1" stroke-width="2"/>
+  <rect x="195" y="120" width="30" height="25" rx="3" fill="#6366f1" opacity="0.5"/>
+  <rect x="235" y="120" width="30" height="25" rx="3" fill="#06b6d4" opacity="0.5"/>
+  <rect x="275" y="120" width="30" height="25" rx="3" fill="#6366f1" opacity="0.5"/>
+  <rect x="195" y="160" width="30" height="25" rx="3" fill="#06b6d4" opacity="0.5"/>
+  <rect x="235" y="160" width="30" height="25" rx="3" fill="#6366f1" opacity="0.5"/>
+  <rect x="275" y="160" width="30" height="25" rx="3" fill="#06b6d4" opacity="0.5"/>
+  <rect x="195" y="200" width="30" height="25" rx="3" fill="#6366f1" opacity="0.5"/>
+  <rect x="235" y="200" width="30" height="25" rx="3" fill="#06b6d4" opacity="0.5"/>
+  <rect x="275" y="200" width="30" height="25" rx="3" fill="#6366f1" opacity="0.5"/>
+  <!-- Door -->
+  <rect x="225" y="255" width="50" height="45" rx="4" fill="#312e81"/>
+  <!-- Coin stack -->
+  <ellipse cx="380" cy="280" rx="35" ry="10" fill="#f59e0b" opacity="0.8"/>
+  <rect x="345" y="265" width="70" height="15" rx="5" fill="#f59e0b" opacity="0.6"/>
+  <ellipse cx="380" cy="265" rx="35" ry="10" fill="#fbbf24" opacity="0.8"/>
+  <rect x="345" y="250" width="70" height="15" rx="5" fill="#f59e0b" opacity="0.5"/>
+  <ellipse cx="380" cy="250" rx="35" ry="10" fill="#fcd34d" opacity="0.8"/>
+  <!-- Growth arrow -->
+  <path d="M100 300 L130 260 L160 275 L190 230 L220 250 L250 200" stroke="#10b981" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <polygon points="250,195 255,208 243,205" fill="#10b981"/>
+  <!-- Dollar signs floating -->
+  <text x="120" y="150" font-size="24" fill="#6366f1" opacity="0.6" font-family="Arial">₹</text>
+  <text x="350" y="140" font-size="20" fill="#06b6d4" opacity="0.5" font-family="Arial">₹</text>
+  <text x="400" y="200" font-size="18" fill="#8b5cf6" opacity="0.4" font-family="Arial">₹</text>
+  <!-- Shield -->
+  <path d="M90 220 L90 250 C90 270 110 285 110 285 C110 285 130 270 130 250 L130 220 L110 210 Z" fill="none" stroke="#06b6d4" stroke-width="2"/>
+  <path d="M103 245 L110 252 L120 237" stroke="#10b981" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+</svg>

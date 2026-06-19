@@ -32,7 +32,7 @@
                         <p class="text-muted-custom small mb-3">Fulfill your personal dreams — wedding, travel, medical expenses, or home renovation with quick disbursement.</p>
                         <ul class="list-unstyled small mb-3">
                             <li class="text-muted-custom mb-1"><i class="fas fa-check text-primary me-2"></i>Up to &#8377;25 Lakhs</li>
-                            <li class="text-muted-custom mb-1"><i class="fas fa-check text-primary me-2"></i>Interest from 10.5% p.a.</li>
+                            <li class="text-muted-custom mb-1"><i class="fas fa-check text-primary me-2"></i>Quick 24hr approval</li>
                             <li class="text-muted-custom"><i class="fas fa-check text-primary me-2"></i>Tenure up to 5 years</li>
                         </ul>
                         <span class="small fw-semibold" style="color:#818cf8;">Learn More <i class="fas fa-arrow-right ms-1"></i></span>
@@ -49,7 +49,7 @@
                         <p class="text-muted-custom small mb-3">Grow your business with working capital, equipment purchase, or expansion funding with flexible repayment.</p>
                         <ul class="list-unstyled small mb-3">
                             <li class="text-muted-custom mb-1"><i class="fas fa-check text-info me-2"></i>Up to &#8377;50 Lakhs</li>
-                            <li class="text-muted-custom mb-1"><i class="fas fa-check text-info me-2"></i>Interest from 12% p.a.</li>
+                            <li class="text-muted-custom mb-1"><i class="fas fa-check text-info me-2"></i>Minimal documentation</li>
                             <li class="text-muted-custom"><i class="fas fa-check text-info me-2"></i>Tenure up to 7 years</li>
                         </ul>
                         <span class="small fw-semibold" style="color:#22d3ee;">Learn More <i class="fas fa-arrow-right ms-1"></i></span>
@@ -66,7 +66,7 @@
                         <p class="text-muted-custom small mb-3">Drive your dream car home today with up to 100% on-road financing and affordable monthly payments.</p>
                         <ul class="list-unstyled small mb-3">
                             <li class="text-muted-custom mb-1"><i class="fas fa-check text-warning me-2"></i>Up to 100% financing</li>
-                            <li class="text-muted-custom mb-1"><i class="fas fa-check text-warning me-2"></i>Interest from 8.5% p.a.</li>
+                            <li class="text-muted-custom mb-1"><i class="fas fa-check text-warning me-2"></i>Same day approval</li>
                             <li class="text-muted-custom"><i class="fas fa-check text-warning me-2"></i>Tenure up to 7 years</li>
                         </ul>
                         <span class="small fw-semibold" style="color:#fbbf24;">Learn More <i class="fas fa-arrow-right ms-1"></i></span>
@@ -83,7 +83,7 @@
                         <p class="text-muted-custom small mb-3">Invest in your future with loans covering tuition fees, hostel, books, and living expenses.</p>
                         <ul class="list-unstyled small mb-3">
                             <li class="text-muted-custom mb-1"><i class="fas fa-check text-success me-2"></i>Up to &#8377;75 Lakhs</li>
-                            <li class="text-muted-custom mb-1"><i class="fas fa-check text-success me-2"></i>Interest from 9% p.a.</li>
+                            <li class="text-muted-custom mb-1"><i class="fas fa-check text-success me-2"></i>Easy eligibility</li>
                             <li class="text-muted-custom"><i class="fas fa-check text-success me-2"></i>Moratorium period available</li>
                         </ul>
                         <span class="small fw-semibold" style="color:#34d399;">Learn More <i class="fas fa-arrow-right ms-1"></i></span>
@@ -100,7 +100,7 @@
                         <p class="text-muted-custom small mb-3">No collateral required. Get funds purely based on your credit score and income with quick processing.</p>
                         <ul class="list-unstyled small mb-3">
                             <li class="text-muted-custom mb-1"><i class="fas fa-check me-2" style="color:#f472b6;"></i>No collateral needed</li>
-                            <li class="text-muted-custom mb-1"><i class="fas fa-check me-2" style="color:#f472b6;"></i>Interest from 11% p.a.</li>
+                            <li class="text-muted-custom mb-1"><i class="fas fa-check me-2" style="color:#f472b6;"></i>Fast processing</li>
                             <li class="text-muted-custom"><i class="fas fa-check me-2" style="color:#f472b6;"></i>Quick disbursal</li>
                         </ul>
                         <span class="small fw-semibold" style="color:#f472b6;">Learn More <i class="fas fa-arrow-right ms-1"></i></span>
@@ -117,7 +117,7 @@
                         <p class="text-muted-custom small mb-3">Make your dream home a reality with attractive rates, long tenure, and hassle-free processing.</p>
                         <ul class="list-unstyled small mb-3">
                             <li class="text-muted-custom mb-1"><i class="fas fa-check me-2" style="color:#fb923c;"></i>Up to &#8377;5 Crore</li>
-                            <li class="text-muted-custom mb-1"><i class="fas fa-check me-2" style="color:#fb923c;"></i>Interest from 8.5% p.a.</li>
+                            <li class="text-muted-custom mb-1"><i class="fas fa-check me-2" style="color:#fb923c;"></i>Same day approval</li>
                             <li class="text-muted-custom"><i class="fas fa-check me-2" style="color:#fb923c;"></i>Tenure up to 30 years</li>
                         </ul>
                         <span class="small fw-semibold" style="color:#fb923c;">Learn More <i class="fas fa-arrow-right ms-1"></i></span>
@@ -143,7 +143,6 @@
                         <tr>
                             <th>Loan Type</th>
                             <th>Amount</th>
-                            <th>Interest Rate</th>
                             <th>Max Tenure</th>
                             <th>Processing</th>
                         </tr>
@@ -152,42 +151,36 @@
                         <tr>
                             <td class="fw-medium text-white"><i class="fas fa-user text-primary me-2"></i>Personal Loan</td>
                             <td>Up to &#8377;25L</td>
-                            <td>10.5% onwards</td>
                             <td>5 Years</td>
                             <td><span class="badge bg-success bg-opacity-10 text-success">24 Hours</span></td>
                         </tr>
                         <tr>
                             <td class="fw-medium text-white"><i class="fas fa-briefcase text-info me-2"></i>Business Loan</td>
                             <td>Up to &#8377;50L</td>
-                            <td>12% onwards</td>
                             <td>7 Years</td>
                             <td><span class="badge bg-warning bg-opacity-10 text-warning">48 Hours</span></td>
                         </tr>
                         <tr>
                             <td class="fw-medium text-white"><i class="fas fa-car text-warning me-2"></i>Car Loan</td>
                             <td>100% On-road</td>
-                            <td>8.5% onwards</td>
                             <td>7 Years</td>
                             <td><span class="badge bg-success bg-opacity-10 text-success">24 Hours</span></td>
                         </tr>
                         <tr>
                             <td class="fw-medium text-white"><i class="fas fa-graduation-cap text-success me-2"></i>Education Loan</td>
                             <td>Up to &#8377;75L</td>
-                            <td>9% onwards</td>
                             <td>15 Years</td>
                             <td><span class="badge bg-warning bg-opacity-10 text-warning">3-5 Days</span></td>
                         </tr>
                         <tr>
                             <td class="fw-medium text-white"><i class="fas fa-shield-alt me-2" style="color:#f472b6;"></i>Unsecured Loan</td>
                             <td>Up to &#8377;20L</td>
-                            <td>11% onwards</td>
                             <td>5 Years</td>
                             <td><span class="badge bg-success bg-opacity-10 text-success">24 Hours</span></td>
                         </tr>
                         <tr>
                             <td class="fw-medium text-white"><i class="fas fa-home me-2" style="color:#fb923c;"></i>Home Loan</td>
                             <td>Up to &#8377;5Cr</td>
-                            <td>8.5% onwards</td>
                             <td>30 Years</td>
                             <td><span class="badge bg-warning bg-opacity-10 text-warning">5-7 Days</span></td>
                         </tr>

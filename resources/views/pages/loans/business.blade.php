@@ -14,7 +14,7 @@
     'accentTextClass' => 'text-cyan-300',
     'iconClass' => 'fas fa-briefcase',
     'loanAmount' => 'Up to ₹50 Lakhs',
-    'interestRate' => '12% onwards',
+    'interestRate' => 'Fast Processing',
     'tenure' => 'Up to 7 Years',
     'processing' => '48 Hours',
     'features' => [

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" fill="none">
+  <defs>
+    <linearGradient id="hg1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#f59e0b;stop-opacity:0.05"/>
+    </linearGradient>
+  </defs>
+  <ellipse cx="200" cy="150" rx="150" ry="130" fill="url(#hg1)"/>
+  <!-- House -->
+  <polygon points="200,70 300,140 100,140" fill="#f97316" opacity="0.6"/>
+  <rect x="130" y="140" width="140" height="100" fill="#1e1b4b" stroke="#f97316" stroke-width="2"/>
+  <!-- Door -->
+  <rect x="180" y="185" width="40" height="55" rx="4" fill="#312e81" stroke="#f59e0b" stroke-width="1"/>
+  <circle cx="212" cy="215" r="3" fill="#f59e0b"/>
+  <!-- Windows -->
+  <rect x="145" y="155" width="30" height="25" rx="3" fill="#f97316" opacity="0.3"/>
+  <rect x="225" y="155" width="30" height="25" rx="3" fill="#f97316" opacity="0.3"/>
+  <!-- Tree -->
+  <rect x="310" y="180" width="8" height="60" fill="#6b5a3e"/>
+  <circle cx="314" cy="165" r="25" fill="#10b981" opacity="0.5"/>
+  <!-- Heart -->
+  <path d="M85 180 C85 165 100 160 100 175 C100 160 115 165 115 180 C115 200 100 210 100 210 C100 210 85 200 85 180" fill="#ec4899" opacity="0.4"/>
+</svg>
