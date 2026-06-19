@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="@yield('meta_description', 'Aastha Capital Finance - Your trusted partner for Personal Loans, Business Loans, Home Loans, Car Loans, Education Loans and more. Fast approvals, competitive rates.')">
     <meta name="keywords" content="@yield('meta_keywords', 'loans, personal loan, business loan, home loan, car loan, education loan, finance, Aastha Capital')">
-    <title>@yield('title', 'Aastha Capital Finance') - Trusted Financial Partner</title>
+    <title>@yield('title', 'Aastha Capital Finance - Trusted Financial Partner')</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
@@ -15,219 +16,263 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- Custom Theme CSS -->
+    <link href="{{ asset('css/theme.css') }}" rel="stylesheet">
 
     @stack('styles')
 </head>
-<body class="bg-slate-900 text-white font-sans antialiased" x-data="{ mobileMenu: false }">
+<body>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar"
-         x-data="{ scrolled: false }"
-         x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 50 })"
-         :class="scrolled ? 'glass-dark shadow-2xl' : 'bg-transparent'">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <a href="{{ route('home') }}" class="flex items-center space-x-3 group">
-                    <div class="w-10 h-10 rounded-xl gradient-card-1 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                        <span class="text-white font-bold text-lg">A</span>
-                    </div>
-                    <div>
-                        <span class="text-xl font-bold text-white">Aastha</span>
-                        <span class="text-xl font-light text-indigo-300"> Capital</span>
-                    </div>
-                </a>
+    <!-- ====== NAVBAR ====== -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-glass py-3" id="mainNavbar">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('home') }}">
+                <div class="icon-box gradient-card-1" style="width:40px;height:40px;border-radius:0.75rem;">
+                    <span class="text-white fw-bold fs-5">A</span>
+                </div>
+                <div>
+                    <span class="text-white fw-bold fs-5">Aastha</span>
+                    <span class="fw-light fs-5" style="color:#a5b4fc;"> Capital</span>
+                </div>
+            </a>
 
-                <!-- Desktop Navigation -->
-                <div class="hidden lg:flex items-center space-x-1">
-                    <a href="{{ route('home') }}" class="px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-all {{ request()->routeIs('home') ? 'text-white bg-white/10' : '' }}">Home</a>
-                    <a href="{{ route('about') }}" class="px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-all {{ request()->routeIs('about') ? 'text-white bg-white/10' : '' }}">About Us</a>
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                    <!-- Loans Dropdown -->
-                    <div class="relative" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-                        <a href="{{ route('loans') }}" class="px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-all flex items-center gap-1 {{ request()->routeIs('loans*') ? 'text-white bg-white/10' : '' }}">
+            <!-- Nav Links -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">About Us</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {{ request()->routeIs('loans*') ? 'active' : '' }}" href="{{ route('loans') }}" id="loansDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Loans
-                            <i class="fas fa-chevron-down text-xs transition-transform" :class="open ? 'rotate-180' : ''"></i>
                         </a>
-                        <div x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 translate-y-2" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 translate-y-2" class="absolute top-full left-0 mt-2 w-56 glass-dark rounded-2xl shadow-2xl p-3 space-y-1">
-                            <a href="{{ route('loans.personal') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-all">
-                                <i class="fas fa-user text-indigo-400"></i> Personal Loan
-                            </a>
-                            <a href="{{ route('loans.business') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-all">
-                                <i class="fas fa-briefcase text-cyan-400"></i> Business Loan
-                            </a>
-                            <a href="{{ route('loans.car') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-all">
-                                <i class="fas fa-car text-amber-400"></i> Car Loan
-                            </a>
-                            <a href="{{ route('loans.education') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-all">
-                                <i class="fas fa-graduation-cap text-emerald-400"></i> Education Loan
-                            </a>
-                            <a href="{{ route('loans.unsecured') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-all">
-                                <i class="fas fa-shield-alt text-pink-400"></i> Unsecured Loan
-                            </a>
-                            <a href="{{ route('loans.home') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-all">
-                                <i class="fas fa-home text-orange-400"></i> Home Loan
-                            </a>
-                        </div>
-                    </div>
-
-                    <a href="{{ route('calculator') }}" class="px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-all {{ request()->routeIs('calculator') ? 'text-white bg-white/10' : '' }}">Calculator</a>
-                    <a href="{{ route('contact') }}" class="px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-all {{ request()->routeIs('contact') ? 'text-white bg-white/10' : '' }}">Contact</a>
-                </div>
-
-                <!-- CTA Button -->
-                <div class="hidden lg:flex items-center space-x-4">
-                    <a href="{{ route('contact') }}" class="btn-primary text-sm">
-                        Apply Now <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <button @click="mobileMenu = !mobileMenu" class="lg:hidden p-2 rounded-xl text-gray-300 hover:text-white hover:bg-white/10 transition-all">
-                    <i class="fas" :class="mobileMenu ? 'fa-times text-xl' : 'fa-bars text-xl'"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div x-show="mobileMenu" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 -translate-y-4" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-4" class="lg:hidden glass-dark border-t border-white/10">
-            <div class="max-w-7xl mx-auto px-4 py-6 space-y-2">
-                <a href="{{ route('home') }}" class="block px-4 py-3 rounded-xl text-gray-300 hover:text-white hover:bg-white/10 transition-all">Home</a>
-                <a href="{{ route('about') }}" class="block px-4 py-3 rounded-xl text-gray-300 hover:text-white hover:bg-white/10 transition-all">About Us</a>
-                <a href="{{ route('loans') }}" class="block px-4 py-3 rounded-xl text-gray-300 hover:text-white hover:bg-white/10 transition-all">All Loans</a>
-                <div class="pl-4 space-y-1">
-                    <a href="{{ route('loans.personal') }}" class="block px-4 py-2 rounded-xl text-sm text-gray-400 hover:text-white hover:bg-white/10 transition-all"><i class="fas fa-user mr-2 text-indigo-400"></i>Personal Loan</a>
-                    <a href="{{ route('loans.business') }}" class="block px-4 py-2 rounded-xl text-sm text-gray-400 hover:text-white hover:bg-white/10 transition-all"><i class="fas fa-briefcase mr-2 text-cyan-400"></i>Business Loan</a>
-                    <a href="{{ route('loans.car') }}" class="block px-4 py-2 rounded-xl text-sm text-gray-400 hover:text-white hover:bg-white/10 transition-all"><i class="fas fa-car mr-2 text-amber-400"></i>Car Loan</a>
-                    <a href="{{ route('loans.education') }}" class="block px-4 py-2 rounded-xl text-sm text-gray-400 hover:text-white hover:bg-white/10 transition-all"><i class="fas fa-graduation-cap mr-2 text-emerald-400"></i>Education Loan</a>
-                    <a href="{{ route('loans.unsecured') }}" class="block px-4 py-2 rounded-xl text-sm text-gray-400 hover:text-white hover:bg-white/10 transition-all"><i class="fas fa-shield-alt mr-2 text-pink-400"></i>Unsecured Loan</a>
-                    <a href="{{ route('loans.home') }}" class="block px-4 py-2 rounded-xl text-sm text-gray-400 hover:text-white hover:bg-white/10 transition-all"><i class="fas fa-home mr-2 text-orange-400"></i>Home Loan</a>
-                </div>
-                <a href="{{ route('calculator') }}" class="block px-4 py-3 rounded-xl text-gray-300 hover:text-white hover:bg-white/10 transition-all">Loan Calculator</a>
-                <a href="{{ route('contact') }}" class="block px-4 py-3 rounded-xl text-gray-300 hover:text-white hover:bg-white/10 transition-all">Contact Us</a>
-                <div class="pt-4">
-                    <a href="{{ route('contact') }}" class="btn-primary block text-center text-sm">Apply Now <i class="fas fa-arrow-right ml-2"></i></a>
-                </div>
+                        <ul class="dropdown-menu" aria-labelledby="loansDropdown">
+                            <li><a class="dropdown-item" href="{{ route('loans.personal') }}"><i class="fas fa-user text-primary me-2"></i>Personal Loan</a></li>
+                            <li><a class="dropdown-item" href="{{ route('loans.business') }}"><i class="fas fa-briefcase text-info me-2"></i>Business Loan</a></li>
+                            <li><a class="dropdown-item" href="{{ route('loans.car') }}"><i class="fas fa-car text-warning me-2"></i>Car Loan</a></li>
+                            <li><a class="dropdown-item" href="{{ route('loans.education') }}"><i class="fas fa-graduation-cap text-success me-2"></i>Education Loan</a></li>
+                            <li><a class="dropdown-item" href="{{ route('loans.unsecured') }}"><i class="fas fa-shield-alt text-danger me-2"></i>Unsecured Loan</a></li>
+                            <li><a class="dropdown-item" href="{{ route('loans.home') }}"><i class="fas fa-home text-warning me-2"></i>Home Loan</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('calculator') ? 'active' : '' }}" href="{{ route('calculator') }}">Calculator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}">Contact</a>
+                    </li>
+                </ul>
+                <a href="{{ route('contact') }}" class="btn-gradient d-none d-lg-inline-block" style="font-size:0.85rem;padding:0.5rem 1.5rem;">
+                    Apply Now <i class="fas fa-arrow-right ms-1"></i>
+                </a>
             </div>
         </div>
     </nav>
 
-    <!-- Main Content -->
+    <!-- ====== MAIN CONTENT ====== -->
     <main>
         @yield('content')
     </main>
 
-    <!-- Footer -->
-    <footer class="relative overflow-hidden">
-        <!-- Background -->
-        <div class="absolute inset-0 gradient-hero"></div>
-        <div class="absolute inset-0 bg-black/40"></div>
+    <!-- ====== FOOTER ====== -->
+    <footer class="footer-dark pt-5 pb-4">
+        <!-- Decorative Orbs -->
+        <div class="orb" style="width:300px;height:300px;background:#6366f1;top:0;left:10%;"></div>
+        <div class="orb" style="width:300px;height:300px;background:#06b6d4;bottom:0;right:10%;"></div>
 
-        <!-- Decorative Elements -->
-        <div class="absolute top-0 left-0 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl"></div>
-        <div class="absolute bottom-0 right-0 w-96 h-96 bg-cyan-600/10 rounded-full blur-3xl"></div>
-
-        <div class="relative z-10">
-            <!-- Main Footer -->
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-                    <!-- Company Info -->
-                    <div class="lg:col-span-1">
-                        <a href="{{ route('home') }}" class="flex items-center space-x-3 mb-6">
-                            <div class="w-10 h-10 rounded-xl gradient-card-1 flex items-center justify-center shadow-lg">
-                                <span class="text-white font-bold text-lg">A</span>
-                            </div>
-                            <div>
-                                <span class="text-xl font-bold text-white">Aastha</span>
-                                <span class="text-xl font-light text-indigo-300"> Capital</span>
-                            </div>
-                        </a>
-                        <p class="text-gray-400 text-sm leading-relaxed mb-6">
-                            Your trusted financial partner providing fast, transparent, and affordable loan solutions to help you achieve your dreams.
-                        </p>
-                        <div class="flex space-x-4">
-                            <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center text-gray-400 hover:text-white hover:bg-indigo-600/50 transition-all">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center text-gray-400 hover:text-white hover:bg-indigo-600/50 transition-all">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center text-gray-400 hover:text-white hover:bg-indigo-600/50 transition-all">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                            <a href="#" class="w-10 h-10 rounded-full glass flex items-center justify-center text-gray-400 hover:text-white hover:bg-indigo-600/50 transition-all">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
+        <div class="container position-relative" style="z-index:2;">
+            <div class="row g-5 py-4">
+                <!-- Company Info -->
+                <div class="col-lg-4 col-md-6">
+                    <a href="{{ route('home') }}" class="d-flex align-items-center gap-2 mb-3 text-decoration-none">
+                        <div class="icon-box gradient-card-1" style="width:40px;height:40px;border-radius:0.75rem;">
+                            <span class="text-white fw-bold fs-5">A</span>
                         </div>
+                        <div>
+                            <span class="text-white fw-bold fs-5">Aastha</span>
+                            <span class="fw-light fs-5" style="color:#a5b4fc;"> Capital</span>
+                        </div>
+                    </a>
+                    <p class="text-muted-custom small mb-4">Your trusted financial partner providing fast, transparent, and affordable loan solutions to help you achieve your dreams.</p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
                     </div>
+                </div>
 
-                    <!-- Quick Links -->
-                    <div>
-                        <h4 class="text-white font-semibold text-lg mb-6">Quick Links</h4>
-                        <ul class="space-y-3">
-                            <li><a href="{{ route('home') }}" class="text-gray-400 hover:text-indigo-400 transition-colors text-sm">Home</a></li>
-                            <li><a href="{{ route('about') }}" class="text-gray-400 hover:text-indigo-400 transition-colors text-sm">About Us</a></li>
-                            <li><a href="{{ route('loans') }}" class="text-gray-400 hover:text-indigo-400 transition-colors text-sm">Our Services</a></li>
-                            <li><a href="{{ route('calculator') }}" class="text-gray-400 hover:text-indigo-400 transition-colors text-sm">Loan Calculator</a></li>
-                            <li><a href="{{ route('contact') }}" class="text-gray-400 hover:text-indigo-400 transition-colors text-sm">Contact Us</a></li>
-                        </ul>
-                    </div>
+                <!-- Quick Links -->
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="text-white fw-semibold mb-3">Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="{{ route('home') }}" class="small">Home</a></li>
+                        <li class="mb-2"><a href="{{ route('about') }}" class="small">About Us</a></li>
+                        <li class="mb-2"><a href="{{ route('loans') }}" class="small">Our Services</a></li>
+                        <li class="mb-2"><a href="{{ route('calculator') }}" class="small">Loan Calculator</a></li>
+                        <li class="mb-2"><a href="{{ route('contact') }}" class="small">Contact Us</a></li>
+                    </ul>
+                </div>
 
-                    <!-- Loan Types -->
-                    <div>
-                        <h4 class="text-white font-semibold text-lg mb-6">Our Loans</h4>
-                        <ul class="space-y-3">
-                            <li><a href="{{ route('loans.personal') }}" class="text-gray-400 hover:text-indigo-400 transition-colors text-sm">Personal Loan</a></li>
-                            <li><a href="{{ route('loans.business') }}" class="text-gray-400 hover:text-indigo-400 transition-colors text-sm">Business Loan</a></li>
-                            <li><a href="{{ route('loans.car') }}" class="text-gray-400 hover:text-indigo-400 transition-colors text-sm">Car Loan</a></li>
-                            <li><a href="{{ route('loans.education') }}" class="text-gray-400 hover:text-indigo-400 transition-colors text-sm">Education Loan</a></li>
-                            <li><a href="{{ route('loans.unsecured') }}" class="text-gray-400 hover:text-indigo-400 transition-colors text-sm">Unsecured Loan</a></li>
-                            <li><a href="{{ route('loans.home') }}" class="text-gray-400 hover:text-indigo-400 transition-colors text-sm">Home Loan</a></li>
-                        </ul>
-                    </div>
+                <!-- Our Loans -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="text-white fw-semibold mb-3">Our Loans</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="{{ route('loans.personal') }}" class="small">Personal Loan</a></li>
+                        <li class="mb-2"><a href="{{ route('loans.business') }}" class="small">Business Loan</a></li>
+                        <li class="mb-2"><a href="{{ route('loans.car') }}" class="small">Car Loan</a></li>
+                        <li class="mb-2"><a href="{{ route('loans.education') }}" class="small">Education Loan</a></li>
+                        <li class="mb-2"><a href="{{ route('loans.unsecured') }}" class="small">Unsecured Loan</a></li>
+                        <li class="mb-2"><a href="{{ route('loans.home') }}" class="small">Home Loan</a></li>
+                    </ul>
+                </div>
 
-                    <!-- Contact Info -->
-                    <div>
-                        <h4 class="text-white font-semibold text-lg mb-6">Contact Us</h4>
-                        <ul class="space-y-4">
-                            <li class="flex items-start gap-3">
-                                <i class="fas fa-map-marker-alt text-indigo-400 mt-1"></i>
-                                <span class="text-gray-400 text-sm">Aastha Capital Finance<br>India</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i class="fas fa-phone text-indigo-400"></i>
-                                <a href="tel:+919999999999" class="text-gray-400 hover:text-indigo-400 transition-colors text-sm">+91 99999 99999</a>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i class="fas fa-envelope text-indigo-400"></i>
-                                <a href="mailto:info@aasthacapital.com" class="text-gray-400 hover:text-indigo-400 transition-colors text-sm">info@aasthacapital.com</a>
-                            </li>
-                        </ul>
-                    </div>
+                <!-- Contact Info -->
+                <div class="col-lg-3 col-md-6">
+                    <h6 class="text-white fw-semibold mb-3">Contact Us</h6>
+                    <ul class="list-unstyled">
+                        <li class="d-flex align-items-start gap-2 mb-3">
+                            <i class="fas fa-map-marker-alt mt-1" style="color:#818cf8;"></i>
+                            <span class="text-muted-custom small">Aastha Capital Finance<br>India</span>
+                        </li>
+                        <li class="d-flex align-items-center gap-2 mb-3">
+                            <i class="fas fa-phone" style="color:#818cf8;"></i>
+                            <a href="tel:+919999999999" class="small">+91 99999 99999</a>
+                        </li>
+                        <li class="d-flex align-items-center gap-2 mb-3">
+                            <i class="fas fa-envelope" style="color:#818cf8;"></i>
+                            <a href="mailto:info@aasthacapital.com" class="small">info@aasthacapital.com</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
             <!-- Bottom Bar -->
-            <div class="border-t border-white/10">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p class="text-gray-500 text-sm">&copy; {{ date('Y') }} Aastha Capital Finance. All rights reserved.</p>
-                    <div class="flex items-center space-x-6">
-                        <a href="{{ route('privacy') }}" class="text-gray-500 hover:text-indigo-400 transition-colors text-sm">Privacy Policy</a>
-                        <a href="{{ route('terms') }}" class="text-gray-500 hover:text-indigo-400 transition-colors text-sm">Terms & Conditions</a>
+            <div class="border-top pt-4 mt-3" style="border-color:rgba(255,255,255,0.1)!important;">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="text-muted-custom small mb-0">&copy; {{ date('Y') }} Aastha Capital Finance. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+                        <a href="{{ route('privacy') }}" class="small me-3">Privacy Policy</a>
+                        <a href="{{ route('terms') }}" class="small">Terms & Conditions</a>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button x-data="{ show: false }" x-init="window.addEventListener('scroll', () => { show = window.scrollY > 500 })" x-show="show" x-transition @click="window.scrollTo({ top: 0, behavior: 'smooth' })" class="fixed bottom-8 right-8 w-12 h-12 rounded-full gradient-card-1 flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50 cursor-pointer">
-        <i class="fas fa-arrow-up text-white"></i>
-    </button>
+    <!-- ====== LOAN POPUP (Auto-open after delay) ====== -->
+    <div class="loan-popup-overlay" id="loanPopupOverlay">
+        <div class="loan-popup">
+            <button class="popup-close" id="popupCloseBtn">&times;</button>
+            <div class="text-center mb-4">
+                <h4 class="text-white fw-bold">Apply for Loan Online</h4>
+                <p class="text-muted-custom small mb-0">Quick approval &bull; No hidden charges &bull; PAN India</p>
+            </div>
+            <form action="{{ route('loan_request') }}" method="POST">
+                @csrf
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <input type="text" name="name" class="form-control form-control-glass" placeholder="Full Name" required>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="email" name="email" class="form-control form-control-glass" placeholder="Email Address" required>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="tel" name="phone" class="form-control form-control-glass" placeholder="Phone (10 digits)" pattern="[0-9]{10}" required>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" name="aadhar_number" class="form-control form-control-glass" placeholder="Aadhaar Number" pattern="[0-9]{12}">
+                    </div>
+                    <div class="col-md-6">
+                        <select name="loan_type" class="form-select form-select-glass" required>
+                            <option value="">Select Loan Type</option>
+                            <option value="personal">Personal Loan</option>
+                            <option value="business">Business Loan</option>
+                            <option value="car">Car Loan</option>
+                            <option value="education">Education Loan</option>
+                            <option value="unsecured">Unsecured Loan</option>
+                            <option value="home">Home Loan</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" name="loan_amount" class="form-control form-control-glass" placeholder="Loan Amount (e.g. 500000)">
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" name="state" class="form-control form-control-glass" placeholder="State">
+                    </div>
+                    <div class="col-12">
+                        <textarea name="message" rows="3" class="form-control form-control-glass" placeholder="Tell us about your requirement..."></textarea>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn-gradient w-100">
+                            Submit Application <i class="fas fa-paper-plane ms-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- SweetAlert (for flash messages) -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <!-- Theme JS -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('mainNavbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Loan Popup - show after 2 seconds
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.getElementById('loanPopupOverlay').classList.add('show');
+            }, 2000);
+
+            document.getElementById('popupCloseBtn').addEventListener('click', function() {
+                document.getElementById('loanPopupOverlay').classList.remove('show');
+            });
+
+            document.getElementById('loanPopupOverlay').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    this.classList.remove('show');
+                }
+            });
+        });
+
+        // SweetAlert flash messages
+        @if(session('success'))
+            swal({ text: '{{ session("success") }}', icon: 'success', buttons: false, timer: 3000 });
+        @endif
+        @if(session('error'))
+            swal({ text: '{{ session("error") }}', icon: 'error', buttons: false, timer: 3000 });
+        @endif
+    </script>
 
     @stack('scripts')
 </body>

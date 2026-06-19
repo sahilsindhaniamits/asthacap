@@ -28,3 +28,6 @@ Route::get('/loans/car-loan', [PageController::class, 'carLoan'])->name('loans.c
 Route::get('/loans/education-loan', [PageController::class, 'educationLoan'])->name('loans.education');
 Route::get('/loans/unsecured-loan', [PageController::class, 'unsecuredLoan'])->name('loans.unsecured');
 Route::get('/loans/home-loan', [PageController::class, 'homeLoan'])->name('loans.home');
+
+// Lead/Loan Request Form Submission
+Route::post('/loan-request', [PageController::class, 'submitLoanRequest'])->name('loan_request');
