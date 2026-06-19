@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="description" content="@yield('meta_description', 'Aastha Capital Finance - Your trusted partner for Personal Loans, Business Loans, Home Loans, Car Loans, Education Loans and more. Fast approvals, competitive rates.')">
     <meta name="keywords" content="@yield('meta_keywords', 'loans, personal loan, business loan, home loan, car loan, education loan, finance, Aastha Capital')">
     <title>@yield('title', 'Aastha Capital Finance') - Trusted Financial Partner</title>
@@ -229,9 +230,8 @@
     </button>
 
     <!-- Lead Popup Form -->
-    <div x-data="{ showPopup: false }"
-         x-init="setTimeout(() => { if(!sessionStorage.getItem('popupShown')) { showPopup = true; sessionStorage.setItem('popupShown', '1'); } }, 3000)"
-         @open-lead-form.window="showPopup = true">
+    <div x-data="leadForm()" x-init="setTimeout(() => { if(!sessionStorage.getItem('popupShown')) { showPopup = true; sessionStorage.setItem('popupShown', '1'); } }, 3000)"
+         @open-lead-form.window="showPopup = true; submitted = false;">
 
         <template x-if="showPopup">
             <div class="popup-overlay" @click.self="showPopup = false">
@@ -241,47 +241,102 @@
                     <h3 class="text-2xl font-bold text-white mb-2">Apply for Loan</h3>
                     <p class="text-gray-400 text-sm mb-6">Fill your details below and our team will contact you within 24 hours.</p>
 
-                    <form action="{{ route('contact') }}" method="GET" x-data="{ submitted: false }" @submit.prevent="submitted = true">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                            <input type="text" name="name" required placeholder="Full Name"
-                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none">
-                            <input type="email" name="email" required placeholder="Email Address"
-                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none">
-                            <input type="tel" name="phone" required placeholder="Phone Number"
-                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none">
-                            <select name="loan_type" required
-                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:border-indigo-500 focus:outline-none">
-                                <option value="" class="bg-slate-800">Loan Type</option>
-                                <option value="personal" class="bg-slate-800">Personal Loan</option>
-                                <option value="business" class="bg-slate-800">Business Loan</option>
-                                <option value="car" class="bg-slate-800">Car Loan</option>
-                                <option value="education" class="bg-slate-800">Education Loan</option>
-                                <option value="unsecured" class="bg-slate-800">Unsecured Loan</option>
-                                <option value="home" class="bg-slate-800">Home Loan</option>
-                            </select>
-                            <input type="text" name="amount" placeholder="Loan Amount"
-                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none">
-                            <input type="text" name="state" placeholder="State"
-                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none">
-                        </div>
-                        <input type="text" name="aadhaar" placeholder="Aadhaar Number"
-                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none mb-4">
-                        <textarea name="message" rows="3" placeholder="Message"
-                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none resize-none mb-4"></textarea>
-
-                        <div class="flex gap-4" x-show="!submitted">
-                            <button type="submit" class="btn-primary flex-1 text-center">Send Request</button>
-                            <button type="button" @click="showPopup = false" class="flex-1 text-center py-3 rounded-full border-2 border-red-500/50 text-red-400 font-semibold hover:bg-red-500/10 transition-all">Cancel</button>
-                        </div>
-                        <div x-show="submitted" x-transition class="flex items-center gap-3 px-6 py-3 rounded-full bg-emerald-500/20 border border-emerald-500/30 justify-center">
-                            <i class="fas fa-check-circle text-emerald-400"></i>
+                    <!-- Success Message -->
+                    <div x-show="submitted" x-transition class="mb-6">
+                        <div class="flex items-center gap-3 px-6 py-4 rounded-2xl bg-emerald-500/20 border border-emerald-500/30 justify-center">
+                            <i class="fas fa-check-circle text-emerald-400 text-xl"></i>
                             <span class="text-emerald-400 font-medium">Request Sent! We'll contact you soon.</span>
                         </div>
+                    </div>
+
+                    <!-- Form -->
+                    <form x-show="!submitted" @submit.prevent="submitForm()" x-transition>
+                        <input type="hidden" name="_token" :value="csrfToken">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <input type="text" x-model="form.name" required placeholder="Full Name"
+                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none">
+                            <input type="email" x-model="form.email" required placeholder="Email Address"
+                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none">
+                            <input type="tel" x-model="form.phone" required placeholder="Phone Number"
+                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none">
+                            <select x-model="form.loan_type" required
+                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:border-indigo-500 focus:outline-none">
+                                <option value="" class="bg-slate-800">Loan Type</option>
+                                <option value="Personal Loan" class="bg-slate-800">Personal Loan</option>
+                                <option value="Business Loan" class="bg-slate-800">Business Loan</option>
+                                <option value="Car Loan" class="bg-slate-800">Car Loan</option>
+                                <option value="Education Loan" class="bg-slate-800">Education Loan</option>
+                                <option value="Unsecured Loan" class="bg-slate-800">Unsecured Loan</option>
+                                <option value="Home Loan" class="bg-slate-800">Home Loan</option>
+                            </select>
+                            <input type="text" x-model="form.amount" placeholder="Loan Amount"
+                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none">
+                            <input type="text" x-model="form.state" placeholder="State"
+                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none">
+                        </div>
+                        <input type="text" x-model="form.aadhaar" placeholder="Aadhaar Number"
+                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none mb-4">
+                        <textarea x-model="form.message" rows="3" placeholder="Message"
+                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none resize-none mb-4"></textarea>
+
+                        <div class="flex gap-4">
+                            <button type="submit" class="btn-primary flex-1 text-center cursor-pointer" :disabled="loading">
+                                <span x-show="!loading">Send Request</span>
+                                <span x-show="loading"><i class="fas fa-spinner fa-spin mr-2"></i>Sending...</span>
+                            </button>
+                            <button type="button" @click="showPopup = false" class="flex-1 text-center py-3 rounded-full border-2 border-red-500/50 text-red-400 font-semibold hover:bg-red-500/10 transition-all cursor-pointer">Cancel</button>
+                        </div>
                     </form>
+
+                    <!-- Show form again button after success -->
+                    <div x-show="submitted" class="text-center mt-4">
+                        <button @click="resetForm()" class="text-indigo-400 text-sm underline cursor-pointer hover:text-indigo-300">Submit another request</button>
+                    </div>
                 </div>
             </div>
         </template>
     </div>
+
+    <script>
+    function leadForm() {
+        return {
+            showPopup: false,
+            submitted: false,
+            loading: false,
+            csrfToken: document.querySelector('meta[name="csrf-token"]')?.content || '',
+            form: {
+                name: '', email: '', phone: '', loan_type: '', amount: '', state: '', aadhaar: '', message: ''
+            },
+            async submitForm() {
+                this.loading = true;
+                try {
+                    const response = await fetch('/submit-lead', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': this.csrfToken,
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(this.form)
+                    });
+                    const data = await response.json();
+                    if (data.success) {
+                        this.submitted = true;
+                    } else {
+                        alert('Something went wrong. Please try again.');
+                    }
+                } catch (error) {
+                    alert('Network error. Please try again.');
+                }
+                this.loading = false;
+            },
+            resetForm() {
+                this.form = { name: '', email: '', phone: '', loan_type: '', amount: '', state: '', aadhaar: '', message: '' };
+                this.submitted = false;
+            }
+        }
+    }
+    </script>
 
     @stack('scripts')
 </body>
