@@ -76,12 +76,12 @@
                         </div>
                         <div class="grid grid-cols-2 gap-4 mb-6">
                             <div>
-                                <p class="text-gray-400 text-xs">Interest Rate</p>
-                                <p class="text-white font-semibold">10.5% p.a.</p>
-                            </div>
-                            <div>
                                 <p class="text-gray-400 text-xs">Tenure</p>
                                 <p class="text-white font-semibold">36 Months</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-400 text-xs">Status</p>
+                                <p class="text-white font-semibold">Disbursed</p>
                             </div>
                         </div>
                         <div class="w-full bg-white/10 rounded-full h-2">
@@ -156,10 +156,10 @@
             <!-- Feature 2 -->
             <div class="glass-card p-8 group">
                 <div class="w-14 h-14 rounded-2xl gradient-card-2 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    <i class="fas fa-percentage text-white text-xl"></i>
+                    <i class="fas fa-hand-holding-usd text-white text-xl"></i>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-3">Low Interest Rates</h3>
-                <p class="text-gray-400 text-sm leading-relaxed">Competitive interest rates starting from 10.5% p.a. with flexible repayment options tailored to your budget.</p>
+                <h3 class="text-xl font-bold text-white mb-3">Affordable EMIs</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Easy monthly installments with flexible repayment options tailored to your budget and income.</p>
             </div>
 
             <!-- Feature 3 -->
@@ -450,9 +450,9 @@
         <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Ready to Get Your Loan <span class="gradient-text">Today?</span></h2>
         <p class="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">Join thousands of satisfied customers who have achieved their financial goals with Aastha Capital Finance.</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="{{ route('contact') }}" class="btn-primary text-lg px-8 py-4">
+            <button @click="$dispatch('open-lead-form')" class="btn-primary text-lg px-8 py-4 cursor-pointer">
                 Apply Now <i class="fas fa-arrow-right ml-2"></i>
-            </a>
+            </button>
             <a href="tel:+919999999999" class="btn-secondary text-lg px-8 py-4">
                 <i class="fas fa-phone mr-2"></i> Call Us
             </a>

@@ -1,10 +1,9 @@
 {{-- Reusable Loan Detail Content Partial --}}
 
 <!-- Page Header -->
-<section class="relative pt-32 pb-20 overflow-hidden">
+<section class="relative pt-32 pb-16 overflow-hidden">
     <div class="absolute inset-0 gradient-hero"></div>
     <div class="absolute top-20 right-10 w-72 h-72 {{ $gradientClass }}/20 rounded-full blur-3xl animate-float"></div>
-    <div class="absolute bottom-10 left-10 w-64 h-64 bg-cyan-600/15 rounded-full blur-3xl animate-float" style="animation-delay: 2s;"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -13,9 +12,9 @@
                 <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">{{ $loanTitle }}</h1>
                 <p class="text-lg text-gray-400 mb-8">{{ $loanDescription }}</p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="{{ route('contact') }}" class="btn-primary text-center">
+                    <button @click="$dispatch('open-lead-form')" class="btn-primary text-center cursor-pointer">
                         Apply Now <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
+                    </button>
                     <a href="{{ route('calculator') }}" class="btn-secondary text-center">
                         <i class="fas fa-calculator mr-2"></i> Calculate EMI
                     </a>
@@ -34,25 +33,31 @@
                         <p class="text-gray-400 text-sm">Quick Overview</p>
                     </div>
                 </div>
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-3 gap-4">
                     <div class="glass p-4 rounded-xl">
                         <p class="text-gray-400 text-xs mb-1">Loan Amount</p>
-                        <p class="text-white font-bold">{{ $loanAmount }}</p>
-                    </div>
-                    <div class="glass p-4 rounded-xl">
-                        <p class="text-gray-400 text-xs mb-1">Interest Rate</p>
-                        <p class="text-white font-bold">{{ $interestRate }}</p>
+                        <p class="text-white font-bold text-sm">{{ $loanAmount }}</p>
                     </div>
                     <div class="glass p-4 rounded-xl">
                         <p class="text-gray-400 text-xs mb-1">Tenure</p>
-                        <p class="text-white font-bold">{{ $tenure }}</p>
+                        <p class="text-white font-bold text-sm">{{ $tenure }}</p>
                     </div>
                     <div class="glass p-4 rounded-xl">
                         <p class="text-gray-400 text-xs mb-1">Processing</p>
-                        <p class="text-white font-bold">{{ $processing }}</p>
+                        <p class="text-white font-bold text-sm">{{ $processing }}</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- Loan Image Section -->
+<section class="relative section-padding overflow-hidden">
+    <div class="absolute inset-0 bg-slate-900"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="glass-card p-6 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1200&h=400&fit=crop" alt="{{ $loanTitle }}" class="w-full h-48 md:h-64 object-cover rounded-xl">
         </div>
     </div>
 </section>
@@ -62,9 +67,8 @@
     <div class="absolute inset-0 bg-slate-900"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-16">
+        <div class="text-center mb-12">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Key <span class="gradient-text">Features</span></h2>
-            <p class="text-gray-400 max-w-2xl mx-auto">What makes our {{ $loanTitle }} stand out from the rest.</p>
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -81,14 +85,12 @@
     </div>
 </section>
 
-
 <!-- Eligibility & Documents -->
 <section class="relative section-padding overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid md:grid-cols-2 gap-8">
-            <!-- Eligibility -->
             <div class="glass-card p-8 relative overflow-hidden">
                 <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-cyan-500"></div>
                 <div class="flex items-center gap-3 mb-6">
@@ -107,7 +109,6 @@
                 </ul>
             </div>
 
-            <!-- Documents Required -->
             <div class="glass-card p-8 relative overflow-hidden">
                 <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-purple-500"></div>
                 <div class="flex items-center gap-3 mb-6">
@@ -160,15 +161,14 @@
 <section class="relative section-padding overflow-hidden">
     <div class="absolute inset-0 gradient-hero"></div>
     <div class="absolute inset-0 bg-black/30"></div>
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] {{ $gradientClass }}/10 rounded-full blur-3xl"></div>
 
     <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Apply for {{ $loanTitle }}?</h2>
-        <p class="text-lg text-gray-400 mb-10 max-w-2xl mx-auto">Get started today with a simple application. Our team will guide you through every step.</p>
+        <p class="text-lg text-gray-400 mb-8 max-w-2xl mx-auto">Get started today. Our team will guide you through every step.</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="{{ route('contact') }}" class="btn-primary text-lg px-8 py-4">
+            <button @click="$dispatch('open-lead-form')" class="btn-primary text-lg px-8 py-4 cursor-pointer">
                 Apply Now <i class="fas fa-arrow-right ml-2"></i>
-            </a>
+            </button>
             <a href="tel:+919999999999" class="btn-secondary text-lg px-8 py-4">
                 <i class="fas fa-phone mr-2"></i> Call Us
             </a>

@@ -79,11 +79,10 @@
                     <a href="{{ route('contact') }}" class="px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-all {{ request()->routeIs('contact') ? 'text-white bg-white/10' : '' }}">Contact</a>
                 </div>
 
-                <!-- CTA Button -->
                 <div class="hidden lg:flex items-center space-x-4">
-                    <a href="{{ route('contact') }}" class="btn-primary text-sm">
+                    <button @click="$dispatch('open-lead-form')" class="btn-primary text-sm cursor-pointer">
                         Apply Now <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
+                    </button>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -110,7 +109,7 @@
                 <a href="{{ route('calculator') }}" class="block px-4 py-3 rounded-xl text-gray-300 hover:text-white hover:bg-white/10 transition-all">Loan Calculator</a>
                 <a href="{{ route('contact') }}" class="block px-4 py-3 rounded-xl text-gray-300 hover:text-white hover:bg-white/10 transition-all">Contact Us</a>
                 <div class="pt-4">
-                    <a href="{{ route('contact') }}" class="btn-primary block text-center text-sm">Apply Now <i class="fas fa-arrow-right ml-2"></i></a>
+                    <button @click="$dispatch('open-lead-form'); mobileMenu = false" class="btn-primary block text-center text-sm w-full cursor-pointer">Apply Now <i class="fas fa-arrow-right ml-2"></i></button>
                 </div>
             </div>
         </div>
@@ -228,6 +227,61 @@
     <button x-data="{ show: false }" x-init="window.addEventListener('scroll', () => { show = window.scrollY > 500 })" x-show="show" x-transition @click="window.scrollTo({ top: 0, behavior: 'smooth' })" class="fixed bottom-8 right-8 w-12 h-12 rounded-full gradient-card-1 flex items-center justify-center shadow-lg hover:scale-110 transition-transform z-50 cursor-pointer">
         <i class="fas fa-arrow-up text-white"></i>
     </button>
+
+    <!-- Lead Popup Form -->
+    <div x-data="{ showPopup: false }"
+         x-init="setTimeout(() => { if(!sessionStorage.getItem('popupShown')) { showPopup = true; sessionStorage.setItem('popupShown', '1'); } }, 3000)"
+         @open-lead-form.window="showPopup = true">
+
+        <template x-if="showPopup">
+            <div class="popup-overlay" @click.self="showPopup = false">
+                <div class="popup-content">
+                    <button class="popup-close" @click="showPopup = false"><i class="fas fa-times"></i></button>
+
+                    <h3 class="text-2xl font-bold text-white mb-2">Apply for Loan</h3>
+                    <p class="text-gray-400 text-sm mb-6">Fill your details below and our team will contact you within 24 hours.</p>
+
+                    <form action="{{ route('contact') }}" method="GET" x-data="{ submitted: false }" @submit.prevent="submitted = true">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <input type="text" name="name" required placeholder="Full Name"
+                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none">
+                            <input type="email" name="email" required placeholder="Email Address"
+                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none">
+                            <input type="tel" name="phone" required placeholder="Phone Number"
+                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none">
+                            <select name="loan_type" required
+                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:border-indigo-500 focus:outline-none">
+                                <option value="" class="bg-slate-800">Loan Type</option>
+                                <option value="personal" class="bg-slate-800">Personal Loan</option>
+                                <option value="business" class="bg-slate-800">Business Loan</option>
+                                <option value="car" class="bg-slate-800">Car Loan</option>
+                                <option value="education" class="bg-slate-800">Education Loan</option>
+                                <option value="unsecured" class="bg-slate-800">Unsecured Loan</option>
+                                <option value="home" class="bg-slate-800">Home Loan</option>
+                            </select>
+                            <input type="text" name="amount" placeholder="Loan Amount"
+                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none">
+                            <input type="text" name="state" placeholder="State"
+                                class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none">
+                        </div>
+                        <input type="text" name="aadhaar" placeholder="Aadhaar Number"
+                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none mb-4">
+                        <textarea name="message" rows="3" placeholder="Message"
+                            class="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:border-indigo-500 focus:outline-none resize-none mb-4"></textarea>
+
+                        <div class="flex gap-4" x-show="!submitted">
+                            <button type="submit" class="btn-primary flex-1 text-center">Send Request</button>
+                            <button type="button" @click="showPopup = false" class="flex-1 text-center py-3 rounded-full border-2 border-red-500/50 text-red-400 font-semibold hover:bg-red-500/10 transition-all">Cancel</button>
+                        </div>
+                        <div x-show="submitted" x-transition class="flex items-center gap-3 px-6 py-3 rounded-full bg-emerald-500/20 border border-emerald-500/30 justify-center">
+                            <i class="fas fa-check-circle text-emerald-400"></i>
+                            <span class="text-emerald-400 font-medium">Request Sent! We'll contact you soon.</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </template>
+    </div>
 
     @stack('scripts')
 </body>

@@ -14,7 +14,6 @@
     'accentTextClass' => 'text-emerald-300',
     'iconClass' => 'fas fa-graduation-cap',
     'loanAmount' => 'Up to ₹75 Lakhs',
-    'interestRate' => '9% onwards',
     'tenure' => 'Up to 15 Years',
     'processing' => '3-5 Days',
     'features' => [

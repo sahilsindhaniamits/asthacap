@@ -14,7 +14,6 @@
     'accentTextClass' => 'text-pink-300',
     'iconClass' => 'fas fa-shield-alt',
     'loanAmount' => 'Up to ₹20 Lakhs',
-    'interestRate' => '11% onwards',
     'tenure' => 'Up to 5 Years',
     'processing' => '24 Hours',
     'features' => [

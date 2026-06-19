@@ -43,7 +43,6 @@
                             <i class="fas fa-check text-indigo-400 text-xs"></i> Up to ₹25 Lakhs
                         </li>
                         <li class="flex items-center gap-2 text-sm text-gray-400">
-                            <i class="fas fa-check text-indigo-400 text-xs"></i> Interest from 10.5% p.a.
                         </li>
                         <li class="flex items-center gap-2 text-sm text-gray-400">
                             <i class="fas fa-check text-indigo-400 text-xs"></i> Tenure up to 5 years
@@ -70,7 +69,6 @@
                             <i class="fas fa-check text-cyan-400 text-xs"></i> Up to ₹50 Lakhs
                         </li>
                         <li class="flex items-center gap-2 text-sm text-gray-400">
-                            <i class="fas fa-check text-cyan-400 text-xs"></i> Interest from 12% p.a.
                         </li>
                         <li class="flex items-center gap-2 text-sm text-gray-400">
                             <i class="fas fa-check text-cyan-400 text-xs"></i> Tenure up to 7 years
@@ -97,7 +95,6 @@
                             <i class="fas fa-check text-amber-400 text-xs"></i> Up to 100% financing
                         </li>
                         <li class="flex items-center gap-2 text-sm text-gray-400">
-                            <i class="fas fa-check text-amber-400 text-xs"></i> Interest from 8.5% p.a.
                         </li>
                         <li class="flex items-center gap-2 text-sm text-gray-400">
                             <i class="fas fa-check text-amber-400 text-xs"></i> Tenure up to 7 years
@@ -125,7 +122,6 @@
                             <i class="fas fa-check text-emerald-400 text-xs"></i> Up to ₹75 Lakhs
                         </li>
                         <li class="flex items-center gap-2 text-sm text-gray-400">
-                            <i class="fas fa-check text-emerald-400 text-xs"></i> Interest from 9% p.a.
                         </li>
                         <li class="flex items-center gap-2 text-sm text-gray-400">
                             <i class="fas fa-check text-emerald-400 text-xs"></i> Moratorium period available
@@ -152,7 +148,6 @@
                             <i class="fas fa-check text-pink-400 text-xs"></i> No collateral needed
                         </li>
                         <li class="flex items-center gap-2 text-sm text-gray-400">
-                            <i class="fas fa-check text-pink-400 text-xs"></i> Interest from 11% p.a.
                         </li>
                         <li class="flex items-center gap-2 text-sm text-gray-400">
                             <i class="fas fa-check text-pink-400 text-xs"></i> Quick disbursal
@@ -179,7 +174,6 @@
                             <i class="fas fa-check text-orange-400 text-xs"></i> Up to ₹5 Crore
                         </li>
                         <li class="flex items-center gap-2 text-sm text-gray-400">
-                            <i class="fas fa-check text-orange-400 text-xs"></i> Interest from 8.5% p.a.
                         </li>
                         <li class="flex items-center gap-2 text-sm text-gray-400">
                             <i class="fas fa-check text-orange-400 text-xs"></i> Tenure up to 30 years
@@ -212,7 +206,6 @@
                         <tr class="border-b border-white/10">
                             <th class="px-6 py-4 text-left text-gray-400 font-semibold">Loan Type</th>
                             <th class="px-6 py-4 text-left text-gray-400 font-semibold">Amount</th>
-                            <th class="px-6 py-4 text-left text-gray-400 font-semibold">Interest Rate</th>
                             <th class="px-6 py-4 text-left text-gray-400 font-semibold">Max Tenure</th>
                             <th class="px-6 py-4 text-left text-gray-400 font-semibold">Processing</th>
                         </tr>
@@ -221,42 +214,36 @@
                         <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
                             <td class="px-6 py-4 text-white font-medium"><i class="fas fa-user text-indigo-400 mr-2"></i>Personal Loan</td>
                             <td class="px-6 py-4 text-gray-300">Up to ₹25L</td>
-                            <td class="px-6 py-4 text-gray-300">10.5% onwards</td>
                             <td class="px-6 py-4 text-gray-300">5 Years</td>
                             <td class="px-6 py-4"><span class="px-2 py-1 rounded-full bg-green-500/10 text-green-400 text-xs">24 Hours</span></td>
                         </tr>
                         <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
                             <td class="px-6 py-4 text-white font-medium"><i class="fas fa-briefcase text-cyan-400 mr-2"></i>Business Loan</td>
                             <td class="px-6 py-4 text-gray-300">Up to ₹50L</td>
-                            <td class="px-6 py-4 text-gray-300">12% onwards</td>
                             <td class="px-6 py-4 text-gray-300">7 Years</td>
                             <td class="px-6 py-4"><span class="px-2 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs">48 Hours</span></td>
                         </tr>
                         <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
                             <td class="px-6 py-4 text-white font-medium"><i class="fas fa-car text-amber-400 mr-2"></i>Car Loan</td>
                             <td class="px-6 py-4 text-gray-300">100% On-road</td>
-                            <td class="px-6 py-4 text-gray-300">8.5% onwards</td>
                             <td class="px-6 py-4 text-gray-300">7 Years</td>
                             <td class="px-6 py-4"><span class="px-2 py-1 rounded-full bg-green-500/10 text-green-400 text-xs">24 Hours</span></td>
                         </tr>
                         <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
                             <td class="px-6 py-4 text-white font-medium"><i class="fas fa-graduation-cap text-emerald-400 mr-2"></i>Education Loan</td>
                             <td class="px-6 py-4 text-gray-300">Up to ₹75L</td>
-                            <td class="px-6 py-4 text-gray-300">9% onwards</td>
                             <td class="px-6 py-4 text-gray-300">15 Years</td>
                             <td class="px-6 py-4"><span class="px-2 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs">3-5 Days</span></td>
                         </tr>
                         <tr class="border-b border-white/5 hover:bg-white/5 transition-colors">
                             <td class="px-6 py-4 text-white font-medium"><i class="fas fa-shield-alt text-pink-400 mr-2"></i>Unsecured Loan</td>
                             <td class="px-6 py-4 text-gray-300">Up to ₹20L</td>
-                            <td class="px-6 py-4 text-gray-300">11% onwards</td>
                             <td class="px-6 py-4 text-gray-300">5 Years</td>
                             <td class="px-6 py-4"><span class="px-2 py-1 rounded-full bg-green-500/10 text-green-400 text-xs">24 Hours</span></td>
                         </tr>
                         <tr class="hover:bg-white/5 transition-colors">
                             <td class="px-6 py-4 text-white font-medium"><i class="fas fa-home text-orange-400 mr-2"></i>Home Loan</td>
                             <td class="px-6 py-4 text-gray-300">Up to ₹5Cr</td>
-                            <td class="px-6 py-4 text-gray-300">8.5% onwards</td>
                             <td class="px-6 py-4 text-gray-300">30 Years</td>
                             <td class="px-6 py-4"><span class="px-2 py-1 rounded-full bg-amber-500/10 text-amber-400 text-xs">5-7 Days</span></td>
                         </tr>
