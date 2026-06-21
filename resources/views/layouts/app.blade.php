@@ -76,6 +76,9 @@
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}">Contact</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('loan.status') ? 'active' : '' }}" href="{{ route('loan.status') }}">Loan Status</a>
+                    </li>
                 </ul>
                 <a href="#" class="btn-gradient d-none d-lg-inline-block" style="font-size:0.85rem;padding:0.5rem 1.5rem;" onclick="document.getElementById('loanPopupOverlay').classList.add('show');return false;">
                     Apply Now <i class="fas fa-arrow-right ms-1"></i>

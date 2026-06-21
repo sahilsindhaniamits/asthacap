@@ -58,7 +58,13 @@
                         </div>
                         <div class="col-md-6">
                             <div class="glass p-3" style="border-radius:0.75rem;">
-                                <small class="text-muted-custom d-block">Contact</small>
+                                <small class="text-muted-custom d-block">Phone Number</small>
+                                <span class="text-white fw-bold" id="resPhone">—</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="glass p-3" style="border-radius:0.75rem;">
+                                <small class="text-muted-custom d-block">Email</small>
                                 <span class="text-white fw-bold" id="resContact">—</span>
                             </div>
                         </div>
@@ -101,7 +107,8 @@ document.getElementById('checkStatusBtn').addEventListener('click', function() {
         .then(data => {
             if (data.status) {
                 document.getElementById('resName').textContent = data.name || '—';
-                document.getElementById('resContact').textContent = data.phone || '—';
+                document.getElementById('resPhone').textContent = data.phone || '—';
+                document.getElementById('resContact').textContent = data.email || '—';
                 document.getElementById('resAmount').textContent = data.loan_amount ? '₹' + Number(data.loan_amount).toLocaleString('en-IN') : '—';
                 document.getElementById('resType').textContent = data.loan_type || '—';
                 var statusEl = document.getElementById('resStatus');

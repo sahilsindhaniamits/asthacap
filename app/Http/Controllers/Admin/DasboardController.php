@@ -58,11 +58,11 @@ class DasboardController extends Controller
        return response()->json
        (
        ['name' => $approved->name,
-       'email' => $approved->name,
-       'phone' => $approved->email,
+       'email' => $approved->email,
+       'phone' => $approved->phone,
        'loan_amount' => $approved->loan_amount,
        'loan_type' => $approved->loan_type,
-       'loan_status'    => $approved->status,
+       'loan_status'    => $approved->loan_status,
        'status'  => true
        ],200);
        
