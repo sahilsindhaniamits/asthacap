@@ -63,7 +63,8 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/logout', function(){ Auth::logout(); return redirect('/login'); })->name('admin.logout');
 
     // Leads / Loan Requests
-    Route::get('/leads', [DasboardController::class, 'enquiry'])->name('admin.loan_request');
+    Route::get('/leads', [DasboardController::class, 'loan_request'])->name('admin.loan_request');
+    Route::get('/enquiry', [DasboardController::class, 'enquiry'])->name('admin.enquiry');
     Route::get('/loan-requests', [DasboardController::class, 'loan_request'])->name('admin.loan_requests');
     Route::post('/lead-delete', [DasboardController::class, 'lead_delete'])->name('admin.lead_delete');
     Route::post('/lead-edit', [DasboardController::class, 'lead_edit'])->name('admin.lead_edit');
@@ -83,6 +84,16 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::post('/create-sanction', [DasboardController::class, 'create_sanction_letter'])->name('admin.create_sanction');
     Route::get('/view-pdf', [DasboardController::class, 'view_pdf'])->name('admin.view_pdf');
     Route::get('/print-sanction', [DasboardController::class, 'print_sanction_pdf'])->name('admin.print_sanction_pdf');
+    Route::get('/print-sanction-page', [DasboardController::class, 'print_sanction_pdf'])->name('admin.print_sanction_page');
+
+    // Storage/Upload
+    Route::post('/storage/upload/{folder?}', function(\Illuminate\Http\Request $request, $folder = 'banner') {
+        if ($request->hasFile('file')) {
+            $path = $request->file('file')->store($folder, 'public');
+            return response()->json(['path' => $path]);
+        }
+        return response()->json(['error' => 'No file'], 400);
+    })->name('admin.storage.upload');
 
     // Users
     Route::get('/users', [DasboardController::class, 'users'])->name('admin.users');
