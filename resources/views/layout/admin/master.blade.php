@@ -7,7 +7,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Prime Finance India</title>
+  <title>Aastha Capital Finance - Admin</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="/vendors/feather/feather.css">
   <link rel="stylesheet" href="/vendors/mdi/css/materialdesignicons.min.css">
@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
 
   <link rel="stylesheet" href="/css/vertical-layout-light/style.css">
+  <!-- Admin Dark Theme Override -->
+  <link rel="stylesheet" href="/css/admin-override.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="/images/logo_loan.png"/>
 

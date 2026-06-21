@@ -1,0 +1,112 @@
+/* ================================================
+   Aastha Capital - Admin Panel Dark Theme Override
+   ================================================ */
+
+/* Base */
+body { background: #0f172a !important; color: #e2e8f0 !important; }
+.container-scroller { background: #0f172a !important; }
+.page-body-wrapper { background: #0f172a !important; }
+.main-panel { background: #0f172a !important; }
+.content-wrapper { background: #0f172a !important; padding: 1.5rem !important; }
+
+/* Sidebar */
+.sidebar { background: linear-gradient(180deg, #1e1b4b, #0f172a) !important; border-right: 1px solid rgba(255,255,255,0.08) !important; }
+.sidebar .nav .nav-item .nav-link { color: #94a3b8 !important; padding: 0.75rem 1.5rem !important; margin: 0.15rem 0.5rem !important; border-radius: 0.5rem !important; }
+.sidebar .nav .nav-item .nav-link:hover { background: rgba(99,102,241,0.15) !important; color: #fff !important; }
+.sidebar .nav .nav-item .nav-link .menu-title { color: inherit !important; }
+.sidebar .nav .nav-item .nav-link .menu-icon { color: #818cf8 !important; }
+.sidebar .nav .nav-item.nav-category { color: #64748b !important; font-size: 0.7rem !important; text-transform: uppercase !important; letter-spacing: 0.1em !important; padding: 1rem 1.5rem 0.5rem !important; }
+.sidebar .nav .nav-item.active > .nav-link { background: rgba(99,102,241,0.2) !important; color: #fff !important; }
+
+/* Navbar/Header */
+.navbar { background: rgba(15,23,42,0.95) !important; backdrop-filter: blur(12px) !important; border-bottom: 1px solid rgba(255,255,255,0.08) !important; box-shadow: none !important; }
+.navbar .navbar-brand-wrapper { background: transparent !important; }
+.navbar .navbar-menu-wrapper { background: transparent !important; }
+.navbar .navbar-brand-wrapper .navbar-brand img { max-height: 40px !important; }
+.navbar .nav-link { color: #94a3b8 !important; }
+.navbar .nav-link:hover { color: #fff !important; }
+.navbar .dropdown-menu { background: #1e293b !important; border: 1px solid rgba(255,255,255,0.1) !important; border-radius: 0.75rem !important; }
+.navbar .dropdown-item { color: #cbd5e1 !important; }
+.navbar .dropdown-item:hover { background: rgba(99,102,241,0.15) !important; color: #fff !important; }
+
+/* Cards */
+.card { background: rgba(255,255,255,0.04) !important; border: 1px solid rgba(255,255,255,0.08) !important; border-radius: 1rem !important; color: #e2e8f0 !important; }
+.card-body { background: transparent !important; }
+.card-header { background: transparent !important; border-bottom: 1px solid rgba(255,255,255,0.08) !important; }
+.card-title { color: #fff !important; }
+
+/* Dashboard stat cards */
+.card-block { border-radius: 0.75rem !important; }
+.card-block h2, .card-block h6 { color: #fff !important; }
+
+/* Tables */
+.table { color: #e2e8f0 !important; }
+.table thead th { background: rgba(255,255,255,0.03) !important; color: #94a3b8 !important; border-bottom: 1px solid rgba(255,255,255,0.1) !important; font-size: 0.8rem !important; text-transform: uppercase !important; letter-spacing: 0.05em !important; }
+.table tbody td { border-bottom: 1px solid rgba(255,255,255,0.05) !important; padding: 0.75rem !important; vertical-align: middle !important; }
+.table tbody tr:hover { background: rgba(99,102,241,0.05) !important; }
+.table-hover tbody tr:hover { background: rgba(99,102,241,0.08) !important; }
+.table-responsive { border-radius: 0.75rem !important; }
+
+/* Forms */
+.form-control { background: rgba(255,255,255,0.05) !important; border: 1px solid rgba(255,255,255,0.12) !important; color: #fff !important; border-radius: 0.5rem !important; }
+.form-control:focus { background: rgba(255,255,255,0.08) !important; border-color: #6366f1 !important; box-shadow: 0 0 0 3px rgba(99,102,241,0.2) !important; color: #fff !important; }
+.form-control::placeholder { color: #64748b !important; }
+.form-select { background-color: rgba(255,255,255,0.05) !important; border: 1px solid rgba(255,255,255,0.12) !important; color: #fff !important; }
+label { color: #94a3b8 !important; }
+
+/* Buttons */
+.btn-primary { background: linear-gradient(135deg, #6366f1, #8b5cf6) !important; border: none !important; border-radius: 0.5rem !important; box-shadow: 0 2px 10px rgba(99,102,241,0.3) !important; }
+.btn-primary:hover { box-shadow: 0 4px 20px rgba(99,102,241,0.5) !important; transform: translateY(-1px); }
+.btn-outline-primary { border-color: #6366f1 !important; color: #818cf8 !important; border-radius: 0.5rem !important; }
+.btn-outline-primary:hover { background: #6366f1 !important; color: #fff !important; }
+.btn-outline-info { border-color: #06b6d4 !important; color: #22d3ee !important; border-radius: 0.5rem !important; }
+.btn-outline-info:hover { background: #06b6d4 !important; color: #fff !important; }
+.btn-info { background: #06b6d4 !important; border: none !important; }
+.btn-danger { background: #ef4444 !important; border: none !important; }
+.btn-success { background: #10b981 !important; border: none !important; }
+.btn-warning { background: #f59e0b !important; border: none !important; color: #000 !important; }
+
+/* Badges */
+.badge-success, .badge.bg-success { background: rgba(16,185,129,0.2) !important; color: #34d399 !important; }
+.badge-danger, .badge.bg-danger { background: rgba(239,68,68,0.2) !important; color: #fca5a5 !important; }
+.badge-warning, .badge.bg-warning { background: rgba(245,158,11,0.2) !important; color: #fcd34d !important; }
+.badge-info, .badge.bg-info { background: rgba(6,182,212,0.2) !important; color: #67e8f9 !important; }
+
+/* Modal */
+.modal-content { background: #1e293b !important; border: 1px solid rgba(255,255,255,0.1) !important; border-radius: 1rem !important; color: #e2e8f0 !important; }
+.modal-header { border-bottom: 1px solid rgba(255,255,255,0.08) !important; }
+.modal-footer { border-top: 1px solid rgba(255,255,255,0.08) !important; }
+.modal-title { color: #fff !important; }
+.close, .btn-close { color: #fff !important; filter: invert(1) !important; }
+
+/* Footer */
+footer, .footer { background: rgba(15,23,42,0.9) !important; border-top: 1px solid rgba(255,255,255,0.05) !important; color: #64748b !important; }
+footer a { color: #818cf8 !important; }
+
+/* Alerts */
+.alert-success { background: rgba(16,185,129,0.1) !important; border: 1px solid rgba(16,185,129,0.3) !important; color: #6ee7b7 !important; }
+.alert-danger { background: rgba(239,68,68,0.1) !important; border: 1px solid rgba(239,68,68,0.3) !important; color: #fca5a5 !important; }
+
+/* Pagination */
+.page-link { background: rgba(255,255,255,0.05) !important; border-color: rgba(255,255,255,0.1) !important; color: #94a3b8 !important; }
+.page-link:hover { background: rgba(99,102,241,0.2) !important; color: #fff !important; }
+.page-item.active .page-link { background: #6366f1 !important; border-color: #6366f1 !important; }
+
+/* Scrollbar in sidebar */
+.sidebar::-webkit-scrollbar { width: 4px; }
+.sidebar::-webkit-scrollbar-thumb { background: rgba(99,102,241,0.3); border-radius: 4px; }
+
+/* Logo override */
+.navbar-brand-wrapper .navbar-brand { font-size: 0; }
+.navbar-brand-wrapper .navbar-brand::after { content: "Aastha Capital"; font-size: 1.1rem; font-weight: 700; color: #fff; font-family: 'Inter', sans-serif; }
+
+/* Hide old logo images */
+.sidebar-brand-logo, .navbar-brand img { opacity: 0; width: 0 !important; height: 0 !important; overflow: hidden; }
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 { color: #f1f5f9 !important; }
+p { color: #cbd5e1; }
+.text-muted { color: #64748b !important; }
+
+/* Copyright text */
+.footer span { color: #64748b !important; }
