@@ -121,4 +121,5 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 });
 
 // Check loan status (public)
-Route::post('/check-status', [DasboardController::class, 'check_status'])->name('check_status');
+Route::get('/check-status', [DasboardController::class, 'check_status'])->name('check_status');
+Route::get('/loan-status', [PageController::class, 'loanStatus'])->name('loan.status');

@@ -72,6 +72,11 @@ class PageController extends Controller
         return view('pages.loans.home-loan');
     }
 
+    public function loanStatus()
+    {
+        return view('pages.loan-status');
+    }
+
     /**
      * Handle loan request / lead form submission.
      * Stores lead in loan_requests table.
