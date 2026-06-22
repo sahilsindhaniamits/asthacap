@@ -1,402 +1,250 @@
 @extends('layout.admin.master')
-<style>
-    .enquiry_filtes{
-        display:flex;
-        flex-direction:column;
-        widtH:100%;
-        height:15%;
-        justify-content:center;
-        align-items:center;
-        border-bottom:solid;
-    }
-    button{
-        border:none;
-        height:35px;
-        background-color:#009ef7;
-        color:#fff;
-        font-weight:bold;
-        
-    }
- .popup_overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black background */
-  display: none; /* hide the overlay by default */
-  z-index:400;
-}
- .popup_overlay_approve {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black background */
-  display: none; /* hide the overlay by default */
-  z-index:400;
-}
- .login_popup{
-      display:none;
-      flex-direction:column;
-      background:#fff;
-      width:45%;
-      height:80%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index:1000000000000;
-      gap:0.3rem
-  }
-  .login_popup_aaprove{
-      display:none;
-      flex-direction:column;
-      background:#fff;
-      width:87%;
-      height:71%;
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index:1000000000000;
-      gap:3px
-  }
-  .form_row{
-    display:flex;
-    width:100%;
-    height:67%;
-    flex-wrap:wrap;
-}
-.form_main{
-      display:flex;
-      flex-direction:column;
-      background:#fff;
-      width:100%;
-      height:100%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index:1000000000000;
-      gap:0.3rem
-    }
-.loan_input{
-    display: flex;
-    width: 45%;
-    height: 25%;
-    margin-left: 1em;
-}
-.loan_input_approve{
-    display: flex;
-    width: 28%;
-    height: 20%;
-    margin-left: 1em;
-}
-input{
-     height: 60%;
-    width: 200%;
- }
-</style>
+
+@section('title', 'Approved Leads')
+@section('page-title', 'Approved Leads')
+
 @section('content')
- @php
-    use Carbon\Carbon;
-@endphp
-@php
-    $currentDateTime = Carbon::now();
-@endphp
-<div class="popup_overlay_approve">
-           <div class="login_popup_aaprove">
-               <div class="form_main">
-               <h3>Edit Approved Lead</h3>
-               <div class="form_row">
-                   <form action="{{route('admin.edit_approve_lead.submit')}}" method="POST" class="form_row">
-                       @csrf
-         <input type="hidden" id="approve_lead-hidden" value="" name="lead_id">
-          <div class="loan_input_approve">
-              <input type="text" name="name" placeholder="name" id="approve_name" >
-          </div>
-             <div class="loan_input_approve">
-              <input type="text" name="email" placeholder="email" id="approve_email">
-          </div>
-             <div class="loan_input_approve">
-              <input type="text" name="phone" placeholder="Phone" id="approve_phone">
-          </div>
-             <div class="loan_input_approve">
-              <input type="text" name="loan_type" placeholder="Loan type" id="approve_loan_type">
-          </div>
-             <div class="loan_input_approve">
-              <input type="text" name="loan_amount" placeholder="Loan Amount" id="approve_loan_amount">
-          </div>
-            <div class="loan_input_approve">
-              <input type="text" name="state" placeholder="Your State" id="approve_state">
-          </div>
-           <div class="loan_input_approve">
-              <input type="text" name="UTOKEN" placeholder="UTOKEN" id="UTOKEN">
-          </div>
-           <div class="loan_input_approve">
-              <input type="text" name="appno" placeholder="APPLICATION NUMBER" id="appno">
-          </div>
-          <div class="loan_input_approve">
-              <input type="text" name="sanctionamt" placeholder="SANCTION AMT" id="sanctionamt">
-          </div>
-           <div class="loan_input_approve">
-              <input type="text" name="emiamt" placeholder="EMI AMT" id="emiamt">
-          </div>
-           <div class="loan_input_approve">
-              <input type="text" name="loant" placeholder="LOAN TENURE" id="loant">
-          </div>
-           <div class="loan_input_approve">
-              <input type="text" name="roi" placeholder="RATE INTEREST" id="roi">
-          </div>
-          <div class="loan_input_approve">
-              <input type="text" name="state" placeholder="APPROVED VALIDITY" id="appva">
-          </div>
-           <div class="loan_input_approve">
-              <input type="text" name="pf" placeholder="PF" id="pf">
-          </div>
-          <div class="loan_input_approve">
-              <input type="text" name="gst" placeholder="GST" id="gst">
-          </div>
-           <div class="loan_input_approve">
-              <input type="text" name="totalv" placeholder="TOTAL AMT" id="totalv">
-          </div>
-           <div class="loan_input_approve">
-              <input type="text" name="security" placeholder="SECURITY" id="security">
-          </div>
-           <div class="loan_input_approve">
-              <input type="text" name="dummy" placeholder="DATE"  id="dummy" value="{{ $currentDateTime->format('d-m-Y') }}">
-          </div>
-              <div class="loan_input_approve">
-              <input type="text" name="adhaar_number" placeholder="Adhhar Number"  id="adhaar_number">
-          </div>
-           <div class="loan_input_approve">
-              <input type="text" name="message" placeholder="Message" id="approve_message">
-          </div>
-             <div class="loan_input" style="justify-content:space-between">
-              <button type="Submit" class="submit_button" id="approve_request">Edit Lead</button>
-             <button type="button" class="submit_button cancel" >Cancel</button>
-          </div>
-         </div>
-        </form>
-        
-         </div>
-         </div>
-    
-      </div>
-      
-<div class="col-lg-12 grid-margin stretch-card">
-    <div class="card">
-      
-        <div class="card-body">
-            <!--<a href="{{ route('admin.banner.create') }}" class="btn btn-primary btn-rounded btn-fw">Create</a>-->
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Action</th>
-                            <th>Lead Id</th>
-                            <th>Lead Token</th>
-                            <th>Name</th>
-                            <th>email</th>
-                            <th>Mobile</th>
-                            <th>Loan type</th>
-                            <th>Loan amount</th>
-                            <th>State</th>
-                            <th>Info</th>
-                            <th>Time-date</th>
-                            <th>Approve</th>
-                            <th>Approve date</th>
-                            <th>Approve Amount</th>
-                            <th>Status</th>
-                            <th>Ip Address</th>
-                            <th>UTOKEN</th>
-                            <th>appno</th>
-                            <th>sanctionamt</th>
-                            <th>emiamt</th>
-                            <th>loant</th>
-                            <th>roi</th>
-                            <th>appva</th>
-                            <th>pf</th>
-                            <th>gst</th>
-                            <th>totalv</th>
-                            <th>security</th>
-                            <th>dummy</th>
-                            <th>dummy1</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($approved as $index => $value)
-                        <tr>
-                            <td>
-                                 <button type="button" class="approve_edit btn btn-outline-primary" data-lead-id="{{$value->loan_request_id}}" >Edit</button>
-                                 <a href="{{ route('admin.view_pdf') }}?leadId={{ $value->loan_request_id }}">
-                                 <button type="submit" class="approve btn btn-outline-info" >Download Pdf</button>
-                                 </a>
-                                 @if(is_null($value->sanction_letter_id))
-                                  <a href="{{ route('admin.sanction_page') }}?leadId={{ $value->lead_token }}">
-                                 <button type="submit" class="approve btn btn-outline-info" >Create Sanction </button>
-                                 </a>
-                                 @else
-                                  <a href="{{ route('admin.edit_sanction_page') }}?SanctionletterId={{ $value->sanction_letter_id }}">
-                                 <button type="submit" class="approve btn btn-outline-info" >Edit Sanction Letter </button>
-                                 </a>
-                                 @endif
-                                  @if(is_null($value->sanction_letter_id))
-                                   <button type="submit" class="approve btn btn-outline-info" >No Sanction Letter </button>
-                                @else
-                                  <a href="{{ route('admin.print_sanction_page') }}?sanction_letter_id={{ $value->sanction_letter_id }}">
-                                 <button type="submit" class="approve btn btn-outline-info" >Download Sanction </button>
-                                 </a>
-                               
-                                @endif
-                            
-                            </td>
-                            <td>{{ $index + 1 }}</td>
-                            <td>{{ $value->lead_token}}</td>
-                            <td>{{ $value->name }}</td>
-                            <td>{{ $value->email }}</td>
-                            <td>{{ $value->phone }}</td>
-                            <td>{{ $value->loan_type }}</td>
-                            <td>{{ $value->loan_amount }}</td>
-                            <td>{{ $value->state }}</td>
-                            <td>{{ $value->message }}</td>
-                            <td>{{ $value->created_at }}</td>
-                            <td>{{ $value->status }}</td>
-                             @if($value->status==1)
-                            <td>{{ $value->updated_at }}</td>
-                            @else
-                             <td>Not Approved yet</td>
-                            @endif
-                            @if($value->status==1)
-                            <td>{{ $value->loan_amount }}</td>
-                            @else
-                              <td>0</td>
-                            @endif
-                            <td>{{ $value->status }}</td>
-                            <td>{{ $value->ip_address }}</td>
-                            <td>{{ $value->UTOKEN }}</td>
-                            <td>{{ $value->appno }}</td>
-                            <td>{{ $value->sanctionamt }}</td>
-                            <td>{{ $value->emiamt }}</td>
-                            <td>{{ $value->loant }}</td>
-                            <td>{{ $value->roi }}</td>
-                            <td>{{ $value->appva }}</td>
-                            <td>{{ $value->pf }}</td>
-                            <td>{{ $value->gst }}</td>
-                            <td>{{ $value->totalv }}</td>
-                            <td>{{ $value->security }}</td>
-                            <td>{{ $value->dummy }}</td>
-                            <td>{{ $value->dummy1 }}</td>
-                           
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+@php use Carbon\Carbon; @endphp
+
+<!-- Page Header -->
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-3 gap-2">
+    <h5 class="fw-bold mb-0">Approved Leads</h5>
+    <span class="badge bg-success fs-6">{{ count($approved) }} Approved</span>
+</div>
+
+<!-- Approved Leads Table -->
+<div class="card border-0 shadow-sm">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0" id="approvedTable">
+                <thead class="table-light">
+                    <tr>
+                        <th>#</th>
+                        <th>App No.</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Loan Type</th>
+                        <th>Loan Amt</th>
+                        <th>Sanction Amt</th>
+                        <th>EMI</th>
+                        <th>Tenure</th>
+                        <th>ROI</th>
+                        <th>Approved On</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($approved as $index => $value)
+                    <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td><code class="text-primary">{{ $value->appno }}</code></td>
+                        <td class="fw-medium">{{ $value->name }}</td>
+                        <td>{{ $value->phone }}</td>
+                        <td><span class="badge bg-info text-dark">{{ $value->loan_type }}</span></td>
+                        <td>{{ number_format($value->loan_amount) }}</td>
+                        <td class="fw-semibold text-success">{{ number_format($value->sanctionamt) }}</td>
+                        <td>{{ number_format($value->emiamt) }}</td>
+                        <td>{{ $value->loant }} yr</td>
+                        <td>{{ $value->roi }}%</td>
+                        <td><small class="text-muted">{{ Carbon::parse($value->created_at)->format('d M Y') }}</small></td>
+                        <td class="text-center">
+                            <div class="dropdown">
+                                <button class="btn btn-sm btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown">
+                                    <i class="bi bi-three-dots"></i>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                                    <li>
+                                        <button class="dropdown-item btn-edit-approved" data-id="{{ $value->loan_request_id }}">
+                                            <i class="bi bi-pencil text-primary me-2"></i>Edit
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('admin.view_pdf') }}?leadId={{ $value->loan_request_id }}">
+                                            <i class="bi bi-file-pdf text-danger me-2"></i>Download PDF
+                                        </a>
+                                    </li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    @if(is_null($value->sanction_letter_id))
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('admin.sanction_page') }}?leadId={{ $value->lead_token }}">
+                                            <i class="bi bi-plus-circle text-success me-2"></i>Create Sanction Letter
+                                        </a>
+                                    </li>
+                                    @else
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('admin.edit_sanction_page') }}?SanctionletterId={{ $value->sanction_letter_id }}">
+                                            <i class="bi bi-pencil-square text-warning me-2"></i>Edit Sanction Letter
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="{{ route('admin.print_sanction_page') }}?sanction_letter_id={{ $value->sanction_letter_id }}">
+                                            <i class="bi bi-printer text-info me-2"></i>Print Sanction Letter
+                                        </a>
+                                    </li>
+                                    @endif
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
 
+<!-- Edit Approved Lead Modal -->
+<div class="modal fade" id="editApprovedModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <form action="{{ route('admin.edit_approve_lead.submit') }}" method="POST">
+                @csrf
+                <input type="hidden" name="lead_id" id="ea_lead_id">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-pencil-square me-2"></i>Edit Approved Lead</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <h6 class="text-muted mb-3">Lead Information</h6>
+                    <div class="row g-3 mb-4">
+                        <div class="col-md-4">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" name="name" id="ea_name">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email" id="ea_email">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Phone</label>
+                            <input type="text" class="form-control" name="phone" id="ea_phone">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Loan Type</label>
+                            <input type="text" class="form-control" name="loan_type" id="ea_loan_type">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Loan Amount</label>
+                            <input type="number" class="form-control" name="loan_amount" id="ea_loan_amount">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">State</label>
+                            <input type="text" class="form-control" name="state" id="ea_state">
+                        </div>
+                    </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                    <hr>
+                    <h6 class="text-muted mb-3">Approval Details</h6>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label class="form-label">UTOKEN</label>
+                            <input type="text" class="form-control" name="UTOKEN" id="ea_UTOKEN">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Sanction Amount</label>
+                            <input type="number" class="form-control" name="sanctionamt" id="ea_sanctionamt">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">EMI Amount</label>
+                            <input type="number" class="form-control" name="emiamt" id="ea_emiamt">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Loan Tenure</label>
+                            <input type="text" class="form-control" name="loant" id="ea_loant">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Rate of Interest</label>
+                            <input type="text" class="form-control" name="roi" id="ea_roi">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Processing Fee</label>
+                            <input type="text" class="form-control" name="pf" id="ea_pf">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">GST</label>
+                            <input type="text" class="form-control" name="gst" id="ea_gst">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Total Amount</label>
+                            <input type="text" class="form-control" name="totalv" id="ea_totalv">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Security</label>
+                            <input type="text" class="form-control" name="security" id="ea_security">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Date</label>
+                            <input type="text" class="form-control" name="dummy" id="ea_dummy">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Aadhaar Number</label>
+                            <input type="text" class="form-control" name="adhaar_number" id="ea_adhaar_number">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Message</label>
+                            <input type="text" class="form-control" name="message" id="ea_message">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="bi bi-check-lg me-1"></i>Save Changes
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@endsection
 
- <script>
-     $(document).ready(function(){
-     $('.approve_edit').click(function(){
-    
-     var leadId = $(this).data('lead-id');
-     var leadhidden = $('#approve_lead-hidden');
-    var leadName = $('#approve_name');
-    var leadEmail = $('#approve_email');     
-    var phone = $('#approve_phone');     
-    var loan_type=  $('#approve_loan_type');  
-    var loan_amount=  $('#approve_loan_amount');  
-    var state=  $('#approve_state');  
-    var message=  $('#approve_message'); 
-   
-    var utoken=  $('#UTOKEN');
-    var appno = $('#appno');
-    var appva=  $('#appva'); 
-    var gst=  $('#gst'); 
-    var pf=  $('#pf'); 
-    var totalv=  $('#totalv'); 
-    var emi=  $('#emiamt'); 
-    var loant=  $('#loant'); 
-    var sanctionamt=  $('#sanctionamt'); 
-    var roi=  $('#roi'); 
-    var totalv=  $('#totalv');   
-    var security=  $('#security');   
-    var dummy=  $('#dummy');   
-    var dummy1=  $('#dummy1');  
-    var adhaar_number = $('#adhaar_number')
-      $('.navbar').css('z-index', '-1');
-       $('.login_popup_aaprove').show();
-       $('.popup_overlay_approve').show();
-       
-   
-   
-     $.ajax({
-     headers: {
-    "X-CSRF-TOKEN": "{{csrf_token()}}"
-    },
-    url: "{{ route('admin.edit_approve_lead') }}",
-    method: "GET",
-    data: {leadId},
-    success: function(response) {
-      
-      leadhidden.val(leadId); 
-      leadName.val(response.name);
-      leadEmail.val(response.email);
-      phone.val(response.phone);
-      loan_type.val(response.loan_type);
-      loan_amount.val(response.loan_amount);
-      state.val(response.state);
-      message.val(response.message);
-      utoken.val(response.lead_token);
-      appno.val(response.lead_token);
-      gst.val(response.gst);
-      pf.val(response.pf);
-      totalv.val(response.totalv);
-      emi.val(response.emiamt);
-      loant.val(response.loant);
-      sanctionamt.val(response.sanctionamt);
-      roi.val(response.roi);
-        leadhidden.val(response.loan_request_id);
-    adhaar_number.val(response.adhaar_number);
-     
-      dummy.val(response.dummy);
-      dummy1.val(response.dummy1);
-        message.val(response.message);
-      
-      
-    },
-    error: function(response) {
-               swal({
-                        text: ' Request Failed,Contact To Developer',
-                        icon: 'error',
-                        buttons: false,
-                        timer: 5000
-                    });
-    }
-  });
-   
-   $('.navbar').css('z-index', '100');
-   
-     
-       
-       $('.cancel').click(function(){
-      $('.navbar').css('z-index', '100');
-      $('.login_popup_aaprove').hide();
-      $('.popup_overlay_approve').hide();// Replace .popup with the class or ID of your popup
-  });
-       
-   
-  });
-      
-  });
-    </script>
-   
+@section('scripts')
+<script>
+$(document).ready(function() {
+    // Initialize DataTable
+    $('#approvedTable').DataTable({
+        order: [[0, 'desc']],
+        pageLength: 25,
+        language: {
+            search: "",
+            searchPlaceholder: "Search approved leads..."
+        }
+    });
 
+    // Edit Approved Lead
+    $('.btn-edit-approved').click(function() {
+        var leadId = $(this).data('id');
+        $.ajax({
+            url: '{{ route("admin.edit_approve_lead") }}',
+            method: 'GET',
+            data: { leadId: leadId },
+            success: function(res) {
+                $('#ea_lead_id').val(res.loan_request_id);
+                $('#ea_name').val(res.name);
+                $('#ea_email').val(res.email);
+                $('#ea_phone').val(res.phone);
+                $('#ea_loan_type').val(res.loan_type);
+                $('#ea_loan_amount').val(res.loan_amount);
+                $('#ea_state').val(res.state);
+                $('#ea_UTOKEN').val(res.lead_token);
+                $('#ea_sanctionamt').val(res.sanctionamt);
+                $('#ea_emiamt').val(res.emiamt);
+                $('#ea_loant').val(res.loant);
+                $('#ea_roi').val(res.roi);
+                $('#ea_pf').val(res.pf);
+                $('#ea_gst').val(res.gst);
+                $('#ea_totalv').val(res.totalv);
+                $('#ea_security').val(res.security);
+                $('#ea_dummy').val(res.dummy);
+                $('#ea_adhaar_number').val(res.adhaar_number);
+                $('#ea_message').val(res.message);
+                new bootstrap.Modal('#editApprovedModal').show();
+            },
+            error: function() {
+                alert('Failed to fetch approved lead details.');
+            }
+        });
+    });
+});
+</script>
 @endsection
