@@ -1,96 +1,48 @@
-<nav class="sidebar sidebar-offcanvas" id="sidebar">
-    <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link" href="/admin">
-                <i class="mdi mdi-grid-large menu-icon"></i>
-                <span class="menu-title">Dashboard</span>
-            </a>
-        </li>
-        <li class="nav-item nav-category">Content</li>
-         <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.loan_request') }}">
-                <i class="menu-icon mdi mdi-card-text-outline"></i>
-                <span class="menu-title">All Leads</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="banners">
-                <ul class="nav flex-column sub-menu">
+<aside class="admin-sidebar" id="adminSidebar">
+    <div class="brand">
+        <img src="{{ asset('images/logo_loan.png') }}" alt="Logo">
+        <span>Prime Finance</span>
+    </div>
 
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.loan_request_approved') }}">
-                <i class="menu-icon mdi mdi-card-text-outline"></i>
-                <span class="menu-title">Approved Leads</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="banners">
-                <ul class="nav flex-column sub-menu">
+    <nav class="nav flex-column py-2">
+        <div class="sidebar-section-title">Main</div>
 
-                </ul>
-            </div>
-        </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('admin.message.create') }}">
-                <i class="menu-icon mdi mdi-card-text-outline"></i>
-                <span class="menu-title">Send SMS</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="banners">
-                <ul class="nav flex-column sub-menu">
+        <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
+            <i class="bi bi-grid-1x2-fill"></i>
+            <span>Dashboard</span>
+        </a>
 
-                </ul>
-            </div>
-        </li>
-          
+        <div class="sidebar-section-title">Leads</div>
 
-        <!--<li class="nav-item nav-category">Transactions</li>-->
-        <!--<li class="nav-item">-->
-        <!--    <a class="nav-link" data-bs-toggle="collapse" href="#transactions" aria-expanded="false" aria-controls="transactions">-->
-        <!--        <i class="menu-icon mdi mdi-wallet"></i>-->
-        <!--        <span class="menu-title">Request</span>-->
-        <!--        <i class="menu-arrow"></i>-->
-        <!--    </a>-->
-        <!--    <div class="collapse" id="transactions">-->
-        <!--        <ul class="nav flex-column sub-menu">-->
-        <!--            <li class="nav-item"> <a class="nav-link" href="{{ route('admin.transaction.deposit') }}">Recharge</a></li>-->
-        <!--            <li class="nav-item"> <a class="nav-link" href="{{ route('admin.transaction.withdrawl') }}">Withdraw</a></li>-->
-        <!--        </ul>-->
-        <!--    </div>-->
-        <!--</li>-->
+        <a href="{{ route('admin.loan_request') }}" class="nav-link {{ request()->routeIs('admin.loan_request') ? 'active' : '' }}">
+            <i class="bi bi-people-fill"></i>
+            <span>All Leads</span>
+        </a>
 
+        <a href="{{ route('admin.loan_request_approved') }}" class="nav-link {{ request()->routeIs('admin.loan_request_approved') ? 'active' : '' }}">
+            <i class="bi bi-check-circle-fill"></i>
+            <span>Approved Leads</span>
+        </a>
 
-        <!--<li class="nav-item nav-category">Users</li>-->
-        <!--<li class="nav-item">-->
-        <!--    <a class="nav-link" data-bs-toggle="collapse" href="#users" aria-expanded="false" aria-controls="transactions">-->
-        <!--        <i class="menu-icon mdi mdi-wallet"></i>-->
-        <!--        <span class="menu-title">Users</span>-->
-        <!--        <i class="menu-arrow"></i>-->
-        <!--    </a>-->
-        <!--    <div class="collapse" id="users">-->
-        <!--        <ul class="nav flex-column sub-menu">-->
-        <!--            <li class="nav-item"> <a class="nav-link" href="{{ route('admin.users') }}">Users List</a></li>-->
-        <!--            <li class="nav-item"> <a class="nav-link" href="#">Network</a></li>-->
-        <!--        </ul>-->
-        <!--    </div>-->
-        <!--</li>-->
-        <!-- <li class="nav-item nav-category">System Settings</li>-->
-        <!--<li class="nav-item">-->
-        <!--    <a class="nav-link" data-bs-toggle="collapse" href="#users" aria-expanded="false" aria-controls="transactions">-->
-        <!--        <i class="menu-icon mdi mdi-wallet"></i>-->
-        <!--        <span class="menu-title">System Settings</span>-->
-        <!--        <i class="menu-arrow"></i>-->
-        <!--    </a>-->
-        <!--    <div class="collapse" id="users">-->
-        <!--        <ul class="nav flex-column sub-menu">-->
-        <!--            <li class="nav-item"> <a class="nav-link" href="{{ route('admin.setting') }}">Binance Address</a></li>-->
-        <!--        </ul>-->
-        <!--    </div>-->
-        <!--</li>-->
+        <div class="sidebar-section-title">Tools</div>
 
+        <a href="{{ route('admin.message.create') }}" class="nav-link {{ request()->routeIs('admin.message.create') ? 'active' : '' }}">
+            <i class="bi bi-chat-dots-fill"></i>
+            <span>Send SMS</span>
+        </a>
 
-        <!-- <li class="nav-item nav-category">help</li> -->
-       
-    </ul>
-</nav>
+        <div class="sidebar-section-title">Account</div>
+
+        <a href="{{ route('admin.profile') }}" class="nav-link {{ request()->routeIs('admin.profile') ? 'active' : '' }}">
+            <i class="bi bi-person-circle"></i>
+            <span>My Profile</span>
+        </a>
+
+        <a href="{{ route('admin.logout') }}" class="nav-link"
+           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            <i class="bi bi-box-arrow-left"></i>
+            <span>Logout</span>
+        </a>
+        <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="d-none">@csrf</form>
+    </nav>
+</aside>
