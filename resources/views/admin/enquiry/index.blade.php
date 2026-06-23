@@ -1,612 +1,226 @@
 @extends('layout.admin.master')
-<style>
-    .enquiry_filtes{
-        display:flex;
-        flex-direction:column;
-        widtH:100%;
-        height:15%;
-        justify-content:center;
-        align-items:center;
-        border-bottom:solid;
-    }
-    button{
-        border:none;
-        height:35px;
-        background-color:#009ef7;
-        color:#fff;
-        font-weight:bold;
-        
-    }
- .popup_overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black background */
-  display: none; /* hide the overlay by default */
-  z-index:400;
-}
- .popup_overlay_approve {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black background */
-  display: none; /* hide the overlay by default */
-  z-index:400;
-}
- .login_popup{
-      display:none;
-      flex-direction:column;
-      background:#fff;
-      width:45%;
-      height:80%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index:1000000000000;
-      gap:0.3rem
-  }
-  .login_popup_aaprove{
-      display:none;
-      flex-direction:column;
-      background:#fff;
-      width:87%;
-      height:71%;
-      position: absolute;
-      top: 40%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index:1000000000000;
-      gap:3px
-  }
-  .form_row{
-    display:flex;
-    width:100%;
-    height:67%;
-    flex-wrap:wrap;
-}
-.form_main{
-      display:flex;
-      flex-direction:column;
-      background:#fff;
-      width:100%;
-      height:100%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index:1000000000000;
-      gap:0.3rem
-    }
-.loan_input{
-    display: flex;
-    width: 45%;
-    height: 25%;
-    margin-left: 1em;
-}
-.loan_input_approve{
-    display: flex;
-    width: 28%;
-    height: 20%;
-    margin-left: 1em;
-}
-.delete{
-    margin-top:3px;
-}
-input{
-     height: 60%;
-    width: 200%;
- }
-</style>
+
 @section('content')
-@php
-    use Carbon\Carbon;
-@endphp
-@php
-    $currentDateTime = Carbon::now();
-@endphp
- <div class="popup_overlay">
-           <div class="login_popup">
-               <div class="form_main">
-               <h3>Apply for loan online</h3>
-               <div class="form_row">
-         <input type="hidden" id="lead-hidden" value="" name="lead_id">
-          <div class="loan_input">
-              <input type="text" name="name" placeholder="name" id="name">
-          </div>
-             <div class="loan_input">
-              <input type="text" name="email" placeholder="email" id="email">
-          </div>
-             <div class="loan_input">
-              <input type="text" name="phone" placeholder="Phone" id="phone">
-          </div>
-             <div class="loan_input">
-              <input type="text" name="loan_type" placeholder="Loan type" id="loan_type">
-          </div>
-             <div class="loan_input">
-              <input type="text" name="loan_amount" placeholder="Loan Amount" id="loan_amount">
-          </div>
-            <div class="loan_input">
-              <input type="text" name="state" placeholder="Your State" id="state">
-          </div>
-          
-             <div class="loan_input" style="width:90%;
-             height:40%" >
-              <textarea  name="message" placeholder="Message" style="width:100%;
-             height:60%" id="message"></textarea>
-          </div>
-        
-         </div>
-         <div class="submit">
-           <button type="button" class="submit_button" id="request">Send Request</button>
-            <button  class="cancel" >Cancel</button>
-          </div>
-         </div>
-         </div>
-    
-      </div>
-<div class="popup_overlay_approve">
-           <div class="login_popup_aaprove">
-               <div class="form_main">
-               <h3>Approve Selected  lead</h3>
-               <div class="form_row">
-         <input type="hidden" id="approve_lead-hidden" value="" name="lead_id">
-          <div class="loan_input_approve">
-              <input type="text" name="name" placeholder="NAME" id="approve_name" >
-          </div>
-             <div class="loan_input_approve">
-              <input type="text" name="email" placeholder="EMAIL" id="approve_email">
-          </div>
-             <div class="loan_input_approve">
-              <input type="text" name="phone" placeholder="PHONE" id="approve_phone">
-          </div>
-             <div class="loan_input_approve">
-              <input type="text" name="loan_type" placeholder="LOAN TYPE" id="approve_loan_type">
-          </div>
-             <div class="loan_input_approve">
-              <input type="text" name="loan_amount" placeholder="LOAN AMOUNT" id="approve_loan_amount">
-          </div>
-            <div class="loan_input_approve">
-              <input type="text" name="state" placeholder="STATE" id="approve_state">
-          </div>
-           <div class="loan_input_approve">
-              <input type="text" name="state" placeholder="UTOKEN" id="UTOKEN">
-          </div>
-           <div class="loan_input_approve">
-              <input type="text" name="state" placeholder="APPLICATION NUMBER" id="appno">
-          </div>
-          <div class="loan_input_approve">
-              <input type="text" name="state" placeholder="SANCTION AMT" id="sanctionamt">
-          </div>
-           <div class="loan_input_approve">
-              <input type="text" name="state" placeholder="EMI AMT" id="emiamt">
-          </div>
-           <div class="loan_input_approve">
-              <input type="text" name="state" placeholder="LOAN TENURE" id="loant">
-          </div>
-           <div class="loan_input_approve">
-              <input type="text" name="state" placeholder="RATE INTEREST" id="roi">
-          </div>
-           <div class="loan_input_approve">
-              <input type="text" name="state" placeholder="PF" id="pf">
-          </div>
-          <div class="loan_input_approve">
-              <input type="text" name="state" placeholder="GST" id="gst">
-          </div>
-           <div class="loan_input_approve">
-              <input type="text" name="state" placeholder="TOTAL" id="totalv">
-          </div>
-           <div class="loan_input_approve">
-              <input type="text" name="state" placeholder="SECURITY" id="security">
-          </div>
-           <div class="loan_input_approve">
-              <input type="text" name="dummy" placeholder="DATE" id="dummy" value="{{ $currentDateTime->format('d-m-Y') }}">
-          </div>
-          
-          <div class="loan_input_approve">
-              <input type="number" name="adhaar_number" placeholder="Enter Aadhaar" id="adhaar_number" >
-          </div>
-           <div class="loan_input_approve">
-            <textarea  name="message" placeholder="Message" style="width:100%;
-             height:70%" id="approve_message"></textarea>
-            </div>
-             <div class="loan_input_approve" style="justify-content:space-between">
-           <button type="button" class="submit_button"  id="approve_request">Approve Lead</button>
-             <button  class="cancel_approve" >Cancel</button>
-          </div>
-         </div>
-        
-         </div>
-         </div>
-    
-      </div>
-      
-<div class="col-lg-12 grid-margin stretch-card">
-    <div class="card">
-        <div class="excel">
-            <a href="{{ route('admin.export_excel') }}" ><button>Export Excel</button></a>
-        </div>
-      
-        <div class="card-body">
-            <!--<a href="{{ route('admin.banner.create') }}" class="btn btn-primary btn-rounded btn-fw">Create</a>-->
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Action</th>
-                            <th>Lead Id</th>
-                            <th>Lead Token</th>
-                            <th>Name</th>
-                            <th>email</th>
-                            <th>Mobile</th>
-                            <th>Loan type</th>
-                            <th>Loan amount</th>
-                            <th>State</th>
-                            <th>Info</th>
-                            <th>Time-date</th>
-                            <th>Approve</th>
-                            <th>Approve date</th>
-                            <th>Approve Amount</th>
-                            <th>Status</th>
-                            <th>Ip Address</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($requests as $index => $value)
-                        <td>
-                              @if($value->status==0)
-                            <button class="approve" data-lead-id="{{ $value->id }}">Approve</button>
-                              @else
-                               <button class="approve" data-lead-id="{{ $value->id }}" style="display:none">Approved</button>
-                              @endif
-                              
-                            <button class="edit" data-lead-id="{{ $value->id }}">edit</button>
-                           <form class="delete" action="{{route('admin.lead_delete')}}" method="POST">
-                               @csrf
-                           <input type="hidden" name="lead_id" value="{{ $value->id }}">
-                           <button type="submit">delete</button>
+@php use Carbon\Carbon; $currentDateTime = Carbon::now(); @endphp
+
+<!-- Page Header -->
+<div class="flex items-center justify-between mb-5">
+    <div>
+        <h1 class="text-xl font-bold text-gray-800">All Leads</h1>
+        <p class="text-sm text-gray-400">Manage loan applications</p>
+    </div>
+    <a href="{{ route('admin.export_excel') }}" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-medium text-white bg-emerald-500 rounded-lg hover:bg-emerald-600 shadow-sm transition-colors">
+        <i class="fas fa-file-excel"></i> Export Excel
+    </a>
+</div>
+
+<!-- Table -->
+<div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+    <div class="overflow-x-auto">
+        <table class="w-full text-sm">
+            <thead class="bg-gray-50 border-b border-gray-100">
+                <tr>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Actions</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">#</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Lead Token</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Name</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Email</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Phone</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Loan Type</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Amount</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">State</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Date</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-50">
+                @foreach($requests as $index => $value)
+                <tr class="hover:bg-gray-50/50 transition-colors">
+                    <td class="px-4 py-3">
+                        <div class="flex flex-wrap gap-1.5">
+                            @if($value->status == 0)
+                            <button type="button" class="approve inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium rounded-md bg-emerald-50 text-emerald-600 hover:bg-emerald-100 transition-colors" data-lead-id="{{ $value->id }}">
+                                <i class="fas fa-check text-[10px]"></i> Approve
+                            </button>
+                            @else
+                            <span class="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium rounded-md bg-emerald-100 text-emerald-700">
+                                <i class="fas fa-check-double text-[10px]"></i> Done
+                            </span>
+                            @endif
+                            <button type="button" class="edit inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium rounded-md bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors" data-lead-id="{{ $value->id }}">
+                                <i class="fas fa-edit text-[10px]"></i> Edit
+                            </button>
+                            <form action="{{ route('admin.lead_delete') }}" method="POST" class="inline" onsubmit="return confirm('Delete this lead?')">
+                                @csrf
+                                <input type="hidden" name="lead_id" value="{{ $value->id }}">
+                                <button type="submit" class="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium rounded-md bg-red-50 text-red-600 hover:bg-red-100 transition-colors">
+                                    <i class="fas fa-trash text-[10px]"></i> Delete
+                                </button>
                             </form>
-                            </td>
-                            <td>{{ $index + 1 }}</td>
-                            <td>{{ $value->lead_token}}</td>
-                            <td>{{ $value->name }}</td>
-                            <td>{{ $value->email }}</td>
-                            <td>{{ $value->phone }}</td>
-                            <td>{{ $value->loan_type }}</td>
-                            <td>{{ $value->loan_amount }}</td>
-                            <td>{{ $value->state }}</td>
-                            <td>{{ $value->message }}</td>
-                            <td>{{ $value->created_at }}</td>
-                            <td>{{ $value->status }}</td>
-                             @if($value->status==1)
-                            <td>{{ $value->updated_at }}</td>
-                            @else
-                              <td>Not Approved yet</td>
-                            @endif
-                            @if($value->status==1)
-                            <td>{{ $value->loan_amount }}</td>
-                            @else
-                              <td>0</td>
-                            @endif
-                            <td>{{ $value->status }}</td>
-                            <td>{{ $value->ip_address }}</td>
-                           
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+                        </div>
+                    </td>
+                    <td class="px-4 py-3 text-gray-500">{{ $index + 1 }}</td>
+                    <td class="px-4 py-3 font-mono text-xs text-primary-600">{{ $value->lead_token }}</td>
+                    <td class="px-4 py-3 font-medium text-gray-800">{{ $value->name }}</td>
+                    <td class="px-4 py-3 text-gray-500 text-xs">{{ $value->email }}</td>
+                    <td class="px-4 py-3 text-gray-600">{{ $value->phone }}</td>
+                    <td class="px-4 py-3">
+                        <span class="inline-flex px-2 py-0.5 text-[11px] font-medium rounded-full bg-primary-50 text-primary-600">{{ $value->loan_type }}</span>
+                    </td>
+                    <td class="px-4 py-3 font-medium text-gray-700">&#8377;{{ number_format($value->loan_amount) }}</td>
+                    <td class="px-4 py-3 text-gray-500 text-xs">{{ $value->state }}</td>
+                    <td class="px-4 py-3">
+                        @if($value->status == 1)
+                        <span class="inline-flex items-center gap-1 px-2 py-0.5 text-[11px] font-medium rounded-full bg-emerald-50 text-emerald-600">
+                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Approved
+                        </span>
+                        @else
+                        <span class="inline-flex items-center gap-1 px-2 py-0.5 text-[11px] font-medium rounded-full bg-amber-50 text-amber-600">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Pending
+                        </span>
+                        @endif
+                    </td>
+                    <td class="px-4 py-3 text-xs text-gray-400">{{ Carbon::parse($value->created_at)->format('d M Y') }}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Edit Modal -->
+<div id="editModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="absolute inset-0 bg-black/40" onclick="closeModal('editModal')"></div>
+    <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[80vh] overflow-y-auto">
+        <div class="sticky top-0 bg-white border-b border-gray-100 px-6 py-4 rounded-t-2xl flex items-center justify-between">
+            <h3 class="text-lg font-bold text-gray-800">Edit Lead</h3>
+            <button onclick="closeModal('editModal')" class="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-gray-200"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="p-6">
+            <input type="hidden" id="lead-hidden">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">Name</label><input type="text" id="name" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">Email</label><input type="text" id="email" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">Phone</label><input type="text" id="phone" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">Loan Type</label><input type="text" id="loan_type" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">Loan Amount</label><input type="text" id="loan_amount" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">State</label><input type="text" id="state" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+            </div>
+            <div class="mt-4"><label class="text-xs font-medium text-gray-500 mb-1 block">Message</label><textarea id="message" rows="3" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none resize-none"></textarea></div>
+            <div class="flex justify-end gap-3 mt-5 pt-4 border-t border-gray-100">
+                <button onclick="closeModal('editModal')" class="px-4 py-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200">Cancel</button>
+                <button id="request" class="px-5 py-2 text-sm font-medium text-white bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg hover:from-primary-600 hover:to-primary-700 shadow-sm"><i class="fas fa-save mr-1"></i> Save</button>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Approve Modal -->
+<div id="approveModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="absolute inset-0 bg-black/40" onclick="closeModal('approveModal')"></div>
+    <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-3xl max-h-[85vh] overflow-y-auto">
+        <div class="sticky top-0 bg-white border-b border-gray-100 px-6 py-4 rounded-t-2xl flex items-center justify-between">
+            <h3 class="text-lg font-bold text-gray-800">Approve Lead</h3>
+            <button onclick="closeModal('approveModal')" class="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-gray-200"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="p-6">
+            <input type="hidden" id="approve_lead-hidden">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">Name</label><input type="text" id="approve_name" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">Email</label><input type="text" id="approve_email" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">Phone</label><input type="text" id="approve_phone" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">Loan Type</label><input type="text" id="approve_loan_type" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">Loan Amount</label><input type="text" id="approve_loan_amount" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">State</label><input type="text" id="approve_state" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">UTOKEN</label><input type="text" id="UTOKEN" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">Application No</label><input type="text" id="appno" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">Sanction Amt</label><input type="text" id="sanctionamt" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">EMI Amt</label><input type="text" id="emiamt" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">Loan Tenure</label><input type="text" id="loant" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">Rate of Interest</label><input type="text" id="roi" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">PF</label><input type="text" id="pf" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">GST</label><input type="text" id="gst" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">Total</label><input type="text" id="totalv" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">Security</label><input type="text" id="security" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">Date</label><input type="text" id="dummy" value="{{ $currentDateTime->format('d-m-Y') }}" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+                <div><label class="text-xs font-medium text-gray-500 mb-1 block">Aadhaar</label><input type="number" id="adhaar_number" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none"></div>
+            </div>
+            <div class="mt-4"><label class="text-xs font-medium text-gray-500 mb-1 block">Message</label><textarea id="approve_message" rows="2" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none resize-none"></textarea></div>
+            <div class="flex justify-end gap-3 mt-5 pt-4 border-t border-gray-100">
+                <button onclick="closeModal('approveModal')" class="px-4 py-2 text-sm font-medium text-gray-600 bg-gray-100 rounded-lg hover:bg-gray-200">Cancel</button>
+                <button id="approve_request" class="px-5 py-2 text-sm font-medium text-white bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-lg hover:from-emerald-600 hover:to-emerald-700 shadow-sm"><i class="fas fa-check mr-1"></i> Approve Lead</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+@if(session('delete_success'))
+<script>alert('Lead deleted successfully');</script>
+@endif
+@endsection
+
+@section('script')
 <script>
+function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
 
-    $(document).ready(function() {
-        $('.enquiry_new').on('change', function() {
-            var enquiry_id = $(this).prev('.enquiry_id').val();
-            var status = $('.enquiry_new').val();
-
-            $.ajax({
-                type: 'POST',
-                url: '{{ route('admin.enquiry_status') }}',
-                data: {
-                    '_token': '{{ csrf_token() }}',
-                    'enquiry_id': enquiry_id,
-                    'enquiry_status': status
-                },
-                success: function(response) {
-                    if (response.status) {
-                         alert('Enquiry status Updated');
-                        
-                    } 
-                },
-                error: function() {
-                    alert('Unable to update status');
-                }
-            });
-        });
+// Edit Lead
+document.querySelectorAll('.edit').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const leadId = this.dataset.leadId;
+        document.getElementById('editModal').classList.remove('hidden');
+        fetch('loan-request/' + leadId + '/details', { headers: {"X-CSRF-TOKEN": CSRF_TOKEN} })
+        .then(r => r.json())
+        .then(d => {
+            document.getElementById('lead-hidden').value = leadId;
+            document.getElementById('name').value = d.name || '';
+            document.getElementById('email').value = d.email || '';
+            document.getElementById('phone').value = d.phone || '';
+            document.getElementById('loan_type').value = d.loan_type || '';
+            document.getElementById('loan_amount').value = d.loan_amount || '';
+            document.getElementById('state').value = d.state || '';
+            document.getElementById('message').value = d.message || '';
+        }).catch(() => alert('Failed to load'));
     });
-</script>
- <script>
-     $(document).ready(function(){
-     $('.edit').click(function(){
-    var leadId = $(this).data('lead-id');
-    var leadName = $('#name');
-    var leadEmail = $('#email');     
-    var phone = $('#phone');     
-    var loan_type=  $('#loan_type');  
-    var loan_amount=  $('#loan_amount');  
-    var state=  $('#state');  
-    var message=  $('#message'); 
-    var leadhidden=  $('#lead-hidden'); 
-    
-       $('.navbar').css('z-index', '-1');
-       $('.login_popup').show();
-       $('.popup_overlay').show();
-    
-     $.ajax({
-     headers: {
-    "X-CSRF-TOKEN": "{{csrf_token()}}"
-    },
-    url:'loan-request/' + leadId + '/details',
-    method: "GET",
-    data: {leadId},
-    success: function(response) {
-      leadhidden.val(leadId); 
-      leadName.val(response.name);
-      leadEmail.val(response.email);
-      phone.val(response.phone);
-      loan_type.val(response.loan_type);
-      loan_amount.val(response.loan_amount);
-      state.val(response.state);
-      message.val(response.message);
-    },
-    error: function(response) {
-       swal({
-                        text: ' Request Failed<Contact To Developer',
-                        icon: 'error',
-                        buttons: false,
-                        timer: 5000
-                    });
-    }
-  });
-       $('.navbar').css('z-index', '100');
-     
-    // Replace .popup with the class or ID of your popup
-  });
-      $('.cancel').click(function(){
-       $('.navbar').css('z-index', '100');
-      $('.login_popup').hide();
-      $('.popup_overlay').hide();// Replace .popup with the class or ID of your popup
-  });
 });
-    </script>
-    <script>
-     $(document).ready(function(){
-     $('#request').click(function(){
-    var leadId = $('#lead-hidden').val();
-    var leadName = $('#name').val();
-    var leadEmail = $('#email').val();     
-    var phone = $('#phone').val();     
-    var loan_type=  $('#loan_type').val();  
-    var loan_amount=  $('#loan_amount').val();  
-    var state=  $('#state').val();  
-    var message=  $('#message').val(); 
-    var leadhidden=  $('#lead-hidden').val(); 
-     $.ajax({
-     headers: {
-    "X-CSRF-TOKEN": "{{csrf_token()}}"
-    },
-    url:'loan-request/edit',
-    method: "POST",
-    data: {leadId,leadName,leadEmail,phone,loan_type,loan_amount,state,message,leadhidden},
-    success: function(response) {
-       swal({
-                        text: 'Lead Edited Successfully',
-                        icon: 'success',
-                        buttons: false,
-                        timer: 5000
-                    });
-    },
-    error: function(response) {
-       swal({
-                        text: ' Request Failed<Contact To Developer',
-                        icon: 'error',
-                        buttons: false,
-                        timer: 2000
-                    });
-    }
-  });
-       $('.login_popup').hide();
-      $('.popup_overlay').hide();
-      
-   
-  });
-      
-});
-    </script>
-    
-<script>
-//ajax request to delete lead
-     $(document).ready(function(){
-     $('#delete').click(function(){
-    
-      
-     var leadId = $(this).data('lead-id');
-     console.log(leadId);
-   
-   
-     $.ajax({
-     headers: {
-    "X-CSRF-TOKEN": "{{csrf_token()}}"
-    },
-    url:'loan-request/delete',
-    method: "POST",
-    data: {leadId},
-   
-    success: function(response) {
-       swal({
-                        text: ' Lead Successfully Deleted',
-                        icon: 'success',
-                        buttons: false,
-                        timer: 5000
-                    });
-    }
-     error: function(response) {
-       swal({
-                        text: ' Request Failed,Contact To Developer',
-                        icon: 'error',
-                        buttons: false,
-                        timer: 5000
-                    });
-    }
-    
-  });
-     });
-});
-    </script>
-    <script>
-//ajax request to delete lead
-     $(document).ready(function(){
-     $('.approve').click(function(){
-        var leadId = $(this).data('lead-id');
-    var leadName = $('#approve_name');
-    var leadEmail = $('#approve_email');     
-    var phone = $('#approve_phone');     
-    var loan_type=  $('#approve_loan_type');  
-    var loan_amount=  $('#approve_loan_amount');  
-    var state=  $('#approve_state');  
-    var message=  $('#approve_message'); 
-    var leadhidden=  $('#approve_lead-hidden'); 
-     var utoken=  $('#UTOKEN');
-     var adhaar=  $('#adhaar_number');
-       var app=  $('#appno');
-     
-     
-     $('.navbar').css('z-index', '-1');
-     $('.login_popup_aaprove').show();
-     $('.popup_overlay_approve').show();
-     
-     $.ajax({
-     headers: {
-    "X-CSRF-TOKEN": "{{csrf_token()}}"
-    },
-     url:'loan-request/' + leadId + '/details',
-    method: "GET",
-    data: {leadId},
-    success: function(response) {
-      leadhidden.val(leadId); 
-      leadName.val(response.name);
-      leadEmail.val(response.email);
-      phone.val(response.phone);
-      loan_type.val(response.loan_type);
-      loan_amount.val(response.loan_amount);
-      state.val(response.state);
-      message.val(response.message);
-      utoken.val(response.lead_token);
-       adhaar.val(response.adhaar);
-       app.val(response.lead_token);
-      
-    },
-    error: function(response) {
-       swal({
-                        text: ' Request Failed,Contact To Developer',
-                        icon: 'error',
-                        buttons: false,
-                        timer: 5000
-                    });
-    }
-  });
-       
-    // Replace .popup with the class or ID of your popup
-  });
-      $('.cancel_approve').click(function(){
-       
-       $('.navbar').css('z-index', '100');
-      $('.login_popup').hide();
-      $('.popup_overlay_approve').hide();// Replace .popup with the class or ID of your popup
-           location.reload();
-  });
-     });
-z
-    </script>
-    <script>
-//ajax request to approve lead
-     $(document).ready(function(){
-     $('#approve_request').click(function(){
-    var leadhidden=  $('#approve_lead-hidden').val(); 
-    var leadName = $('#approve_name').val();
-    var leadEmail = $('#approve_email').val();     
-    var phone = $('#approve_phone').val();     
-    var loan_type=  $('#approve_loan_type').val();  
-    var loan_amount=  $('#approve_loan_amount').val();  
-    var state=  $('#approve_state').val();  
-    var message=  $('#approve_message').val(); 
-    var UTOKEN=  $('#UTOKEN').val(); 
-    var appno=  $('#appno').val(); 
-    var sanctionamt=  $('#sanctionamt').val(); 
-    var emiamt=  $('#emiamt').val(); 
-    var loant=  $('#loant').val(); 
-    var roi=  $('#roi').val(); 
-    var appva=  $('#appva').val(); 
-    var pf=  $('#pf').val(); 
-    var gst=  $('#gst').val(); 
-    var totalv=  $('#totalv').val(); 
-    var security=  $('#security').val(); 
-    var dummy=  $('#dummy').val(); 
-    var dummy1=  $('#dummy1').val(); 
-    var adhaar_number=  $('#adhaar_number').val(); 
-   
-     $.ajax({
-     headers: {
-    "X-CSRF-TOKEN": "{{csrf_token()}}"
-    },
-    url:'loan-request/approve',
-    method: "POST",
-    data: {leadhidden,leadName,leadEmail,phone,loan_type,loan_amount,state,message,UTOKEN,appno,sanctionamt,emiamt,loant,roi,appva,pf,gst,totalv,security,dummy,dummy1,adhaar_number},
-    success: function(response) {
-        alert('Lead Approved Successfully✅')
-    //   swal({
-    //                     text: 'Lead Approved Successfully',
-    //                     icon: 'success',
-    //                     buttons: false,
-    //                     timer: 5000
-    //                 });
-                    
-      setTimeout(function () {
-        location.reload();
-    }, 2000);
-    },
-    
-        
-    error: function(response) {
-       swal({
-                        text: ' Request Failed,Contact To Developer',
-                        icon: 'error',
-                        buttons: false,
-                        timer: 5000
-                    });
-    }
-  });
-      $('.login_popup').hide();
-      $('.popup_overlay_approve').hide();// Replace .popup with the class or ID of your popup
-     });
-});
-    </script>
-  
-        @if(session('delete_success'))
-          <script>
-         alert('lead deleted successfuly');
-        </script>
-      @endif
 
-    
-   
+// Save Edit
+document.getElementById('request').addEventListener('click', function() {
+    const data = { leadhidden: document.getElementById('lead-hidden').value, leadName: document.getElementById('name').value, leadEmail: document.getElementById('email').value, phone: document.getElementById('phone').value, loan_type: document.getElementById('loan_type').value, loan_amount: document.getElementById('loan_amount').value, state: document.getElementById('state').value, message: document.getElementById('message').value };
+    fetch('loan-request/edit', { method: 'POST', headers: {'Content-Type': 'application/json', 'X-CSRF-TOKEN': CSRF_TOKEN}, body: JSON.stringify(data) })
+    .then(() => { alert('Lead Edited Successfully'); closeModal('editModal'); location.reload(); })
+    .catch(() => alert('Failed'));
+});
+
+// Approve Lead
+document.querySelectorAll('.approve').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const leadId = this.dataset.leadId;
+        document.getElementById('approveModal').classList.remove('hidden');
+        fetch('loan-request/' + leadId + '/details', { headers: {"X-CSRF-TOKEN": CSRF_TOKEN} })
+        .then(r => r.json())
+        .then(d => {
+            document.getElementById('approve_lead-hidden').value = leadId;
+            document.getElementById('approve_name').value = d.name || '';
+            document.getElementById('approve_email').value = d.email || '';
+            document.getElementById('approve_phone').value = d.phone || '';
+            document.getElementById('approve_loan_type').value = d.loan_type || '';
+            document.getElementById('approve_loan_amount').value = d.loan_amount || '';
+            document.getElementById('approve_state').value = d.state || '';
+            document.getElementById('approve_message').value = d.message || '';
+            document.getElementById('UTOKEN').value = d.lead_token || '';
+            document.getElementById('appno').value = d.lead_token || '';
+        }).catch(() => alert('Failed to load'));
+    });
+});
+
+// Submit Approve
+document.getElementById('approve_request').addEventListener('click', function() {
+    const fields = ['approve_lead-hidden:leadhidden','approve_name:leadName','approve_email:leadEmail','approve_phone:phone','approve_loan_type:loan_type','approve_loan_amount:loan_amount','approve_state:state','approve_message:message','UTOKEN:UTOKEN','appno:appno','sanctionamt:sanctionamt','emiamt:emiamt','loant:loant','roi:roi','pf:pf','gst:gst','totalv:totalv','security:security','dummy:dummy','adhaar_number:adhaar_number'];
+    const data = {};
+    fields.forEach(f => { const [id, key] = f.split(':'); data[key] = document.getElementById(id).value; });
+    fetch('loan-request/approve', { method: 'POST', headers: {'Content-Type': 'application/json', 'X-CSRF-TOKEN': CSRF_TOKEN}, body: JSON.stringify(data) })
+    .then(() => { alert('Lead Approved Successfully ✅'); closeModal('approveModal'); setTimeout(() => location.reload(), 1000); })
+    .catch(() => alert('Failed'));
+});
+</script>
 @endsection
