@@ -4,14 +4,28 @@
 @php use Carbon\Carbon; $currentDateTime = Carbon::now(); @endphp
 
 <!-- Page Header -->
-<div class="flex items-center justify-between mb-5">
+<div class="flex items-center justify-between mb-5 flex-wrap gap-3">
     <div>
         <h1 class="text-xl font-bold text-gray-800">All Leads</h1>
         <p class="text-sm text-gray-400">Manage loan applications</p>
     </div>
     <a href="{{ route('admin.export_excel') }}" class="inline-flex items-center gap-2 px-4 py-2 text-xs font-medium text-white bg-emerald-500 rounded-lg hover:bg-emerald-600 shadow-sm transition-colors">
-        <i class="fas fa-file-excel"></i> Export Excel
+        <i class="fas fa-file-csv"></i> Export CSV
     </a>
+</div>
+
+<!-- Search Bar -->
+<div class="bg-white rounded-xl border border-gray-100 shadow-sm p-4 mb-4">
+    <form method="GET" action="{{ route('admin.loan_request') }}" class="flex items-center gap-3">
+        <div class="flex-1 relative">
+            <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+            <input type="text" name="search" value="{{ request('search') }}" placeholder="Search by name, phone, email, token, loan type..." class="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none transition-all">
+        </div>
+        <button type="submit" class="px-4 py-2.5 text-sm font-medium text-white bg-primary-500 rounded-lg hover:bg-primary-600 transition-colors">Search</button>
+        @if(request('search'))
+        <a href="{{ route('admin.loan_request') }}" class="px-4 py-2.5 text-sm font-medium text-gray-500 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">Clear</a>
+        @endif
+    </form>
 </div>
 
 <!-- Table -->
@@ -88,7 +102,10 @@
     </div>
 </div>
 
-<!-- Edit Modal -->
+<!-- Pagination -->
+<div class="mt-4">
+    {{ $requests->links('vendor.pagination.tailwind') }}
+</div>
 <div id="editModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
     <div class="absolute inset-0 bg-black/40" onclick="closeModal('editModal')"></div>
     <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-lg max-h-[80vh] overflow-y-auto">

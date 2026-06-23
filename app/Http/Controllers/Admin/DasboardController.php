@@ -218,20 +218,56 @@ class DasboardController extends Controller
   }
   public function all_approved_leads(){
       
-      $approved = LoanRequest::join('approved_leads','loan_requests.id','=','approved_leads.loan_request_id')
+      $query = LoanRequest::join('approved_leads','loan_requests.id','=','approved_leads.loan_request_id')
                  ->leftjoin('sanction_letter','loan_requests.lead_token','=','sanction_letter.lead_token')
                ->where('loan_requests.status',1)
                ->select('loan_requests.*','approved_leads.*','sanction_letter.id as sanction_letter_id')
-               ->orderBy('approved_leads.created_at', 'desc')
-               ->get();
-    // dd($approved[100]);
+               ->orderBy('approved_leads.created_at', 'desc');
       
+      if(request()->has('search') && request()->search != '') {
+          $search = request()->search;
+          $query->where(function($q) use ($search) {
+              $q->where('loan_requests.name', 'like', "%$search%")
+                ->orWhere('loan_requests.phone', 'like', "%$search%")
+                ->orWhere('loan_requests.lead_token', 'like', "%$search%")
+                ->orWhere('loan_requests.loan_type', 'like', "%$search%");
+          });
+      }
+      
+      $approved = $query->paginate(20)->appends(request()->query());
        return view('admin.approved.index',compact('approved'));
   }
     
     public function export_excel(){
-        return Excel::download(new LeadExport(), 'leads.xlsx');
+        $leads = LoanRequest::orderBy('created_at', 'desc')->get();
         
+        $filename = 'leads_' . date('Y-m-d') . '.csv';
+        $headers = [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => "attachment; filename=\"$filename\"",
+        ];
+        
+        $callback = function() use ($leads) {
+            $file = fopen('php://output', 'w');
+            fputcsv($file, ['#', 'Lead Token', 'Name', 'Email', 'Phone', 'Loan Type', 'Amount', 'State', 'Status', 'Date']);
+            foreach ($leads as $index => $lead) {
+                fputcsv($file, [
+                    $index + 1,
+                    $lead->lead_token,
+                    $lead->name,
+                    $lead->email,
+                    $lead->phone,
+                    $lead->loan_type,
+                    $lead->loan_amount,
+                    $lead->state,
+                    $lead->status == 1 ? 'Approved' : 'Pending',
+                    $lead->created_at,
+                ]);
+            }
+            fclose($file);
+        };
+        
+        return response()->stream($callback, 200, $headers);
     }
     
     public function view_pdf(Request $request)
@@ -263,9 +299,22 @@ class DasboardController extends Controller
     }
     public function loan_request(Request $request)
     {
-        $requests=  LoanRequest::orderBy('created_at', 'desc')->get();
-        return view('admin.enquiry.index',compact('requests'));
+        $query = LoanRequest::orderBy('created_at', 'desc');
         
+        if($request->has('search') && $request->search != '') {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('name', 'like', "%$search%")
+                  ->orWhere('email', 'like', "%$search%")
+                  ->orWhere('phone', 'like', "%$search%")
+                  ->orWhere('lead_token', 'like', "%$search%")
+                  ->orWhere('loan_type', 'like', "%$search%")
+                  ->orWhere('state', 'like', "%$search%");
+            });
+        }
+        
+        $requests = $query->paginate(20)->appends($request->query());
+        return view('admin.enquiry.index', compact('requests'));
     }
     
     public function approval_pdf(){

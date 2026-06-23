@@ -4,14 +4,28 @@
 @php use Carbon\Carbon; $currentDateTime = Carbon::now(); @endphp
 
 <!-- Page Header -->
-<div class="flex items-center justify-between mb-5">
+<div class="flex items-center justify-between mb-5 flex-wrap gap-3">
     <div>
         <h1 class="text-xl font-bold text-gray-800">Approved Leads</h1>
         <p class="text-sm text-gray-400">Manage approved loan applications</p>
     </div>
     <span class="text-xs font-medium bg-emerald-50 text-emerald-600 px-3 py-1.5 rounded-full">
-        {{ count($approved) }} Records
+        {{ $approved->total() }} Records
     </span>
+</div>
+
+<!-- Search Bar -->
+<div class="bg-white rounded-xl border border-gray-100 shadow-sm p-4 mb-4">
+    <form method="GET" action="{{ route('admin.loan_request_approved') }}" class="flex items-center gap-3">
+        <div class="flex-1 relative">
+            <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-sm"></i>
+            <input type="text" name="search" value="{{ request('search') }}" placeholder="Search by name, phone, token, loan type..." class="w-full pl-9 pr-4 py-2.5 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none transition-all">
+        </div>
+        <button type="submit" class="px-4 py-2.5 text-sm font-medium text-white bg-primary-500 rounded-lg hover:bg-primary-600 transition-colors">Search</button>
+        @if(request('search'))
+        <a href="{{ route('admin.loan_request_approved') }}" class="px-4 py-2.5 text-sm font-medium text-gray-500 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">Clear</a>
+        @endif
+    </form>
 </div>
 
 <!-- Table -->
@@ -86,6 +100,11 @@
             </tbody>
         </table>
     </div>
+</div>
+
+<!-- Pagination -->
+<div class="mt-4">
+    {{ $approved->links('vendor.pagination.tailwind') }}
 </div>
 
 <!-- Edit Modal -->
