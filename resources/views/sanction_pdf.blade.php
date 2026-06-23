@@ -6,7 +6,7 @@
 <style>
 @page { size: A4; margin: 0; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1a2e; font-size: 10px; line-height: 1.4; }
+body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1a2e; font-size: 11px; line-height: 1.5; }
 
 .print-btn { position: fixed; top: 12px; right: 18px; padding: 8px 18px; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; z-index: 9999; box-shadow: 0 4px 12px rgba(99,102,241,0.4); }
 @media print { .print-btn { display: none; } }
@@ -46,19 +46,19 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
 
 /* Info Grid */
 .info-grid { display: flex; justify-content: space-between; margin-bottom: 8px; padding: 8px 12px; background: #fafbff; border: 1px solid #eef0f8; border-radius: 4px; }
-.info-grid .info-col p { margin: 1px 0; font-size: 9.5px; }
+.info-grid .info-col p { margin: 2px 0; font-size: 10px; }
 .info-grid .info-col p span { font-weight: 700; color: #1e1b4b; }
 .info-grid .info-col .label { color: #6b7280; font-size: 7.5px; text-transform: uppercase; letter-spacing: 0.5px; }
 
 /* Body */
 .body-text { margin: 4px 0 6px; }
-.body-text p { font-size: 9.5px; margin: 2px 0; color: #333; }
+.body-text p { font-size: 10.5px; margin: 3px 0; color: #333; }
 
 /* Detail boxes */
 .detail-box { border-radius: 4px; padding: 8px 12px; margin: 5px 0; }
 .detail-box h3 { font-size: 10px; margin-bottom: 4px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
 .detail-box table { width: 100%; border-collapse: collapse; }
-.detail-box table td { padding: 2.5px 0; font-size: 9.5px; border-bottom: 1px solid rgba(0,0,0,0.05); }
+.detail-box table td { padding: 3.5px 0; font-size: 10px; border-bottom: 1px solid rgba(0,0,0,0.05); }
 .detail-box table tr:last-child td { border-bottom: none; }
 .detail-box table td:first-child { font-weight: 600; color: #444; width: 38%; }
 .detail-box table td:last-child { color: #1e1b4b; font-weight: 500; }
@@ -71,7 +71,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
 .bank-box h3 { color: #047857; }
 
 /* Alert boxes */
-.alert-box { border-radius: 4px; padding: 6px 10px; margin: 5px 0; font-size: 8.5px; display: flex; align-items: flex-start; gap: 5px; }
+.alert-box { border-radius: 4px; padding: 7px 11px; margin: 6px 0; font-size: 9px; display: flex; align-items: flex-start; gap: 5px; }
 .alert-box .alert-icon { font-size: 11px; flex-shrink: 0; margin-top: -1px; }
 .alert-info { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e40af; }
 .alert-warning { background: #fffbeb; border: 1px solid #fde68a; color: #92400e; }
@@ -80,10 +80,10 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
 .terms-section { margin: 5px 0; }
 .terms-section h4 { font-size: 9.5px; font-weight: 700; color: #1e1b4b; margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #e5e7eb; padding-bottom: 2px; }
 .terms-section ul { padding-left: 12px; margin: 3px 0; }
-.terms-section ul li { font-size: 8.5px; margin-bottom: 1.5px; color: #444; line-height: 1.35; }
+.terms-section ul li { font-size: 9px; margin-bottom: 2px; color: #444; line-height: 1.4; }
 
 /* Signature area */
-.signature-area { display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto; padding-top: 10px; border-top: 1px dashed #d1d5db; }
+.signature-area { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 20px; padding-top: 10px; border-top: 1px dashed #d1d5db; }
 .sig-block { text-align: center; width: 30%; }
 .sig-line { border-bottom: 1.5px solid #1e1b4b; height: 28px; margin-bottom: 3px; }
 .sig-block p { font-size: 8px; font-weight: 700; color: #1e1b4b; }
@@ -227,13 +227,15 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
             <li>The sanctioned amount shall not exceed 70% of current market value of collateral (if applicable).</li>
             <li>The Company reserves the right to modify, suspend or cancel this sanction at its sole discretion without prior notice.</li>
             <li>Returned, disputed, unauthorized or fraudulent transactions shall not be entertained.</li>
+            <li>Borrower must maintain a valid bank account and ensure sufficient balance for EMI auto-debit on due dates.</li>
+            <li>Any change in employment, income or address must be intimated to the Company within 7 working days.</li>
             <li>All disputes are subject to exclusive jurisdiction of courts in Jaipur, Rajasthan.</li>
         </ul>
     </div>
 
     <!-- Declaration -->
-    <div class="body-text" style="margin-top:6px;">
-        <p style="font-size:8.5px; font-weight:600;">Declaration: I have read, understood, and accept all the terms and conditions mentioned in this sanction letter.</p>
+    <div class="body-text" style="margin-top:8px;">
+        <p style="font-size:9px; font-weight:600; border:1px solid #e5e7eb; padding:6px 10px; border-radius:3px; background:#fafafa;">Declaration: I, {{ $obj->applicant_name }}, hereby confirm that I have read, understood, and unconditionally accept all the terms and conditions mentioned in this sanction letter. I agree to abide by the repayment schedule and all obligations stated herein.</p>
     </div>
 
     <!-- Signature Area -->
