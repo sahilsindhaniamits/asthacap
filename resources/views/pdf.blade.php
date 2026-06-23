@@ -24,8 +24,8 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
 .top-bar { height: 5px; background: linear-gradient(90deg, #6366f1, #06b6d4, #8b5cf6, #6366f1); flex-shrink: 0; }
 
 /* Header */
-.header { padding: 18px 40px 14px; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #1e1b4b; flex-shrink: 0; position: relative; }
-.header::after { content: ''; position: absolute; bottom: -4px; left: 40px; right: 40px; height: 1px; background: linear-gradient(90deg, #6366f1, #06b6d4, #8b5cf6); }
+.header { padding: 18px 40px 14px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; position: relative; border-bottom: none; }
+.header::after { content: ''; position: absolute; bottom: 0; left: 40px; right: 40px; height: 2px; background: linear-gradient(90deg, #6366f1, #06b6d4, #8b5cf6); border-radius: 2px; }
 .logo-area { display: flex; align-items: center; gap: 12px; }
 .logo-area img { height: 50px; }
 .company-info h1 { font-size: 18px; color: #1e1b4b; font-weight: 800; letter-spacing: 0.3px; }
