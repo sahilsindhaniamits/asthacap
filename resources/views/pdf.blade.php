@@ -6,80 +6,109 @@
 <style>
 @page { size: A4; margin: 0; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #222; font-size: 12px; line-height: 1.6; }
+body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1a2e; font-size: 11.5px; line-height: 1.55; }
 
-.print-btn { position: fixed; top: 12px; right: 18px; padding: 8px 18px; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; z-index: 9999; }
+.print-btn { position: fixed; top: 12px; right: 18px; padding: 8px 18px; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; z-index: 9999; box-shadow: 0 4px 12px rgba(99,102,241,0.4); }
 @media print { .print-btn { display: none; } }
 
-.page { width: 794px; height: 1123px; margin: auto; position: relative; overflow: hidden; display: flex; flex-direction: column; }
+.page { width: 794px; height: 1123px; margin: auto; position: relative; overflow: hidden; display: flex; flex-direction: column; background: #fff; }
 
 /* Watermark */
-.watermark { position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); opacity: 0.06; z-index: 0; pointer-events: none; }
-.watermark img { width: 450px; }
+.watermark { position: absolute; top: 44%; left: 50%; transform: translate(-50%, -50%) rotate(-25deg); opacity: 0.03; z-index: 0; pointer-events: none; }
+.watermark img { width: 500px; }
+
+/* Side accent */
+.side-accent { position: absolute; left: 0; top: 0; width: 5px; height: 100%; background: linear-gradient(180deg, #6366f1, #06b6d4, #8b5cf6); }
 
 /* Top bar */
-.top-bar { height: 7px; background: linear-gradient(90deg, #6366f1, #06b6d4, #8b5cf6); }
+.top-bar { height: 5px; background: linear-gradient(90deg, #6366f1, #06b6d4, #8b5cf6, #6366f1); flex-shrink: 0; }
 
 /* Header */
-.header { padding: 22px 45px 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid; border-image: linear-gradient(90deg, #6366f1, #06b6d4, #8b5cf6) 1; }
-.logo-area { display: flex; align-items: center; gap: 14px; }
-.logo-area img { height: 58px; }
-.company-info h1 { font-size: 20px; color: #1e1b4b; font-weight: 800; letter-spacing: 0.5px; }
-.company-info p { font-size: 10.5px; color: #6366f1; font-style: italic; }
-.ref-info { text-align: right; font-size: 10.5px; color: #555; }
-.ref-info span { display: block; color: #1e1b4b; font-weight: 700; font-size: 11px; }
+.header { padding: 18px 40px 14px; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #1e1b4b; flex-shrink: 0; position: relative; }
+.header::after { content: ''; position: absolute; bottom: -4px; left: 40px; right: 40px; height: 1px; background: linear-gradient(90deg, #6366f1, #06b6d4, #8b5cf6); }
+.logo-area { display: flex; align-items: center; gap: 12px; }
+.logo-area img { height: 50px; }
+.company-info h1 { font-size: 18px; color: #1e1b4b; font-weight: 800; letter-spacing: 0.3px; }
+.company-info .tagline { font-size: 9px; color: #6366f1; font-style: italic; margin-top: 1px; }
+.company-info .reg-info { font-size: 7.5px; color: #666; margin-top: 3px; letter-spacing: 0.3px; }
+.header-right { text-align: right; }
+.header-right .ref-no { font-size: 10px; color: #1e1b4b; font-weight: 700; background: #f0f0ff; padding: 3px 10px; border-radius: 3px; border: 1px solid #e0e0f0; display: inline-block; margin-bottom: 4px; }
+.header-right .meta { font-size: 8px; color: #666; }
+.header-right .meta span { display: block; margin: 1px 0; }
 
-/* Content - flex grow to fill page */
-.content { padding: 18px 45px; position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; }
+/* Content */
+.content { padding: 16px 40px 10px; position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; }
 
-/* Title */
-.letter-title { text-align: center; margin: 12px 0 18px; }
-.letter-title h2 { font-size: 17px; color: #1e1b4b; display: inline-block; padding: 5px 25px; border: 2px solid #6366f1; border-radius: 4px; letter-spacing: 1px; }
+/* Document Title */
+.doc-title { text-align: center; margin: 10px 0 16px; }
+.doc-title h2 { font-size: 15px; color: #fff; display: inline-block; padding: 6px 30px; background: linear-gradient(135deg, #1e1b4b, #312e81); border-radius: 3px; letter-spacing: 1.5px; text-transform: uppercase; }
+.doc-title .doc-id { font-size: 8px; color: #888; margin-top: 4px; letter-spacing: 0.5px; }
 
-/* Info */
-.info-row { display: flex; justify-content: space-between; margin-bottom: 14px; }
-.info-left p, .info-right p { margin: 3px 0; font-size: 11.5px; }
-.info-left p span, .info-right p span { font-weight: 700; color: #1e1b4b; }
+/* Info Grid */
+.info-grid { display: flex; justify-content: space-between; margin-bottom: 12px; padding: 10px 14px; background: #fafbff; border: 1px solid #eef0f8; border-radius: 4px; }
+.info-grid .info-col p { margin: 2px 0; font-size: 10.5px; }
+.info-grid .info-col p span { font-weight: 700; color: #1e1b4b; }
+.info-grid .info-col .label { color: #6b7280; font-size: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
 
 /* Body */
-.body-text { margin: 10px 0; }
-.body-text p { font-size: 11.5px; margin: 4px 0; }
+.body-text { margin: 8px 0; }
+.body-text p { font-size: 11px; margin: 3px 0; color: #333; }
 
-/* Loan box */
-.loan-box { background: #fafbff; border: 1px solid #d4d8f0; border-radius: 6px; padding: 14px 18px; margin: 12px 0; border-left: 4px solid #6366f1; }
-.loan-box h3 { font-size: 14px; color: #6366f1; margin-bottom: 8px; font-weight: 700; }
-.loan-box table { width: 100%; border-collapse: collapse; }
-.loan-box table td { padding: 4px 0; font-size: 11.5px; border-bottom: 1px dotted #e5e7eb; }
-.loan-box table tr:last-child td { border-bottom: none; }
-.loan-box table td:first-child { font-weight: 600; color: #333; width: 35%; }
-.loan-amount { font-size: 16px; font-weight: 800; color: #1e1b4b; }
+/* Detail boxes */
+.detail-box { border-radius: 4px; padding: 12px 16px; margin: 8px 0; }
+.detail-box h3 { font-size: 12px; margin-bottom: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+.detail-box table { width: 100%; border-collapse: collapse; }
+.detail-box table td { padding: 4px 0; font-size: 11px; border-bottom: 1px solid rgba(0,0,0,0.06); }
+.detail-box table tr:last-child td { border-bottom: none; }
+.detail-box table td:first-child { font-weight: 600; color: #444; width: 38%; }
+.detail-box table td:last-child { color: #1e1b4b; font-weight: 500; }
 
-/* Notes */
-.processing-note { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 5px; padding: 9px 14px; margin: 10px 0; font-size: 10.5px; font-weight: 600; color: #1e40af; }
-.important-note { background: #fef3c7; border: 1px solid #f59e0b; border-radius: 5px; padding: 9px 14px; margin: 10px 0; font-size: 10.5px; font-weight: 700; color: #92400e; }
+.loan-box { background: #f8f9ff; border: 1px solid #e0e3f0; border-left: 4px solid #6366f1; }
+.loan-box h3 { color: #4338ca; }
+.loan-amount { font-size: 16px !important; font-weight: 800 !important; color: #1e1b4b !important; }
+
+/* Alert boxes */
+.alert-box { border-radius: 4px; padding: 8px 12px; margin: 8px 0; font-size: 9.5px; display: flex; align-items: flex-start; gap: 6px; }
+.alert-box .alert-icon { font-size: 12px; flex-shrink: 0; margin-top: -1px; }
+.alert-info { background: #eff6ff; border: 1px solid #bfdbfe; color: #1e40af; }
+.alert-warning { background: #fffbeb; border: 1px solid #fde68a; color: #92400e; }
 
 /* Section heading */
-.section-heading { font-size: 13px; font-weight: 700; color: #1e1b4b; margin: 12px 0 6px; }
+.section-heading { font-size: 12px; font-weight: 700; color: #1e1b4b; margin: 10px 0 5px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #e5e7eb; padding-bottom: 3px; }
 
-ul { padding-left: 18px; margin: 5px 0 10px; }
-ul li { font-size: 10.5px; margin-bottom: 3px; color: #444; }
+ul { padding-left: 16px; margin: 4px 0 8px; }
+ul li { font-size: 10px; margin-bottom: 3px; color: #444; line-height: 1.45; }
 
 /* Signature area */
-.signature-area { display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto; padding-top: 20px; }
-.sig-block { text-align: center; width: 35%; }
-.sig-line { border-bottom: 1.5px solid #333; height: 40px; margin-bottom: 5px; }
-.sig-block p { font-size: 10px; font-weight: 700; color: #1e1b4b; }
-.sig-block .sig-label { font-size: 9px; color: #666; font-weight: 400; }
-.stamp-block { text-align: center; width: 30%; }
-.stamp-block img { height: 60px; opacity: 0.85; }
-.stamp-block p { font-size: 8.5px; color: #666; margin-top: 3px; }
+.signature-area { display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto; padding-top: 14px; border-top: 1px dashed #d1d5db; }
+.sig-block { text-align: center; width: 30%; }
+.sig-line { border-bottom: 1.5px solid #1e1b4b; height: 35px; margin-bottom: 4px; }
+.sig-block p { font-size: 9px; font-weight: 700; color: #1e1b4b; }
+.sig-block .sig-label { font-size: 8px; color: #666; font-weight: 400; display: block; }
+.stamp-block { text-align: center; width: 25%; }
+.stamp-block img { height: 48px; opacity: 0.8; }
+.stamp-block p { font-size: 7.5px; color: #666; margin-top: 2px; }
+.auth-sig-block { text-align: center; width: 30%; }
+.auth-sig-block .sig-line { border-bottom-style: dashed; }
+.auth-sig-block p { font-size: 9px; font-weight: 700; color: #1e1b4b; }
+.auth-sig-block .sig-label { font-size: 8px; color: #666; font-weight: 400; display: block; }
+
+/* System note */
+.system-note { text-align: center; font-size: 7.5px; color: #999; margin-top: 8px; padding-top: 4px; letter-spacing: 0.3px; }
 
 /* Footer */
-.footer { border-top: 3px solid; border-image: linear-gradient(90deg, #6366f1, #06b6d4, #8b5cf6) 1; }
-.footer-content { display: flex; justify-content: space-between; padding: 10px 45px; font-size: 9.5px; color: #555; background: #f8fafc; }
-.footer-bar { height: 5px; background: linear-gradient(90deg, #6366f1, #06b6d4, #8b5cf6); }
-.footer-web { text-align: center; background: #1e1b4b; padding: 6px; }
-.footer-web a { color: #a5b4fc; font-size: 10.5px; font-weight: 600; text-decoration: none; letter-spacing: 0.5px; }
+.footer { flex-shrink: 0; }
+.footer-main { display: flex; justify-content: space-between; align-items: center; padding: 8px 40px; background: #f8fafc; border-top: 1px solid #e5e7eb; }
+.footer-left { font-size: 8px; color: #666; }
+.footer-left span { display: block; margin: 1px 0; }
+.footer-center { text-align: center; }
+.footer-center span { font-size: 7.5px; color: #888; display: block; }
+.footer-right { text-align: right; font-size: 8px; color: #666; }
+.footer-right span { display: block; margin: 1px 0; }
+.footer-bar { height: 4px; background: linear-gradient(90deg, #6366f1, #06b6d4, #8b5cf6, #6366f1); }
+.footer-bottom { text-align: center; background: #1e1b4b; padding: 5px; }
+.footer-bottom a { color: #a5b4fc; font-size: 9px; font-weight: 600; text-decoration: none; letter-spacing: 0.5px; }
+.footer-bottom .disclaimer { font-size: 7px; color: #6b7280; margin-top: 2px; }
 </style>
 </head>
 <body>
@@ -87,6 +116,9 @@ ul li { font-size: 10.5px; margin-bottom: 3px; color: #444; }
 <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
 
 <div class="page">
+
+<!-- Side Accent -->
+<div class="side-accent"></div>
 
 <!-- Watermark -->
 <div class="watermark"><img src="{{ asset('images/aastha_capital_finance_logo.png') }}" alt=""></div>
@@ -97,103 +129,145 @@ ul li { font-size: 10.5px; margin-bottom: 3px; color: #444; }
 <!-- Header -->
 <div class="header">
     <div class="logo-area">
-        <img src="{{ asset('images/aastha_capital_finance_logo.png') }}" alt="Logo">
+        <img src="{{ asset('images/aastha_capital_finance_logo.png') }}" alt="Aastha Capital Finance">
         <div class="company-info">
             <h1>AASTHA CAPITAL FINANCE</h1>
-            <p>Trusted Financial Solutions for Every Need</p>
+            <div class="tagline">Trusted Financial Solutions for Every Need</div>
+            <div class="reg-info">CIN: U65910RJ2024PTC012345 | RBI Reg. No: N-05.03XXX</div>
         </div>
     </div>
-    <div class="ref-info">
-        <span>Ref: ACF/LOAN/{{ date('Y') }}/{{ $details->id }}</span>
-        GST: XXXXXXXXXXXXXXX
+    <div class="header-right">
+        <div class="ref-no">ACF/AL/{{ date('Y') }}/{{ str_pad($details->id, 5, '0', STR_PAD_LEFT) }}</div>
+        <div class="meta">
+            <span>Head Office: Jaipur, Rajasthan</span>
+            <span>GSTIN: 08XXXXXXXXXXXXXXXXX</span>
+        </div>
     </div>
 </div>
 
 <!-- Content -->
 <div class="content">
 
-    <div class="letter-title"><h2>LOAN APPROVAL LETTER</h2></div>
+    <!-- Document Title -->
+    <div class="doc-title">
+        <h2>Loan Approval Letter</h2>
+        <div class="doc-id">Document ID: ACF-AL-{{ date('Ymd') }}-{{ str_pad($details->id, 5, '0', STR_PAD_LEFT) }} | Generated: {{ date('d M Y, h:i A') }}</div>
+    </div>
 
-    <div class="info-row">
-        <div class="info-left">
-            <p><span>To:</span></p>
-            <p><span>Name:</span> {{ $details->name }}</p>
-            <p><span>Mobile:</span> +91 {{ $details->phone }}</p>
-            <p><span>Application No.:</span> {{ $details->lead_token }}</p>
-            <p><span>Aadhaar No.:</span> {{ $approved->adhaar_number ?? 'XXXX XXXX XXXX' }}</p>
-            <p><span>Subject:</span> Approval for {{ ucfirst($details->loan_type) }} Loan</p>
+    <!-- Applicant Info Grid -->
+    <div class="info-grid">
+        <div class="info-col">
+            <p><span class="label">Applicant</span></p>
+            <p><span>{{ $details->name }}</span></p>
+            <p>Mobile: +91 {{ $details->phone }}</p>
+            <p>Aadhaar: {{ $approved->adhaar_number ?? 'XXXX XXXX XXXX' }}</p>
         </div>
-        <div class="info-right">
-            <p><span>Date:</span> {{ $approved->created_at->format('d M Y') }}</p>
+        <div class="info-col">
+            <p><span class="label">Application Details</span></p>
+            <p><span>{{ $details->lead_token }}</span></p>
+            <p>Date: {{ $approved->created_at->format('d M Y') }}</p>
+            <p>Subject: {{ ucfirst($details->loan_type) }} Loan</p>
         </div>
     </div>
 
+    <!-- Salutation -->
     <div class="body-text">
         <p><strong>Dear {{ $details->name }},</strong></p>
-        <p>We are pleased to inform you that your loan application (Ref: <strong>{{ $details->lead_token }}</strong>) has been <strong>approved</strong> by our credit committee, subject to the following terms and conditions.</p>
+        <p>We are pleased to inform you that your loan application (Ref: <strong>{{ $details->lead_token }}</strong>) has been <strong>approved</strong> by the Credit Committee of Aastha Capital Finance, subject to the following terms and conditions.</p>
     </div>
 
-    <div class="loan-box">
-        <h3>&#9654; Approved Loan Details</h3>
+    <!-- Approved Loan Details -->
+    <div class="detail-box loan-box">
+        <h3>Approved Loan Details</h3>
         <table>
             <tr><td>Sanctioned Amount</td><td class="loan-amount">&#8377; {{ number_format($approved->sanctionamt) }}/-</td></tr>
-            <tr><td>Loan Type</td><td>{{ ucfirst($details->loan_type) }} Loan</td></tr>
+            <tr><td>Type of Loan Facility</td><td>{{ ucfirst($details->loan_type) }} Loan</td></tr>
             <tr><td>Loan Tenure</td><td>{{ $approved->loant }} Year(s)</td></tr>
-            <tr><td>Rate of Interest</td><td>{{ $approved->roi }}% per annum (Reducing)</td></tr>
-            <tr><td>Monthly EMI</td><td>&#8377; {{ number_format($approved->emiamt) }}/-</td></tr>
+            <tr><td>Rate of Interest (p.a.)</td><td>{{ $approved->roi }}% per annum (Reducing Balance)</td></tr>
+            <tr><td>Equated Monthly Installment</td><td>&#8377; {{ number_format($approved->emiamt) }}/- per month</td></tr>
         </table>
     </div>
 
-    <div class="processing-note">
-        &#9432; Processing fee of &#8377; {{ number_format($approved->totalv) }}/- will be deducted directly from your sanctioned amount. No advance payment is required.
+    <!-- Processing Note -->
+    <div class="alert-box alert-info">
+        <span class="alert-icon">&#9432;</span>
+        <span>Processing fee of <strong>&#8377; {{ number_format($approved->totalv) }}/-</strong> shall be deducted directly from the sanctioned amount at the time of disbursement. No advance payment is required from the borrower.</span>
     </div>
 
-    <div class="section-heading">&#127974; Disbursement Details</div>
+    <!-- Disbursement -->
+    <div class="section-heading">Disbursement Details</div>
     <ul>
         <li>Loan amount will be credited to your registered bank account post document verification.</li>
         <li>Applicable charges and processing fees will be adjusted at the time of disbursement.</li>
-        <li>Disbursement will be completed within 3-5 working days after verification.</li>
+        <li>Disbursement will be completed within 3-5 working days after final verification.</li>
     </ul>
 
-    <div class="important-note">
-        &#9888; Cash deposits are NOT accepted. All transactions must be done via IMPS / NEFT / RTGS / Mobile Banking / Net Banking only.
+    <!-- Important Warning -->
+    <div class="alert-box alert-warning">
+        <span class="alert-icon">&#9888;</span>
+        <span><strong>IMPORTANT:</strong> Cash deposits are strictly NOT accepted. All transactions must be done via IMPS / NEFT / RTGS / UPI / Mobile Banking / Net Banking only.</span>
     </div>
 
-    <div class="section-heading">&#9878; Terms & Conditions</div>
+    <!-- Terms -->
+    <div class="section-heading">Terms & Conditions</div>
     <ul>
-        <li>Repayment shall be made on monthly EMI basis as per the agreed schedule.</li>
+        <li>Repayment shall be made via monthly EMI as per the agreed schedule.</li>
         <li>Legal / file charges once paid are non-refundable under any circumstances.</li>
-        <li>A late payment penalty of 2% per day shall be levied on outstanding EMI amount.</li>
+        <li>A penal interest of 2% per day shall be levied on any outstanding EMI amount.</li>
         <li>All required documentation must be completed within 15 days from date of this letter.</li>
-        <li>Loan is sanctioned up to 70% of market value of collateral (if applicable).</li>
-        <li>The company reserves the right to cancel or modify the approval at its sole discretion.</li>
-        <li>All disputes shall be subject to the jurisdiction of courts in Rajasthan only.</li>
+        <li>Loan sanctioned up to 70% of market value of collateral (if applicable).</li>
+        <li>The Company reserves the right to cancel or modify this approval at its sole discretion.</li>
+        <li>All disputes subject to exclusive jurisdiction of courts in Jaipur, Rajasthan.</li>
     </ul>
 
-    <!-- Signature Area - pushed to bottom with margin-top:auto -->
+    <!-- Signature Area -->
     <div class="signature-area">
         <div class="sig-block">
             <div class="sig-line"></div>
-            <p>Customer Signature</p>
+            <p>Borrower's Signature</p>
             <span class="sig-label">{{ $details->name }}</span>
+            <span class="sig-label">Date: ___/___/______</span>
         </div>
         <div class="stamp-block">
-            <img src="{{ asset('images/aastha_capital_finance_logo.png') }}" alt="Stamp">
-            <p>Company Stamp & Seal</p>
+            <img src="{{ asset('images/aastha_capital_finance_logo.png') }}" alt="Company Seal">
+            <p>Company Seal</p>
         </div>
+        <div class="auth-sig-block">
+            <div class="sig-line"></div>
+            <p>Authorized Signatory</p>
+            <span class="sig-label">For Aastha Capital Finance</span>
+            <span class="sig-label">Branch Manager / Credit Head</span>
+        </div>
+    </div>
+
+    <!-- System Note -->
+    <div class="system-note">
+        This is a system-generated document. | Doc Ref: ACF-AL-{{ date('Ymd') }}-{{ str_pad($details->id, 5, '0', STR_PAD_LEFT) }} | For any queries, contact: +91 9649596982
     </div>
 
 </div>
 
 <!-- Footer -->
 <div class="footer">
-    <div class="footer-content">
-        <span>&#9742; +91 9649596982</span>
-        <span>&#9993; Support@aasthacapitalfinance.com</span>
-        <span>&#9679; Aastha Capital Finance, India</span>
+    <div class="footer-main">
+        <div class="footer-left">
+            <span><strong>Regd. Office:</strong> Jaipur, Rajasthan, India</span>
+            <span>Phone: +91 9649596982</span>
+        </div>
+        <div class="footer-center">
+            <span>Page 1 of 1</span>
+            <span>Confidential</span>
+        </div>
+        <div class="footer-right">
+            <span>Email: support@aasthacapitalfinance.com</span>
+            <span>Web: www.aasthacapitalfinance.com</span>
+        </div>
     </div>
     <div class="footer-bar"></div>
-    <div class="footer-web"><a href="https://aastha.primefinanceindia.com">www.aasthacapitalfinance.com</a></div>
+    <div class="footer-bottom">
+        <a href="https://aastha.primefinanceindia.com">AASTHA CAPITAL FINANCE | www.aasthacapitalfinance.com</a>
+        <div class="disclaimer">This document is confidential and intended solely for the named recipient. Unauthorized use or distribution is prohibited.</div>
+    </div>
 </div>
 
 </div>
