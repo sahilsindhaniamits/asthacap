@@ -6,92 +6,80 @@
 <style>
 @page { size: A4; margin: 0; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #222; font-size: 11.5px; line-height: 1.5; }
+body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #222; font-size: 12px; line-height: 1.6; }
 
 .print-btn { position: fixed; top: 12px; right: 18px; padding: 8px 18px; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; z-index: 9999; }
 @media print { .print-btn { display: none; } }
 
-.page { width: 794px; height: 1123px; margin: auto; position: relative; overflow: hidden; }
+.page { width: 794px; height: 1123px; margin: auto; position: relative; overflow: hidden; display: flex; flex-direction: column; }
 
 /* Watermark */
-.watermark { position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); opacity: 0.035; z-index: 0; }
-.watermark img { width: 380px; }
-
-/* Decorative corner */
-.corner-decor { position: absolute; width: 80px; height: 80px; border: 3px solid #6366f1; opacity: 0.15; }
-.corner-tl { top: 20px; left: 20px; border-right: none; border-bottom: none; }
-.corner-br { bottom: 60px; right: 20px; border-left: none; border-top: none; }
+.watermark { position: absolute; top: 45%; left: 50%; transform: translate(-50%, -50%); opacity: 0.06; z-index: 0; pointer-events: none; }
+.watermark img { width: 450px; }
 
 /* Top bar */
 .top-bar { height: 7px; background: linear-gradient(90deg, #6366f1, #06b6d4, #8b5cf6); }
 
 /* Header */
-.header { padding: 18px 45px 14px; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #1e1b4b; }
-.logo-area { display: flex; align-items: center; gap: 12px; }
-.logo-area img { height: 55px; }
-.company-info h1 { font-size: 19px; color: #1e1b4b; font-weight: 800; letter-spacing: 0.5px; }
-.company-info p { font-size: 10px; color: #6366f1; font-style: italic; }
-.ref-info { text-align: right; font-size: 10px; color: #555; }
-.ref-info span { display: block; color: #1e1b4b; font-weight: 700; }
+.header { padding: 22px 45px 16px; display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid; border-image: linear-gradient(90deg, #6366f1, #06b6d4, #8b5cf6) 1; }
+.logo-area { display: flex; align-items: center; gap: 14px; }
+.logo-area img { height: 58px; }
+.company-info h1 { font-size: 20px; color: #1e1b4b; font-weight: 800; letter-spacing: 0.5px; }
+.company-info p { font-size: 10.5px; color: #6366f1; font-style: italic; }
+.ref-info { text-align: right; font-size: 10.5px; color: #555; }
+.ref-info span { display: block; color: #1e1b4b; font-weight: 700; font-size: 11px; }
 
-/* Thin decorative line under header */
-.header-line { height: 1px; background: linear-gradient(90deg, transparent, #6366f1, transparent); margin: 0 45px; }
-
-/* Content */
-.content { padding: 14px 45px 10px; position: relative; z-index: 1; }
+/* Content - flex grow to fill page */
+.content { padding: 18px 45px; position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; }
 
 /* Title */
-.letter-title { text-align: center; margin: 8px 0 14px; }
-.letter-title h2 { font-size: 16px; color: #1e1b4b; display: inline-block; padding: 4px 20px; border: 2px solid #6366f1; border-radius: 4px; letter-spacing: 1px; }
+.letter-title { text-align: center; margin: 12px 0 18px; }
+.letter-title h2 { font-size: 17px; color: #1e1b4b; display: inline-block; padding: 5px 25px; border: 2px solid #6366f1; border-radius: 4px; letter-spacing: 1px; }
 
 /* Info */
-.info-row { display: flex; justify-content: space-between; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #eee; }
-.info-left p, .info-right p { margin: 2px 0; font-size: 11px; }
+.info-row { display: flex; justify-content: space-between; margin-bottom: 14px; }
+.info-left p, .info-right p { margin: 3px 0; font-size: 11.5px; }
 .info-left p span, .info-right p span { font-weight: 700; color: #1e1b4b; }
 
 /* Body */
-.body-text { margin: 8px 0; }
-.body-text p { font-size: 11px; margin: 3px 0; }
+.body-text { margin: 10px 0; }
+.body-text p { font-size: 11.5px; margin: 4px 0; }
 
 /* Loan box */
-.loan-box { background: #fafbff; border: 1px solid #d4d8f0; border-radius: 6px; padding: 10px 16px; margin: 10px 0; border-left: 4px solid #6366f1; }
-.loan-box h3 { font-size: 13px; color: #6366f1; margin-bottom: 6px; font-weight: 700; }
+.loan-box { background: #fafbff; border: 1px solid #d4d8f0; border-radius: 6px; padding: 14px 18px; margin: 12px 0; border-left: 4px solid #6366f1; }
+.loan-box h3 { font-size: 14px; color: #6366f1; margin-bottom: 8px; font-weight: 700; }
 .loan-box table { width: 100%; border-collapse: collapse; }
-.loan-box table td { padding: 3px 0; font-size: 11px; border-bottom: 1px dotted #e5e7eb; }
+.loan-box table td { padding: 4px 0; font-size: 11.5px; border-bottom: 1px dotted #e5e7eb; }
 .loan-box table tr:last-child td { border-bottom: none; }
 .loan-box table td:first-child { font-weight: 600; color: #333; width: 35%; }
-.loan-amount { font-size: 15px; font-weight: 800; color: #1e1b4b; }
+.loan-amount { font-size: 16px; font-weight: 800; color: #1e1b4b; }
 
 /* Notes */
-.processing-note { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 4px; padding: 7px 12px; margin: 8px 0; font-size: 10px; font-weight: 600; color: #1e40af; }
-.important-note { background: #fef3c7; border: 1px solid #f59e0b; border-radius: 4px; padding: 7px 12px; margin: 8px 0; font-size: 10px; font-weight: 700; color: #92400e; }
+.processing-note { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 5px; padding: 9px 14px; margin: 10px 0; font-size: 10.5px; font-weight: 600; color: #1e40af; }
+.important-note { background: #fef3c7; border: 1px solid #f59e0b; border-radius: 5px; padding: 9px 14px; margin: 10px 0; font-size: 10.5px; font-weight: 700; color: #92400e; }
 
 /* Section heading */
-.section-heading { font-size: 12px; font-weight: 700; color: #1e1b4b; margin: 10px 0 4px; padding-bottom: 3px; border-bottom: 1px solid #e2e8f0; }
+.section-heading { font-size: 13px; font-weight: 700; color: #1e1b4b; margin: 12px 0 6px; }
 
-ul { padding-left: 16px; margin: 4px 0; }
-ul li { font-size: 10px; margin-bottom: 2px; color: #444; }
+ul { padding-left: 18px; margin: 5px 0 10px; }
+ul li { font-size: 10.5px; margin-bottom: 3px; color: #444; }
 
-/* Divider line */
-.divider { height: 1px; background: linear-gradient(90deg, transparent, #6366f1, transparent); margin: 12px 0; }
-
-/* Signature area - more space */
-.signature-area { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 20px; padding: 15px 0 5px; }
+/* Signature area */
+.signature-area { display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto; padding-top: 20px; }
 .sig-block { text-align: center; width: 35%; }
-.sig-line { border-bottom: 1.5px solid #333; height: 35px; margin-bottom: 5px; }
+.sig-line { border-bottom: 1.5px solid #333; height: 40px; margin-bottom: 5px; }
 .sig-block p { font-size: 10px; font-weight: 700; color: #1e1b4b; }
 .sig-block .sig-label { font-size: 9px; color: #666; font-weight: 400; }
 .stamp-block { text-align: center; width: 30%; }
-.stamp-block img { height: 55px; opacity: 0.85; }
-.stamp-block p { font-size: 8px; color: #666; margin-top: 3px; }
+.stamp-block img { height: 60px; opacity: 0.85; }
+.stamp-block p { font-size: 8.5px; color: #666; margin-top: 3px; }
 
 /* Footer */
-.footer { position: absolute; bottom: 0; left: 0; width: 100%; z-index: 1; }
-.footer-line { height: 1px; background: linear-gradient(90deg, transparent, #6366f1, transparent); margin: 0 45px; }
-.footer-content { display: flex; justify-content: space-between; padding: 8px 45px; font-size: 9px; color: #666; }
+.footer { border-top: 3px solid; border-image: linear-gradient(90deg, #6366f1, #06b6d4, #8b5cf6) 1; }
+.footer-content { display: flex; justify-content: space-between; padding: 10px 45px; font-size: 9.5px; color: #555; background: #f8fafc; }
 .footer-bar { height: 5px; background: linear-gradient(90deg, #6366f1, #06b6d4, #8b5cf6); }
-.footer-web { text-align: center; background: #1e1b4b; padding: 5px; }
-.footer-web a { color: #a5b4fc; font-size: 10px; font-weight: 600; text-decoration: none; letter-spacing: 0.5px; }
+.footer-web { text-align: center; background: #1e1b4b; padding: 6px; }
+.footer-web a { color: #a5b4fc; font-size: 10.5px; font-weight: 600; text-decoration: none; letter-spacing: 0.5px; }
 </style>
 </head>
 <body>
@@ -99,10 +87,6 @@ ul li { font-size: 10px; margin-bottom: 2px; color: #444; }
 <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
 
 <div class="page">
-
-<!-- Decorative corners -->
-<div class="corner-decor corner-tl"></div>
-<div class="corner-decor corner-br"></div>
 
 <!-- Watermark -->
 <div class="watermark"><img src="{{ asset('images/aastha_capital_finance_logo.png') }}" alt=""></div>
@@ -124,7 +108,6 @@ ul li { font-size: 10px; margin-bottom: 2px; color: #444; }
         GST: XXXXXXXXXXXXXXX
     </div>
 </div>
-<div class="header-line"></div>
 
 <!-- Content -->
 <div class="content">
@@ -167,30 +150,27 @@ ul li { font-size: 10px; margin-bottom: 2px; color: #444; }
 
     <div class="section-heading">&#127974; Disbursement Details</div>
     <ul>
-        <li>Loan amount credited to registered bank account post document verification.</li>
-        <li>Applicable charges adjusted at the time of disbursement.</li>
-        <li>Disbursement within 3-5 working days after verification.</li>
+        <li>Loan amount will be credited to your registered bank account post document verification.</li>
+        <li>Applicable charges and processing fees will be adjusted at the time of disbursement.</li>
+        <li>Disbursement will be completed within 3-5 working days after verification.</li>
     </ul>
 
     <div class="important-note">
-        &#9888; Cash deposits NOT accepted. Transactions only via IMPS / NEFT / RTGS / Mobile Banking / Net Banking.
+        &#9888; Cash deposits are NOT accepted. All transactions must be done via IMPS / NEFT / RTGS / Mobile Banking / Net Banking only.
     </div>
 
     <div class="section-heading">&#9878; Terms & Conditions</div>
     <ul>
-        <li>Repayment on monthly EMI basis as per agreed schedule.</li>
-        <li>Legal / file charges are non-refundable.</li>
-        <li>2% per day late payment penalty on outstanding EMI.</li>
-        <li>All documentation must be completed within 15 days.</li>
-        <li>Loan sanctioned up to 70% of market value (if applicable).</li>
-        <li>Company reserves the right to cancel or modify approval.</li>
-        <li>Disputes subject to Rajasthan court jurisdiction only.</li>
+        <li>Repayment shall be made on monthly EMI basis as per the agreed schedule.</li>
+        <li>Legal / file charges once paid are non-refundable under any circumstances.</li>
+        <li>A late payment penalty of 2% per day shall be levied on outstanding EMI amount.</li>
+        <li>All required documentation must be completed within 15 days from date of this letter.</li>
+        <li>Loan is sanctioned up to 70% of market value of collateral (if applicable).</li>
+        <li>The company reserves the right to cancel or modify the approval at its sole discretion.</li>
+        <li>All disputes shall be subject to the jurisdiction of courts in Rajasthan only.</li>
     </ul>
 
-    <!-- Decorative divider -->
-    <div class="divider"></div>
-
-    <!-- Signature Area - with space -->
+    <!-- Signature Area - pushed to bottom with margin-top:auto -->
     <div class="signature-area">
         <div class="sig-block">
             <div class="sig-line"></div>
@@ -207,10 +187,9 @@ ul li { font-size: 10px; margin-bottom: 2px; color: #444; }
 
 <!-- Footer -->
 <div class="footer">
-    <div class="footer-line"></div>
     <div class="footer-content">
-        <span>&#9742; +91 99999 99999</span>
-        <span>&#9993; info@aasthacapital.com</span>
+        <span>&#9742; +91 9649596982</span>
+        <span>&#9993; Support@aasthacapitalfinance.com</span>
         <span>&#9679; Aastha Capital Finance, India</span>
     </div>
     <div class="footer-bar"></div>
