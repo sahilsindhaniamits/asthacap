@@ -133,14 +133,14 @@ ul li { font-size: 10px; margin-bottom: 3px; color: #444; line-height: 1.45; }
         <div class="company-info">
             <h1>AASTHA CAPITAL FINANCE</h1>
             <div class="tagline">Trusted Financial Solutions for Every Need</div>
-            <div class="reg-info">CIN: U65910RJ2024PTC012345 | RBI Reg. No: N-05.03XXX</div>
+            <div class="reg-info">GSTIN: XXXXXXXXXXXXX</div>
         </div>
     </div>
     <div class="header-right">
         <div class="ref-no">ACF/AL/{{ date('Y') }}/{{ str_pad($details->id, 5, '0', STR_PAD_LEFT) }}</div>
         <div class="meta">
             <span>Head Office: Jaipur, Rajasthan</span>
-            <span>GSTIN: 08XXXXXXXXXXXXXXXXX</span>
+            <span>GSTIN: XXXXXXXXXXXXX</span>
         </div>
     </div>
 </div>
