@@ -1,72 +1,36 @@
-
 @extends('layout.admin.master')
 
-@section('style')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/basic.min.css">
-@endsection
-
-
 @section('content')
-<div class="col-md-12 grid-margin stretch-card">
-    <div class="card">
-        <div class="card-body">
-            <h4 class="card-title">Send Messagge</h4>
-            <!-- <p class="card-description">
-                Basic form layout
-            </p> -->
-            <form class="forms-sample" action="{{route('admin.message.send')}}" method="POST">
-                @csrf
-                <div class="row">
-                    <div class="col-md-5 ">
-                        <div class="form-group">
-                            <label for="exampleInputUsername1">Number</label>
-                            <input type="text" class="form-control" name="mobile" placeholder="Phone">
-                        </div>
-                    </div>
-                   
-                </div>
-                <div class="row">
-                    <div class="col-md-12 ">
-                        <label>Message</label>
-                           <textarea class="form-control bg-light border-0" rows="4" placeholder="Message" name="message" style="
-    width: 444px;
-    height: 190px;
-"></textarea>
-                    </div>
-                </div>
-
-               
-                <button type="submit" class="btn btn-primary me-2">Send</button>
-            </form>
-        </div>
+<!-- Page Header -->
+<div class="flex items-center justify-between mb-5">
+    <div>
+        <h1 class="text-xl font-bold text-gray-800">Send SMS</h1>
+        <p class="text-sm text-gray-400">Send a message to a customer</p>
     </div>
 </div>
 
-
-@endsection
-
-
-@section('script')
-<script src="/js/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js"></script>
-<script>
-    const CSRF_TOKEN = '{{ csrf_token() }}';
-</script>
-<script>
-    var images = new Dropzone(".dropzone", {
-        url: "{{ route('admin.storage.upload', ['banner']) }}",
-        autoProcessQueue: true,
-        uploadMultiple: true,
-        maxFilesize: 5,
-        maxFiles: 3,
-        acceptedFiles: ".jpeg,.jpg,.png,.gif",
-    });
-    images.on("sending", function(file, xhr, formData) {
-        formData.append("_token", CSRF_TOKEN);
-    });
-    images.on("success", function(file, response) {
-        if (response.status)
-            $('.image').val(response.url)
-    });
-</script>
+<!-- Form Card -->
+<div class="max-w-xl">
+    <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+        <div class="px-6 py-4 border-b border-gray-50">
+            <h3 class="text-sm font-semibold text-primary-600 uppercase tracking-wider flex items-center gap-2">
+                <i class="fas fa-sms"></i> Compose Message
+            </h3>
+        </div>
+        <form action="{{ route('admin.message.send') }}" method="POST" class="p-6">
+            @csrf
+            <div class="mb-4">
+                <label class="text-xs font-medium text-gray-500 mb-1 block">Phone Number</label>
+                <input type="text" name="mobile" required class="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none transition-all" placeholder="Enter phone number">
+            </div>
+            <div class="mb-5">
+                <label class="text-xs font-medium text-gray-500 mb-1 block">Message</label>
+                <textarea name="message" rows="5" required class="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none transition-all resize-none" placeholder="Type your message here..."></textarea>
+            </div>
+            <button type="submit" class="w-full px-5 py-2.5 text-sm font-medium text-white bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg hover:from-primary-600 hover:to-primary-700 shadow-sm transition-all">
+                <i class="fas fa-paper-plane mr-2"></i>Send Message
+            </button>
+        </form>
+    </div>
+</div>
 @endsection

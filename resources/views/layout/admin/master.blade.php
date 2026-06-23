@@ -1,88 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Aastha Capital Finance - Admin</title>
-  <!-- plugins:css -->
-  <link rel="stylesheet" href="/vendors/mdi/css/materialdesignicons.min.css">
-  <link rel="stylesheet" href="/vendors/css/vendor.bundle.base.css">
-  <link rel="stylesheet" href="/css/vertical-layout-light/style.css">
-  <!-- Admin Dark Theme Override -->
-  <link rel="stylesheet" href="/css/admin-override.css">
-  <!-- endinject -->
-  <link rel="shortcut icon" href="/images/logo_loan.png"/>
-  <!-- Font Awesome - loaded async -->
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></noscript>
-
-  <style>
-    .dropzone {
-
-      justify-content: center;
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      min-height: 150px;
-      border: 3px dotted lightgray;
-    }
-  </style>
-  @yield('style')
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aastha Capital Finance - Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="shortcut icon" href="/images/logo_loan.png"/>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { 50: '#eef2ff', 100: '#e0e7ff', 200: '#c7d2fe', 300: '#a5b4fc', 400: '#818cf8', 500: '#6366f1', 600: '#4f46e5', 700: '#4338ca', 800: '#3730a3', 900: '#312e81' },
+                        accent: { 50: '#ecfeff', 100: '#cffafe', 200: '#a5f3fc', 300: '#67e8f9', 400: '#22d3ee', 500: '#06b6d4', 600: '#0891b2', 700: '#0e7490' },
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+        .sidebar-link.active { background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff; }
+        .sidebar-link:hover:not(.active) { background: #f1f5f9; color: #4f46e5; }
+        .stat-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .stat-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); }
+        @media (max-width: 1024px) { .sidebar { transform: translateX(-100%); } .sidebar.open { transform: translateX(0); } }
+    </style>
+    @yield('style')
 </head>
+<body class="bg-gray-50 min-h-screen">
 
-<body>
-  <div class="container-scroller">
+    <div class="flex">
+        <!-- Sidebar -->
+        @include('layout.admin.sidebar')
 
-    @include('layout.admin.header')
-    <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
-      <!-- partial:/partials/_settings-panel.html -->
+        <!-- Main Content -->
+        <div class="flex-1 lg:ml-64">
+            <!-- Header -->
+            @include('layout.admin.header')
 
+            <!-- Page Content -->
+            <main class="p-4 lg:p-6 mt-16">
+                @yield('content')
+            </main>
 
-      <!-- partial -->
-      <!-- partial:/partials/_sidebar.html -->
-      @include('layout.admin.sidebar')
-      <!-- partial -->
-      <div class="main-panel">
-      
-       
-
-          @yield('content')
-        
-        <!-- content-wrapper ends -->
-        <!-- partial:/partials/_footer.html -->
-        <footer class="footer">
-          <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2025 <a href="#" target="_blank"></a>Prime Finance India.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Copyright © 2025. All rights reserved by Prime Finance India</span>
-          </div>
-        </footer>
-        <!-- partial -->
-      </div>
-      <!-- main-panel ends -->
+            <!-- Footer -->
+            <footer class="px-6 py-4 text-center text-sm text-gray-400 border-t border-gray-100">
+                &copy; {{ date('Y') }} Aastha Capital Finance. All rights reserved.
+            </footer>
+        </div>
     </div>
-    <!-- page-body-wrapper ends -->
-  </div>
-  <!-- container-scroller -->
-  <!-- plugins:js -->
-  <script src="/vendors/js/vendor.bundle.base.js" defer></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
-  <script src="/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js" defer></script>
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
-  <script src="/js/off-canvas.js" defer></script>
-  <script src="/js/hoverable-collapse.js" defer></script>
-  <script src="/js/template.js" defer></script>
 
-  <script src="/js/sweetalert.js" defer></script>
-  <script>
-    const CSRF_TOKEN = "{{ csrf_token() }}"
-  </script>
-
-  @yield('script')
+    <script>
+        const CSRF_TOKEN = "{{ csrf_token() }}";
+        
+        // Mobile sidebar toggle
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('open');
+            document.getElementById('sidebarOverlay').classList.toggle('hidden');
+        }
+    </script>
+    @yield('script')
 </body>
-
 </html>
