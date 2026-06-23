@@ -2,6 +2,13 @@
    Aastha Capital - Admin Panel Dark Theme Override
    ================================================ */
 
+/* Performance: reduce transitions & animations */
+.sidebar .nav .nav-item .nav-link,
+.btn, .card, .table tbody tr,
+.navbar .nav-link, .dropdown-item {
+    transition: background 0.15s ease, color 0.15s ease !important;
+}
+
 /* Base */
 body { background: #0f172a !important; color: #e2e8f0 !important; }
 .container-scroller { background: #0f172a !important; }
@@ -19,7 +26,7 @@ body { background: #0f172a !important; color: #e2e8f0 !important; }
 .sidebar .nav .nav-item.active > .nav-link { background: rgba(99,102,241,0.2) !important; color: #fff !important; }
 
 /* Navbar/Header */
-.navbar { background: rgba(15,23,42,0.95) !important; backdrop-filter: blur(12px) !important; border-bottom: 1px solid rgba(255,255,255,0.08) !important; box-shadow: none !important; }
+.navbar { background: #0d1225 !important; border-bottom: 1px solid rgba(255,255,255,0.08) !important; box-shadow: none !important; }
 .navbar .navbar-brand-wrapper { background: transparent !important; }
 .navbar .navbar-menu-wrapper { background: transparent !important; }
 .navbar .navbar-brand-wrapper .navbar-brand img { max-height: 40px !important; }
@@ -56,7 +63,7 @@ label { color: #94a3b8 !important; }
 
 /* Buttons */
 .btn-primary { background: linear-gradient(135deg, #6366f1, #8b5cf6) !important; border: none !important; border-radius: 0.5rem !important; box-shadow: 0 2px 10px rgba(99,102,241,0.3) !important; }
-.btn-primary:hover { box-shadow: 0 4px 20px rgba(99,102,241,0.5) !important; transform: translateY(-1px); }
+.btn-primary:hover { box-shadow: 0 4px 20px rgba(99,102,241,0.5) !important; }
 .btn-outline-primary { border-color: #6366f1 !important; color: #818cf8 !important; border-radius: 0.5rem !important; }
 .btn-outline-primary:hover { background: #6366f1 !important; color: #fff !important; }
 .btn-outline-info { border-color: #06b6d4 !important; color: #22d3ee !important; border-radius: 0.5rem !important; }
