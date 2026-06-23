@@ -80,16 +80,16 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
 .terms-section { margin: 5px 0; }
 .terms-section h4 { font-size: 9.5px; font-weight: 700; color: #1e1b4b; margin-bottom: 3px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #e5e7eb; padding-bottom: 2px; }
 .terms-section ul { padding-left: 12px; margin: 3px 0; }
-.terms-section ul li { font-size: 9px; margin-bottom: 2px; color: #444; line-height: 1.4; }
+.terms-section ul li { font-size: 8.5px; margin-bottom: 1.5px; color: #444; line-height: 1.3; }
 
 /* Signature area */
-.signature-area { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 14px; padding-top: 8px; border-top: 1px dashed #d1d5db; }
+.signature-area { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 10px; padding-top: 6px; border-top: 1px dashed #d1d5db; }
 .sig-block { text-align: center; width: 30%; }
-.sig-line { border-bottom: 1.5px solid #1e1b4b; height: 24px; margin-bottom: 3px; }
+.sig-line { border-bottom: 1.5px solid #1e1b4b; height: 20px; margin-bottom: 2px; }
 .sig-block p { font-size: 8px; font-weight: 700; color: #1e1b4b; }
 .sig-block .sig-label { font-size: 7px; color: #666; font-weight: 400; display: block; }
 .stamp-block { text-align: center; width: 25%; position: relative; }
-.stamp-block img { height: 90px; opacity: 0.85; position: relative; margin-bottom: -10px; }
+.stamp-block img { height: 70px; opacity: 0.85; position: relative; margin-bottom: -8px; }
 .stamp-block p { font-size: 7px; color: #666; margin-top: 2px; }
 .auth-sig-block { text-align: center; width: 30%; }
 .auth-sig-block .sig-line { border-bottom-style: dashed; }
