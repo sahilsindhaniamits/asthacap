@@ -33,10 +33,10 @@ class DasboardController extends Controller
     public function index()
     {
       
-       $loan_requests=LoanRequest::get()->count();
-       $loan_amount= LoanRequest::sum('loan_amount');
-       $a_amount= ApprovedLeads::sum('sanctionamt');
-       $per=($a_amount/$loan_amount )*100;
+       $loan_requests = LoanRequest::count();
+       $loan_amount = LoanRequest::sum('loan_amount');
+       $a_amount = LoanRequest::where('status', 1)->sum('loan_amount');
+       $per = $loan_amount > 0 ? round(($a_amount / $loan_amount) * 100, 1) : 0;
        
         return view('admin.dashboard.index',compact('loan_requests','loan_amount','a_amount','per'));
     }
