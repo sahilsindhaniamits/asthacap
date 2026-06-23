@@ -227,3 +227,62 @@ a { text-decoration: none; transition: all 0.3s ease; }
     color: #94a3b8; border-radius: 0.75rem; font-size: 0.8rem; font-weight: 500; transition: all 0.3s ease;
 }
 .loan-type-btn:hover, .loan-type-btn.active { background: rgba(99,102,241,0.3); border-color: #6366f1; color: #fff; }
+
+
+/* ---- Stats Slider ---- */
+.stats-slider {
+    background: linear-gradient(135deg, rgba(99,102,241,0.08), rgba(6,182,212,0.08));
+    border-top: 1px solid rgba(99,102,241,0.15);
+    border-bottom: 1px solid rgba(6,182,212,0.15);
+    padding: 1rem 0;
+    overflow: hidden;
+}
+.stats-scroll {
+    display: flex;
+    gap: 2.5rem;
+    width: max-content;
+    animation: statsScroll 25s linear infinite;
+}
+.stats-scroll-reverse {
+    animation: statsScrollReverse 25s linear infinite;
+}
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    white-space: nowrap;
+}
+.stat-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(99,102,241,0.3), rgba(6,182,212,0.3));
+    color: #06b6d4;
+    font-size: 0.85rem;
+}
+.stat-text {
+    color: #e2e8f0;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+}
+@keyframes statsScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+@keyframes statsScrollReverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+/* ---- Testimonial Section ---- */
+.testimonial-section {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+    background: linear-gradient(135deg, #0f172a, #1e1b4b 30%, #312e81 50%, #1e1b4b 70%, #0f172a);
+    border-top: 1px solid rgba(99,102,241,0.1);
+    border-bottom: 1px solid rgba(6,182,212,0.1);
+}

@@ -83,6 +83,8 @@ class DasboardController extends Controller
         // $data=ApprovedLeads::where('appno',$data['leadId'])->first();
         //   dd($data);
      
+        if(!$data) return redirect()->back()->with('error','Lead not found');
+        
         return view('admin.sancation_form',compact('data'));
      
         

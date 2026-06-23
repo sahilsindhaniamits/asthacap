@@ -116,6 +116,25 @@
     </div>
 </section>
 
+<!-- ====== STATS SLIDER 1 ====== -->
+<section class="stats-slider" style="overflow:hidden;">
+    <div class="stats-scroll">
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-users"></i></span><span class="stat-text">10000+ Customers</span></div>
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-rupee-sign"></i></span><span class="stat-text">₹50Cr+ Disbursed</span></div>
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-clock"></i></span><span class="stat-text">24hr Approval</span></div>
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-star"></i></span><span class="stat-text">4.8/5 Rating</span></div>
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-university"></i></span><span class="stat-text">50+ Partner Banks</span></div>
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-map-marker-alt"></i></span><span class="stat-text">PAN India</span></div>
+        <!-- Duplicate for seamless loop -->
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-users"></i></span><span class="stat-text">10000+ Customers</span></div>
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-rupee-sign"></i></span><span class="stat-text">₹50Cr+ Disbursed</span></div>
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-clock"></i></span><span class="stat-text">24hr Approval</span></div>
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-star"></i></span><span class="stat-text">4.8/5 Rating</span></div>
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-university"></i></span><span class="stat-text">50+ Partner Banks</span></div>
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-map-marker-alt"></i></span><span class="stat-text">PAN India</span></div>
+    </div>
+</section>
+
 <!-- ====== LOAN TYPES SECTION ====== -->
 <section class="section-padding section-dark">
     <div class="orb" style="width:350px;height:350px;background:#6366f1;top:10%;right:0;"></div>
@@ -313,6 +332,25 @@
     </div>
 </section>
 
+<!-- ====== STATS SLIDER 2 (Reverse) ====== -->
+<section class="stats-slider" style="overflow:hidden;">
+    <div class="stats-scroll stats-scroll-reverse">
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-check-circle"></i></span><span class="stat-text">Zero Hidden Charges</span></div>
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-mobile-alt"></i></span><span class="stat-text">100% Digital</span></div>
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-percentage"></i></span><span class="stat-text">Low EMI Options</span></div>
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-university"></i></span><span class="stat-text">All Banks Covered</span></div>
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-thumbs-up"></i></span><span class="stat-text">Pre-Approved</span></div>
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-user-tie"></i></span><span class="stat-text">Dedicated Manager</span></div>
+        <!-- Duplicate for seamless loop -->
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-check-circle"></i></span><span class="stat-text">Zero Hidden Charges</span></div>
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-mobile-alt"></i></span><span class="stat-text">100% Digital</span></div>
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-percentage"></i></span><span class="stat-text">Low EMI Options</span></div>
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-university"></i></span><span class="stat-text">All Banks Covered</span></div>
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-thumbs-up"></i></span><span class="stat-text">Pre-Approved</span></div>
+        <div class="stat-item"><span class="stat-icon"><i class="fas fa-user-tie"></i></span><span class="stat-text">Dedicated Manager</span></div>
+    </div>
+</section>
+
 <!-- ====== WHY CHOOSE US ====== -->
 <section class="section-padding section-dark">
     <div class="orb" style="width:300px;height:300px;background:#8b5cf6;bottom:10%;left:5%;"></div>
@@ -364,7 +402,7 @@
 </section>
 
 <!-- ====== TESTIMONIALS ====== -->
-<section class="section-padding section-gradient">
+<section class="section-padding testimonial-section">
     <div class="container position-relative" style="z-index:2;">
         <div class="text-center mb-4">
             <span class="badge-glass text-info mb-3">Testimonials</span>
