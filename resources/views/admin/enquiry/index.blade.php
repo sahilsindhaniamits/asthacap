@@ -226,6 +226,7 @@ document.querySelectorAll('.approve').forEach(btn => {
             document.getElementById('approve_message').value = d.message || '';
             document.getElementById('UTOKEN').value = d.lead_token || '';
             document.getElementById('appno').value = d.lead_token || '';
+            document.getElementById('adhaar_number').value = d.aadhar_number || '';
         }).catch(() => alert('Failed to load'));
     });
 });
