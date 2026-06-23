@@ -139,7 +139,7 @@ ul li { font-size: 9.5px; margin-bottom: 2px; color: #444; line-height: 1.4; }
     <div class="header-right">
         <div class="ref-no">ACF/AL/{{ date('Y') }}/{{ str_pad($details->id, 5, '0', STR_PAD_LEFT) }}</div>
         <div class="meta">
-            <span>Head Office: Jaipur, Rajasthan</span>
+            <span>Head Office: SGNR, Rajasthan</span>
             <span>GSTIN: XXXXXXXXXXXXX</span>
         </div>
     </div>
@@ -217,7 +217,7 @@ ul li { font-size: 9.5px; margin-bottom: 2px; color: #444; line-height: 1.4; }
         <li>All required documentation must be completed within 15 days from date of this letter.</li>
         <li>Loan sanctioned up to 70% of market value of collateral (if applicable).</li>
         <li>The Company reserves the right to cancel or modify this approval at its sole discretion.</li>
-        <li>All disputes subject to exclusive jurisdiction of courts in Jaipur, Rajasthan.</li>
+        <li>All disputes subject to exclusive jurisdiction of courts in SGNR, Rajasthan.</li>
     </ul>
 
     <!-- Signature Area -->
@@ -251,7 +251,7 @@ ul li { font-size: 9.5px; margin-bottom: 2px; color: #444; line-height: 1.4; }
 <div class="footer">
     <div class="footer-main">
         <div class="footer-left">
-            <span><strong>Regd. Office:</strong> Jaipur, Rajasthan, India</span>
+            <span><strong>Regd. Office:</strong> SGNR, Rajasthan, India</span>
             <span>Phone: +91 9649596982</span>
         </div>
         <div class="footer-center">

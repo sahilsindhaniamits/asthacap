@@ -142,7 +142,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
     <div class="header-right">
         <div class="ref-no">ACF/SL/{{ date('Y') }}/{{ str_pad($obj->id, 5, '0', STR_PAD_LEFT) }}</div>
         <div class="meta">
-            <span>Head Office: Jaipur, Rajasthan</span>
+            <span>Head Office: SGNR, Rajasthan</span>
             <span>GSTIN: XXXXXXXXXXXXX</span>
         </div>
     </div>
@@ -227,7 +227,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
             <li>The sanctioned amount shall not exceed 70% of current market value of collateral (if applicable).</li>
             <li>The Company reserves the right to modify, suspend or cancel this sanction at its sole discretion without prior notice.</li>
             <li>Returned, disputed, unauthorized or fraudulent transactions shall not be entertained.</li>
-            <li>All disputes are subject to exclusive jurisdiction of courts in Jaipur, Rajasthan.</li>
+            <li>All disputes are subject to exclusive jurisdiction of courts in SGNR, Rajasthan.</li>
         </ul>
     </div>
 
@@ -267,7 +267,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
 <div class="footer">
     <div class="footer-main">
         <div class="footer-left">
-            <span><strong>Regd. Office:</strong> Jaipur, Rajasthan, India</span>
+            <span><strong>Regd. Office:</strong> SGNR, Rajasthan, India</span>
             <span>Phone: +91 9649596982</span>
         </div>
         <div class="footer-center">
