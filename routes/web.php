@@ -82,6 +82,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/sanction', [DasboardController::class, 'sanctio_letter_page'])->name('admin.sanction_page');
     Route::get('/edit-sanction', [DasboardController::class, 'edit_sanctio_letter_page'])->name('admin.edit_sanction_page');
     Route::post('/create-sanction', [DasboardController::class, 'create_sanction_letter'])->name('admin.create_sanction');
+    Route::post('/update-sanction', [DasboardController::class, 'update_sanction_letter'])->name('admin.update_sanction');
     Route::get('/view-pdf', [DasboardController::class, 'view_pdf'])->name('admin.view_pdf');
     Route::get('/print-sanction', [DasboardController::class, 'print_sanction_pdf'])->name('admin.print_sanction_pdf');
     Route::get('/print-sanction-page', [DasboardController::class, 'print_sanction_pdf'])->name('admin.print_sanction_page');

@@ -38,11 +38,17 @@
                     <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">#</th>
                     <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Lead Token</th>
                     <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Name</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Email</th>
                     <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Phone</th>
                     <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Loan Type</th>
                     <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Amount</th>
                     <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Sanction Amt</th>
                     <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">EMI</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Tenure</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">ROI</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Total</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Security</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Info</th>
                     <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
                     <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Date</th>
                 </tr>
@@ -76,6 +82,7 @@
                     <td class="px-4 py-3 text-gray-500">{{ $index + 1 }}</td>
                     <td class="px-4 py-3 font-mono text-xs text-primary-600">{{ $value->lead_token }}</td>
                     <td class="px-4 py-3 font-medium text-gray-800">{{ $value->name }}</td>
+                    <td class="px-4 py-3 text-gray-500 text-xs">{{ $value->email }}</td>
                     <td class="px-4 py-3 text-gray-600">{{ $value->phone }}</td>
                     <td class="px-4 py-3">
                         <span class="inline-flex px-2 py-0.5 text-[11px] font-medium rounded-full bg-primary-50 text-primary-600">{{ $value->loan_type }}</span>
@@ -83,6 +90,11 @@
                     <td class="px-4 py-3 font-medium text-gray-700">&#8377;{{ number_format($value->loan_amount) }}</td>
                     <td class="px-4 py-3 font-medium text-emerald-600">&#8377;{{ number_format($value->sanctionamt) }}</td>
                     <td class="px-4 py-3 text-gray-600">&#8377;{{ number_format($value->emiamt) }}</td>
+                    <td class="px-4 py-3 text-gray-600">{{ $value->loant ?? '-' }}</td>
+                    <td class="px-4 py-3 text-gray-600">{{ $value->roi ?? '-' }}%</td>
+                    <td class="px-4 py-3 text-gray-600">&#8377;{{ number_format($value->totalv ?? 0) }}</td>
+                    <td class="px-4 py-3 text-gray-500 text-xs">{{ $value->security ?? '-' }}</td>
+                    <td class="px-4 py-3 text-gray-500 text-xs max-w-[100px] truncate" title="{{ $value->message }}">{{ $value->message ?? '-' }}</td>
                     <td class="px-4 py-3">
                         @if($value->status == 1)
                         <span class="inline-flex items-center gap-1 px-2 py-0.5 text-[11px] font-medium rounded-full bg-emerald-50 text-emerald-600">

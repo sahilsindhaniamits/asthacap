@@ -43,6 +43,7 @@
                     <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Loan Type</th>
                     <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Amount</th>
                     <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">State</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Info</th>
                     <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
                     <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Date</th>
                 </tr>
@@ -83,6 +84,7 @@
                     </td>
                     <td class="px-4 py-3 font-medium text-gray-700">&#8377;{{ number_format($value->loan_amount) }}</td>
                     <td class="px-4 py-3 text-gray-500 text-xs">{{ $value->state }}</td>
+                    <td class="px-4 py-3 text-gray-500 text-xs max-w-[150px] truncate" title="{{ $value->message }}">{{ $value->message }}</td>
                     <td class="px-4 py-3">
                         @if($value->status == 1)
                         <span class="inline-flex items-center gap-1 px-2 py-0.5 text-[11px] font-medium rounded-full bg-emerald-50 text-emerald-600">

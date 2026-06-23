@@ -14,8 +14,9 @@
 
 <!-- Form Card -->
 <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
-    <form action="{{ route('admin.create.sanction_letter') }}" method="POST">
+    <form action="{{ route('admin.update_sanction') }}" method="POST">
         @csrf
+        <input type="hidden" name="sanction_id" value="{{ $data['id'] }}">
 
         <div class="px-6 py-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>

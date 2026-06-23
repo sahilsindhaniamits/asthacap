@@ -14,7 +14,7 @@
 
 <!-- Form Card -->
 <div class="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
-    <form action="{{ route('admin.create.sanction_letter') }}" method="POST">
+    <form action="{{ route('admin.create_sanction') }}" method="POST">
         @csrf
 
         <!-- Loan Details -->

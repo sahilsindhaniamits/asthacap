@@ -117,6 +117,14 @@ class DasboardController extends Controller
         return redirect()->back()->with(['success' =>'Sanction Letter Created😊 ']);
         
     }
+    
+    public function update_sanction_letter(Request $request){
+        $data = $request->all();
+        $id = $data['sanction_id'];
+        unset($data['_token'], $data['sanction_id']);
+        SanctionAmount::where('id', $id)->update($data);
+        return redirect()->back()->with(['success' => 'Sanction Letter Updated']);
+    }
     public function get_lead_details($id)
     {
         $obj=LoanRequest::where('id',$id)->first();
