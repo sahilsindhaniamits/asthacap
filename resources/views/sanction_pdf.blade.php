@@ -154,7 +154,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
     <!-- Document Title -->
     <div class="doc-title">
         <h2>Loan Sanction Letter</h2>
-        <div class="doc-id">Document ID: ACF-SL-{{ date('Ymd') }}-{{ str_pad($obj->id, 5, '0', STR_PAD_LEFT) }} | Generated: {{ date('d M Y, h:i A') }}</div>
+        <div class="doc-id">Document ID: ACF-SL-{{ date('Ymd') }}-{{ str_pad($obj->id, 5, '0', STR_PAD_LEFT) }}</div>
     </div>
 
     <!-- Applicant Info Grid -->

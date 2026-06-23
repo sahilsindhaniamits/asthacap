@@ -6,7 +6,7 @@
 <style>
 @page { size: A4; margin: 0; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1a2e; font-size: 11.5px; line-height: 1.55; }
+body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1a2e; font-size: 11px; line-height: 1.5; }
 
 .print-btn { position: fixed; top: 12px; right: 18px; padding: 8px 18px; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; z-index: 9999; box-shadow: 0 4px 12px rgba(99,102,241,0.4); }
 @media print { .print-btn { display: none; } }
@@ -24,7 +24,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
 .top-bar { height: 5px; background: linear-gradient(90deg, #6366f1, #06b6d4, #8b5cf6, #6366f1); flex-shrink: 0; }
 
 /* Header */
-.header { padding: 18px 40px 14px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; position: relative; border-bottom: none; }
+.header { padding: 14px 40px 12px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; position: relative; border-bottom: none; }
 .header::after { content: ''; position: absolute; bottom: 0; left: 40px; right: 40px; height: 2px; background: linear-gradient(90deg, #6366f1, #06b6d4, #8b5cf6); border-radius: 2px; }
 .logo-area { display: flex; align-items: center; gap: 12px; }
 .logo-area img { height: 50px; }
@@ -37,10 +37,10 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
 .header-right .meta span { display: block; margin: 1px 0; }
 
 /* Content */
-.content { padding: 16px 40px 10px; position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; }
+.content { padding: 12px 40px 8px; position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; }
 
 /* Document Title */
-.doc-title { text-align: center; margin: 10px 0 16px; }
+.doc-title { text-align: center; margin: 8px 0 12px; }
 .doc-title h2 { font-size: 15px; color: #fff; display: inline-block; padding: 6px 30px; background: linear-gradient(135deg, #1e1b4b, #312e81); border-radius: 3px; letter-spacing: 1.5px; text-transform: uppercase; }
 .doc-title .doc-id { font-size: 8px; color: #888; margin-top: 4px; letter-spacing: 0.5px; }
 
@@ -77,16 +77,16 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
 .section-heading { font-size: 12px; font-weight: 700; color: #1e1b4b; margin: 10px 0 5px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #e5e7eb; padding-bottom: 3px; }
 
 ul { padding-left: 16px; margin: 4px 0 8px; }
-ul li { font-size: 10px; margin-bottom: 3px; color: #444; line-height: 1.45; }
+ul li { font-size: 9.5px; margin-bottom: 2px; color: #444; line-height: 1.4; }
 
 /* Signature area */
-.signature-area { display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto; padding-top: 14px; border-top: 1px dashed #d1d5db; }
+.signature-area { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 14px; padding-top: 8px; border-top: 1px dashed #d1d5db; }
 .sig-block { text-align: center; width: 30%; }
-.sig-line { border-bottom: 1.5px solid #1e1b4b; height: 35px; margin-bottom: 4px; }
+.sig-line { border-bottom: 1.5px solid #1e1b4b; height: 24px; margin-bottom: 4px; }
 .sig-block p { font-size: 9px; font-weight: 700; color: #1e1b4b; }
 .sig-block .sig-label { font-size: 8px; color: #666; font-weight: 400; display: block; }
 .stamp-block { text-align: center; width: 25%; }
-.stamp-block img { height: 48px; opacity: 0.8; }
+.stamp-block img { height: 35px; opacity: 0.8; }
 .stamp-block p { font-size: 7.5px; color: #666; margin-top: 2px; }
 .auth-sig-block { text-align: center; width: 30%; }
 .auth-sig-block .sig-line { border-bottom-style: dashed; }
@@ -151,7 +151,7 @@ ul li { font-size: 10px; margin-bottom: 3px; color: #444; line-height: 1.45; }
     <!-- Document Title -->
     <div class="doc-title">
         <h2>Loan Approval Letter</h2>
-        <div class="doc-id">Document ID: ACF-AL-{{ date('Ymd') }}-{{ str_pad($details->id, 5, '0', STR_PAD_LEFT) }} | Generated: {{ date('d M Y, h:i A') }}</div>
+        <div class="doc-id">Document ID: ACF-AL-{{ date('Ymd') }}-{{ str_pad($details->id, 5, '0', STR_PAD_LEFT) }}</div>
     </div>
 
     <!-- Applicant Info Grid -->
