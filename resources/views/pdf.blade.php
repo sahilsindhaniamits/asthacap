@@ -229,8 +229,8 @@ ul li { font-size: 9.5px; margin-bottom: 2px; color: #444; line-height: 1.4; }
             <span class="sig-label">Date: ___/___/______</span>
         </div>
         <div class="stamp-block">
-            <img src="{{ asset('images/aastha_capital_finance_logo.png') }}" alt="Company Seal">
-            <p>Company Seal</p>
+            <img src="{{ asset('images/stampacf.png') }}" alt="Company Seal">
+            <p>Verified By:</p>
         </div>
         <div class="auth-sig-block">
             <div class="sig-line"></div>
