@@ -89,7 +89,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
 .sig-block p { font-size: 8px; font-weight: 700; color: #1e1b4b; }
 .sig-block .sig-label { font-size: 7px; color: #666; font-weight: 400; display: block; }
 .stamp-block { text-align: center; width: 25%; }
-.stamp-block img { height: 32px; opacity: 0.8; }
+.stamp-block img { height: 55px; opacity: 0.9; }
 .stamp-block p { font-size: 7px; color: #666; margin-top: 2px; }
 .auth-sig-block { text-align: center; width: 30%; }
 .auth-sig-block .sig-line { border-bottom-style: dashed; }

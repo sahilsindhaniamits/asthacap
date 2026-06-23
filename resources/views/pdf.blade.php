@@ -86,7 +86,7 @@ ul li { font-size: 9.5px; margin-bottom: 2px; color: #444; line-height: 1.4; }
 .sig-block p { font-size: 9px; font-weight: 700; color: #1e1b4b; }
 .sig-block .sig-label { font-size: 8px; color: #666; font-weight: 400; display: block; }
 .stamp-block { text-align: center; width: 25%; }
-.stamp-block img { height: 35px; opacity: 0.8; }
+.stamp-block img { height: 55px; opacity: 0.9; }
 .stamp-block p { font-size: 7.5px; color: #666; margin-top: 2px; }
 .auth-sig-block { text-align: center; width: 30%; }
 .auth-sig-block .sig-line { border-bottom-style: dashed; }
