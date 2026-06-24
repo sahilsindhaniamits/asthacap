@@ -76,6 +76,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     // Approved Leads
     Route::get('/approved-leads', [DasboardController::class, 'all_approved_leads'])->name('admin.loan_request_approved');
     Route::post('/edit-approve-lead', [DasboardController::class, 'edit_approved_submit'])->name('admin.edit_approve_lead.submit');
+    Route::get('/edit-approve-lead-details', [DasboardController::class, 'approve_lead_details'])->name('admin.edit_approve_lead');
     Route::post('/approve-lead-details', [DasboardController::class, 'approve_lead_details'])->name('admin.approve_lead_details');
 
     // Sanction Letter
