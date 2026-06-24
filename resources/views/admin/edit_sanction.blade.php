@@ -49,7 +49,7 @@
             </div>
             <div>
                 <label class="text-xs font-medium text-gray-500 mb-1 block">EMI</label>
-                <input type="text" name="emi" value="{{ $data['emi_amount'] }}" class="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none transition-all">
+                <input type="text" name="emi" value="{{ $data['emi'] ?? $data['emi_amount'] }}" class="w-full px-3 py-2.5 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none transition-all">
             </div>
             <div>
                 <label class="text-xs font-medium text-gray-500 mb-1 block">EMI Amount</label>
