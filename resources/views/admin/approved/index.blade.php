@@ -58,7 +58,7 @@
                 <tr class="hover:bg-gray-50/50 transition-colors">
                     <!-- Actions -->
                     <td class="px-4 py-3">
-                        <div class="flex flex-wrap gap-1.5">
+                        <div class="grid grid-cols-2 gap-1.5 w-[120px]">
                             <button type="button" class="approve_edit inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-medium rounded-md bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors" data-lead-id="{{ $value->loan_request_id }}">
                                 <i class="fas fa-edit text-[10px]"></i> Edit
                             </button>
