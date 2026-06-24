@@ -119,9 +119,8 @@ class DasboardController extends Controller
     }
     
     public function update_sanction_letter(Request $request){
-        $data = $request->all();
-        $id = $data['sanction_id'];
-        unset($data['_token'], $data['sanction_id']);
+        $data = $request->only(['sanctioned_amount','lead_token','date','applicant_name','father_name','mobile','loan_type','emi','emi_amount','payee_name','bank_number','account_number','ifsc','account_type']);
+        $id = $request->input('sanction_id');
         
         SanctionAmount::where('id', $id)->update($data);
         return redirect()->back()->with(['success' => 'Sanction Letter Updated']);
