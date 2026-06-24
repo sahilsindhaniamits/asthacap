@@ -6,7 +6,7 @@
 @section('content')
 
 <!-- Page Header -->
-<section class="position-relative overflow-hidden" class="page-header">
+<section class="position-relative overflow-hidden" style="padding-top:8rem;padding-bottom:4rem;">
     <div class="position-absolute top-0 start-0 w-100 h-100 gradient-hero"></div>
     <div class="orb" style="width:250px;height:250px;background:#06b6d4;top:20%;right:10%;"></div>
     <div class="container position-relative text-center" style="z-index:2;">
@@ -33,7 +33,7 @@
                             </div>
                             <div>
                                 <h6 class="text-white fw-semibold mb-1">Call Us</h6>
-                                <a href="tel:+919999999999" class="text-muted-custom small">+91 99999 99999</a>
+                                <a href="tel:+919649596982" class="text-muted-custom small">+91 9649596982</a>
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                             </div>
                             <div>
                                 <h6 class="text-white fw-semibold mb-1">Email Us</h6>
-                                <a href="mailto:info@aasthacapital.com" class="text-muted-custom small">info@aasthacapital.com</a>
+                                <a href="mailto:Support@aasthacapitalfinance.com" class="text-muted-custom small">Support@aasthacapitalfinance.com</a>
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                             </div>
                             <div>
                                 <h6 class="text-white fw-semibold mb-1">Visit Us</h6>
-                                <p class="text-muted-custom small mb-0">Aastha Capital Finance<br>India</p>
+                                <p class="text-muted-custom small mb-0">8, Near Sukharia Circle,<br>SGNR, RAJ. 335001</p>
                             </div>
                         </div>
                     </div>

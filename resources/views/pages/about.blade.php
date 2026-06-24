@@ -6,7 +6,7 @@
 @section('content')
 
 <!-- Page Header -->
-<section class="position-relative overflow-hidden" class="page-header">
+<section class="position-relative overflow-hidden" style="padding-top:8rem;padding-bottom:4rem;">
     <div class="position-absolute top-0 start-0 w-100 h-100 gradient-hero"></div>
     <div class="orb" style="width:250px;height:250px;background:#6366f1;top:20%;right:10%;"></div>
     <div class="container position-relative text-center" style="z-index:2;">
