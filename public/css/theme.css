@@ -202,6 +202,41 @@ a { text-decoration: none; transition: all 0.3s ease; }
     }
 }
 
+/* ---- Mobile Responsiveness ---- */
+@media (max-width: 767.98px) {
+    .display-4 { font-size: 2rem; }
+    .display-5 { font-size: 1.75rem; }
+    .display-6 { font-size: 1.5rem; }
+    .section-padding { padding: 2rem 0; }
+    .glass-card { border-radius: 1rem; }
+    .glass-card:hover { transform: none; box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+    .btn-gradient, .btn-outline-glass { width: 100%; text-align: center; padding: 0.85rem 1.5rem; }
+    .icon-box { width: 48px; height: 48px; }
+    .stats-slider { padding: 0.75rem 0; }
+    .stat-item { gap: 0.4rem; }
+    .stat-icon { width: 28px; height: 28px; font-size: 0.7rem; }
+    .stat-text { font-size: 0.75rem; }
+    .footer-dark .row { gap: 1rem; }
+    .orb { display: none; }
+}
+
+/* ---- Mobile Scroll Animations ---- */
+@media (max-width: 767.98px) {
+    .reveal, .reveal-left, .reveal-right, .reveal-scale { opacity: 0; transform: translateY(20px); transition: all 0.5s ease; }
+    .reveal.active, .reveal-left.active, .reveal-right.active, .reveal-scale.active { opacity: 1; transform: translateY(0); }
+    .glass-card { opacity: 0; transform: translateY(15px); transition: all 0.4s ease; }
+    .glass-card.active { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- Testimonial Slider ---- */
+.testimonial-slider { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1.5rem; padding: 0.5rem 0 1.5rem; scrollbar-width: none; -ms-overflow-style: none; }
+.testimonial-slider::-webkit-scrollbar { display: none; }
+.testimonial-slide { min-width: 320px; max-width: 380px; scroll-snap-align: start; flex-shrink: 0; }
+@media (max-width: 767.98px) { .testimonial-slide { min-width: 280px; max-width: 85vw; } }
+.testimonial-dots { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1rem; }
+.testimonial-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.2); transition: all 0.3s; cursor: pointer; }
+.testimonial-dot.active { background: #6366f1; width: 24px; border-radius: 4px; }
+
 /* ---- Loan Popup ---- */
 .loan-popup-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(4px); z-index: 9999; display: none; align-items: center; justify-content: center; padding: 1rem; }
 .loan-popup-overlay.show { display: flex; }

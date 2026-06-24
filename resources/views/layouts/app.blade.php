@@ -34,10 +34,8 @@
         <div class="container">
             <!-- Logo -->
             <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('home') }}">
-                <div class="icon-box gradient-card-1" style="width:40px;height:40px;border-radius:0.75rem;">
-                    <span class="text-white fw-bold fs-5">A</span>
-                </div>
-                <div>
+                <img src="{{ asset('images/aastha_capital_finance_logo.png') }}" alt="Aastha Capital" style="height:36px;">
+                <div class="d-none d-sm-block">
                     <span class="text-white fw-bold fs-5">Aastha</span>
                     <span class="fw-light fs-5" style="color:#a5b4fc;"> Capital</span>
                 </div>
@@ -245,9 +243,9 @@
             }
 
             // Scroll Reveal
-            document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(function(el) {
+            document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .glass-card').forEach(function(el) {
                 const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 80) {
+                if (rect.top < window.innerHeight - 60) {
                     el.classList.add('active');
                 }
             });
@@ -255,9 +253,9 @@
 
         // Trigger on load too
         window.addEventListener('load', function() {
-            document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(function(el) {
+            document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, .glass-card').forEach(function(el) {
                 const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 80) {
+                if (rect.top < window.innerHeight - 60) {
                     el.classList.add('active');
                 }
             });

@@ -409,59 +409,108 @@
             <h2 class="display-6 fw-bold text-white mb-3 reveal">What Our <span class="gradient-text">Customers Say</span></h2>
         </div>
 
-        <div class="row g-4">
-            <div class="col-md-4">
+        <!-- Testimonial Slider -->
+        <div class="testimonial-slider" id="testimonialSlider">
+            <!-- Review 1 -->
+            <div class="testimonial-slide">
                 <div class="glass-card p-4 h-100">
                     <div class="d-flex mb-3 text-warning small">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="text-muted-custom small mb-4">"Got my personal loan approved within 24 hours! The process was so smooth and the team was very helpful. Highly recommended for anyone looking for quick finance."</p>
                     <div class="d-flex align-items-center gap-3">
-                        <div class="icon-box gradient-card-1" style="width:40px;height:40px;border-radius:50%;">
-                            <span class="text-white fw-bold small">R</span>
-                        </div>
+                        <div class="icon-box gradient-card-1" style="width:40px;height:40px;border-radius:50%;"><span class="text-white fw-bold small">R</span></div>
                         <div>
                             <p class="text-white fw-semibold small mb-0">Rahul Sharma</p>
-                            <p class="text-muted-custom small mb-0">Personal Loan</p>
+                            <p class="text-muted-custom small mb-0">Personal Loan - Jaipur</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <!-- Review 2 -->
+            <div class="testimonial-slide">
                 <div class="glass-card p-4 h-100">
                     <div class="d-flex mb-3 text-warning small">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="text-muted-custom small mb-4">"Aastha Capital helped me expand my business with a quick business loan. Their rates are competitive and the documentation process was minimal."</p>
                     <div class="d-flex align-items-center gap-3">
-                        <div class="icon-box gradient-card-2" style="width:40px;height:40px;border-radius:50%;">
-                            <span class="text-white fw-bold small">P</span>
-                        </div>
+                        <div class="icon-box gradient-card-2" style="width:40px;height:40px;border-radius:50%;"><span class="text-white fw-bold small">P</span></div>
                         <div>
                             <p class="text-white fw-semibold small mb-0">Priya Patel</p>
-                            <p class="text-muted-custom small mb-0">Business Loan</p>
+                            <p class="text-muted-custom small mb-0">Business Loan - Gujarat</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <!-- Review 3 -->
+            <div class="testimonial-slide">
                 <div class="glass-card p-4 h-100">
                     <div class="d-flex mb-3 text-warning small">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                     </div>
                     <p class="text-muted-custom small mb-4">"Thanks to Aastha Capital, I could buy my dream home. The home loan process was transparent and the EMI is very affordable. Great service!"</p>
                     <div class="d-flex align-items-center gap-3">
-                        <div class="icon-box gradient-card-6" style="width:40px;height:40px;border-radius:50%;">
-                            <span class="text-white fw-bold small">A</span>
-                        </div>
+                        <div class="icon-box gradient-card-6" style="width:40px;height:40px;border-radius:50%;"><span class="text-white fw-bold small">A</span></div>
                         <div>
                             <p class="text-white fw-semibold small mb-0">Amit Verma</p>
-                            <p class="text-muted-custom small mb-0">Home Loan</p>
+                            <p class="text-muted-custom small mb-0">Home Loan - Delhi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Review 4 -->
+            <div class="testimonial-slide">
+                <div class="glass-card p-4 h-100">
+                    <div class="d-flex mb-3 text-warning small">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-muted-custom small mb-4">"I was worried about getting a loan with minimal documents. Aastha Capital made it so easy! Got my education loan in just 2 days. Thank you team!"</p>
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="icon-box gradient-card-4" style="width:40px;height:40px;border-radius:50%;"><span class="text-white fw-bold small">S</span></div>
+                        <div>
+                            <p class="text-white fw-semibold small mb-0">Sneha Kumari</p>
+                            <p class="text-muted-custom small mb-0">Education Loan - Bihar</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Review 5 -->
+            <div class="testimonial-slide">
+                <div class="glass-card p-4 h-100">
+                    <div class="d-flex mb-3 text-warning small">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-muted-custom small mb-4">"Best car loan experience! Zero hidden charges and the interest rate was lower than my bank offered. The dedicated manager guided me throughout the process."</p>
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="icon-box gradient-card-3" style="width:40px;height:40px;border-radius:50%;"><span class="text-white fw-bold small">V</span></div>
+                        <div>
+                            <p class="text-white fw-semibold small mb-0">Vikram Singh</p>
+                            <p class="text-muted-custom small mb-0">Car Loan - Rajasthan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Review 6 -->
+            <div class="testimonial-slide">
+                <div class="glass-card p-4 h-100">
+                    <div class="d-flex mb-3 text-warning small">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-muted-custom small mb-4">"Got unsecured loan without any collateral. The approval was super fast and customer support is excellent. Will definitely recommend to friends and family."</p>
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="icon-box gradient-card-5" style="width:40px;height:40px;border-radius:50%;"><span class="text-white fw-bold small">M</span></div>
+                        <div>
+                            <p class="text-white fw-semibold small mb-0">Meena Agarwal</p>
+                            <p class="text-muted-custom small mb-0">Unsecured Loan - UP</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Dots -->
+        <div class="testimonial-dots" id="testimonialDots"></div>
     </div>
 </section>
 
@@ -564,6 +613,50 @@
 @endsection
 
 @push('scripts')
+<script>
+// Testimonial Slider Dots
+(function() {
+    const slider = document.getElementById('testimonialSlider');
+    const dotsContainer = document.getElementById('testimonialDots');
+    if (!slider || !dotsContainer) return;
+    
+    const slides = slider.querySelectorAll('.testimonial-slide');
+    const totalSlides = slides.length;
+    
+    // Create dots
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', function() {
+            slides[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        });
+        dotsContainer.appendChild(dot);
+    }
+    
+    // Update dots on scroll
+    slider.addEventListener('scroll', function() {
+        const scrollLeft = slider.scrollLeft;
+        const slideWidth = slides[0].offsetWidth + 24;
+        const activeIndex = Math.round(scrollLeft / slideWidth);
+        dotsContainer.querySelectorAll('.testimonial-dot').forEach((d, i) => {
+            d.classList.toggle('active', i === activeIndex);
+        });
+    });
+
+    // Auto scroll
+    let autoScroll = setInterval(function() {
+        const scrollLeft = slider.scrollLeft;
+        const maxScroll = slider.scrollWidth - slider.clientWidth;
+        if (scrollLeft >= maxScroll - 10) {
+            slider.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            slider.scrollBy({ left: 340, behavior: 'smooth' });
+        }
+    }, 4000);
+
+    slider.addEventListener('touchstart', function() { clearInterval(autoScroll); });
+})();
+</script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 <script>
 let homeChart;
