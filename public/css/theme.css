@@ -115,7 +115,7 @@ a { text-decoration: none; transition: all 0.3s ease; }
 .section-gradient { background: linear-gradient(180deg, var(--bg-dark) 0%, #1e1b4b 50%, var(--bg-dark) 100%); position: relative; }
 
 /* ---- Page Header (keeps space from fixed navbar) ---- */
-.page-header { padding-top: 7rem; padding-bottom: 3rem; }
+.page-header { padding-top: 8rem; padding-bottom: 4rem; }
 .page-header-breadcrumb { padding-top: 8rem; padding-bottom: 4rem; }
 
 /* ---- Floating Orbs ---- */

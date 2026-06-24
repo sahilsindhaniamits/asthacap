@@ -1,7 +1,7 @@
 {{-- Reusable Loan Detail Content Partial (Bootstrap 5) --}}
 
 <!-- Page Header -->
-<section class="position-relative overflow-hidden page-header">
+<section class="position-relative overflow-hidden" style="padding-top:8rem;padding-bottom:4rem;">
     <div class="position-absolute top-0 start-0 w-100 h-100 gradient-hero"></div>
     <div class="orb" style="width:250px;height:250px;background:{{ $gradientClass == 'bg-indigo-600' ? '#6366f1' : ($gradientClass == 'bg-cyan-600' ? '#06b6d4' : '#8b5cf6') }};top:20%;right:10%;"></div>
     <div class="container position-relative" style="z-index:2;">
