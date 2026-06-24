@@ -141,8 +141,8 @@
     <div class="container position-relative" style="z-index:2;">
         <div class="text-center mb-4">
             <span class="badge-glass text-info mb-3">Our Services</span>
-            <h2 class="display-6 fw-bold text-white mb-2">Loan Solutions for <span class="gradient-text">Every Need</span></h2>
-            <p class="text-muted-custom mx-auto" style="max-width:600px;">Choose from our wide range of loan products designed to meet your specific financial requirements.</p>
+            <h2 class="display-6 fw-bold text-white mb-2 reveal">Loan Solutions for <span class="gradient-text">Every Need</span></h2>
+            <p class="text-muted-custom mx-auto reveal" style="max-width:600px;">Choose from our wide range of loan products designed to meet your specific financial requirements.</p>
             <img src="{{ asset('images/hero-finance.svg') }}" alt="Finance Solutions" class="img-fluid mt-3 mb-2" style="max-height:160px;opacity:0.85;">
         </div>
 
@@ -293,8 +293,8 @@
     <div class="container position-relative" style="z-index:2;">
         <div class="text-center mb-4">
             <span class="badge-glass text-warning mb-3">Simple Process</span>
-            <h2 class="display-6 fw-bold text-white mb-3">How It <span class="gradient-text">Works</span></h2>
-            <p class="text-muted-custom mx-auto" style="max-width:600px;">Get your loan in just 3 simple steps. We've made the process quick and hassle-free.</p>
+            <h2 class="display-6 fw-bold text-white mb-3 reveal">How It <span class="gradient-text">Works</span></h2>
+            <p class="text-muted-custom mx-auto reveal" style="max-width:600px;">Get your loan in just 3 simple steps. We've made the process quick and hassle-free.</p>
         </div>
 
         <div class="row g-4">
@@ -357,7 +357,7 @@
     <div class="container position-relative" style="z-index:2;">
         <div class="text-center mb-4">
             <span class="badge-glass text-success mb-3">Our Advantage</span>
-            <h2 class="display-6 fw-bold text-white mb-3">Why Choose <span class="gradient-text">Aastha Capital</span></h2>
+            <h2 class="display-6 fw-bold text-white mb-3 reveal">Why Choose <span class="gradient-text">Aastha Capital</span></h2>
         </div>
 
         <div class="row g-4">
@@ -406,7 +406,7 @@
     <div class="container position-relative" style="z-index:2;">
         <div class="text-center mb-4">
             <span class="badge-glass text-info mb-3">Testimonials</span>
-            <h2 class="display-6 fw-bold text-white mb-3">What Our <span class="gradient-text">Customers Say</span></h2>
+            <h2 class="display-6 fw-bold text-white mb-3 reveal">What Our <span class="gradient-text">Customers Say</span></h2>
         </div>
 
         <div class="row g-4">

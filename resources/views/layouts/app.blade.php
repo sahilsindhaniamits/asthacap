@@ -103,13 +103,7 @@
                 <!-- Company Info -->
                 <div class="col-lg-4 col-md-6">
                     <a href="{{ route('home') }}" class="d-flex align-items-center gap-2 mb-3 text-decoration-none">
-                        <div class="icon-box gradient-card-1" style="width:40px;height:40px;border-radius:0.75rem;">
-                            <span class="text-white fw-bold fs-5">A</span>
-                        </div>
-                        <div>
-                            <span class="text-white fw-bold fs-5">Aastha</span>
-                            <span class="fw-light fs-5" style="color:#a5b4fc;"> Capital</span>
-                        </div>
+                        <img src="{{ asset('images/aastha_capital_finance_logo.png') }}" alt="Aastha Capital Finance" style="height:45px;">
                     </a>
                     <p class="text-muted-custom small mb-4">Your trusted financial partner providing fast, transparent, and affordable loan solutions to help you achieve your dreams.</p>
                     <div class="d-flex gap-2">
@@ -151,15 +145,15 @@
                     <ul class="list-unstyled">
                         <li class="d-flex align-items-start gap-2 mb-3">
                             <i class="fas fa-map-marker-alt mt-1" style="color:#818cf8;"></i>
-                            <span class="text-muted-custom small">Aastha Capital Finance<br>India</span>
+                            <span class="text-muted-custom small">8, Near Sukharia Circle,<br>SGNR, RAJ. 335001</span>
                         </li>
                         <li class="d-flex align-items-center gap-2 mb-3">
                             <i class="fas fa-phone" style="color:#818cf8;"></i>
-                            <a href="tel:+919999999999" class="small">+91 99999 99999</a>
+                            <a href="tel:+919649596982" class="small">+91 9649596982</a>
                         </li>
                         <li class="d-flex align-items-center gap-2 mb-3">
                             <i class="fas fa-envelope" style="color:#818cf8;"></i>
-                            <a href="mailto:info@aasthacapital.com" class="small">info@aasthacapital.com</a>
+                            <a href="mailto:Support@aasthacapitalfinance.com" class="small">Support@aasthacapitalfinance.com</a>
                         </li>
                     </ul>
                 </div>
@@ -249,6 +243,24 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
+
+            // Scroll Reveal
+            document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(function(el) {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 80) {
+                    el.classList.add('active');
+                }
+            });
+        });
+
+        // Trigger on load too
+        window.addEventListener('load', function() {
+            document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(function(el) {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 80) {
+                    el.classList.add('active');
+                }
+            });
         });
 
         // Loan Popup - show after 2 seconds
