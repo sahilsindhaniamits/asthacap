@@ -148,49 +148,6 @@
 </section>
 
 
-<!-- Team Section -->
-<section class="section-padding section-gradient">
-    <div class="container position-relative" style="z-index:2;">
-        <div class="text-center mb-4">
-            <span class="badge-glass text-success mb-3">Leadership</span>
-            <h2 class="display-6 fw-bold text-white mb-3">Meet Our <span class="gradient-text">Team</span></h2>
-            <p class="text-muted-custom mx-auto" style="max-width:600px;">Led by experienced professionals with decades of combined experience in banking and finance.</p>
-        </div>
-        <div class="row g-4 justify-content-center">
-            <div class="col-md-4">
-                <div class="glass-card p-4 text-center">
-                    <div class="icon-box gradient-card-1 mx-auto mb-3" style="width:72px;height:72px;border-radius:50%;">
-                        <i class="fas fa-user-tie text-white fs-3"></i>
-                    </div>
-                    <h6 class="text-white fw-bold mb-1">Director</h6>
-                    <p class="small mb-2" style="color:#818cf8;">Founder & CEO</p>
-                    <p class="text-muted-custom small mb-0">Visionary leader with 15+ years in financial services industry.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="glass-card p-4 text-center">
-                    <div class="icon-box gradient-card-2 mx-auto mb-3" style="width:72px;height:72px;border-radius:50%;">
-                        <i class="fas fa-user-tie text-white fs-3"></i>
-                    </div>
-                    <h6 class="text-white fw-bold mb-1">Operations Head</h6>
-                    <p class="small mb-2" style="color:#22d3ee;">COO</p>
-                    <p class="text-muted-custom small mb-0">Expert in streamlining processes and ensuring customer satisfaction.</p>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="glass-card p-4 text-center">
-                    <div class="icon-box gradient-card-4 mx-auto mb-3" style="width:72px;height:72px;border-radius:50%;">
-                        <i class="fas fa-user-tie text-white fs-3"></i>
-                    </div>
-                    <h6 class="text-white fw-bold mb-1">Finance Head</h6>
-                    <p class="small mb-2" style="color:#34d399;">CFO</p>
-                    <p class="text-muted-custom small mb-0">Seasoned financial expert ensuring sustainable growth and compliance.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- CTA -->
 <section class="section-padding position-relative overflow-hidden">
     <div class="position-absolute top-0 start-0 w-100 h-100 gradient-hero"></div>
