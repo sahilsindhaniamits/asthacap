@@ -209,7 +209,7 @@
                     <div class="col-md-6">
                         <input type="text" name="loan_amount" class="form-control form-control-glass" placeholder="Loan Amount (e.g. 500000)">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-12">
                         <input type="text" name="state" class="form-control form-control-glass" placeholder="State">
                     </div>
                     <div class="col-12">
