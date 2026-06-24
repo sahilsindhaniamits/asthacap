@@ -11,16 +11,17 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts - only 4 weights, display swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Font Awesome 6 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Font Awesome 6 - async load (non-render-blocking) -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
 
     <!-- Custom Theme CSS -->
     <link href="{{ asset('css/theme.css') }}" rel="stylesheet">
@@ -225,11 +226,8 @@
         </div>
     </div>
 
-    <!-- Bootstrap 5 JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- SweetAlert (for flash messages) -->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- Bootstrap 5 JS Bundle (deferred) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
     <!-- Theme JS -->
     <script>
@@ -279,6 +277,14 @@
         });
 
         // SweetAlert flash messages
+    </script>
+
+    @stack('scripts')
+
+    <!-- SweetAlert (loaded only when needed) -->
+    @if(session('success') || session('error'))
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
         @if(session('success'))
             swal({ text: '{{ session("success") }}', icon: 'success', buttons: false, timer: 3000 });
         @endif
@@ -286,7 +292,6 @@
             swal({ text: '{{ session("error") }}', icon: 'error', buttons: false, timer: 3000 });
         @endif
     </script>
-
-    @stack('scripts')
+    @endif
 </body>
 </html>
