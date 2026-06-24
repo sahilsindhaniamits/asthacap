@@ -136,7 +136,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
         <div class="company-info">
             <h1>AASTHA CAPITAL FINANCE</h1>
             <div class="tagline">Trusted Financial Solutions for Every Need</div>
-            <div class="reg-info">GSTIN: 08KAOPK7068A1ZB</div>
+            <div class="reg-info"></div>
         </div>
     </div>
     <div class="header-right">

@@ -102,7 +102,7 @@ class DasboardController extends Controller
     public function print_sanction_pdf(){
         $data=request()->all();
         $obj=SanctionAmount::where('id',$data['sanction_letter_id'])->first();
-        $newformat= Carbon::parse($obj['created_at'])->format('d-m-Y');
+        $newformat= $obj['date'] ? Carbon::parse($obj['date'])->format('d-m-Y') : Carbon::parse($obj['created_at'])->format('d-m-Y');
         $obj['new_format'] = $newformat;
       
      
@@ -122,6 +122,7 @@ class DasboardController extends Controller
         $data = $request->all();
         $id = $data['sanction_id'];
         unset($data['_token'], $data['sanction_id']);
+        
         SanctionAmount::where('id', $id)->update($data);
         return redirect()->back()->with(['success' => 'Sanction Letter Updated']);
     }
@@ -215,7 +216,15 @@ class DasboardController extends Controller
       $data=$request->all();
    
      $loandetails=['name'=>$data['name'],'email'=>$data['email'],'phone'=>$data['phone'],'loan_type'=>$data['loan_type'],'loan_amount'=>$data['loan_amount'],'state'=>$data['state'],'lead_token'=>$data['UTOKEN'],'message' =>$data['message']];
-     $approvedetails=['sanctionamt'=>$data['sanctionamt'],'emiamt'=>$data['emiamt'],'loant'=>$data['loant'],'roi'=>$data['roi'],'pf'=>$data['pf'],'gst' =>$data['gst'],'totalv'=>$data['totalv'],'security' =>$data['security'],'dummy'=>$data['dummy'],'adhaar_number' => $data['adhaar_number']];
+     
+     // Convert date from d-m-Y to Y-m-d for MySQL
+     $dummyDate = null;
+     if(!empty($data['dummy'])) {
+         $parsed = \DateTime::createFromFormat('d-m-Y', $data['dummy']);
+         $dummyDate = $parsed ? $parsed->format('Y-m-d') : $data['dummy'];
+     }
+     
+     $approvedetails=['sanctionamt'=>$data['sanctionamt'],'emiamt'=>$data['emiamt'],'loant'=>$data['loant'],'roi'=>$data['roi'],'pf'=>$data['pf'],'gst' =>$data['gst'],'totalv'=>$data['totalv'],'security' =>$data['security'],'dummy'=>$dummyDate,'adhaar_number' => $data['adhaar_number']];
       $obj=LoanRequest::where('id',$data['lead_id'])->update($loandetails);
       $lead=ApprovedLeads::where('loan_request_id',$data['lead_id'])->update($approvedetails);
      

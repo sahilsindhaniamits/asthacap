@@ -185,10 +185,6 @@
                     <input type="text" name="roi" id="roi" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none transition-all" placeholder="ROI">
                 </div>
                 <div>
-                    <label class="text-xs font-medium text-gray-500 mb-1 block">Approval Validity</label>
-                    <input type="text" name="state" id="appva" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none transition-all" placeholder="Validity">
-                </div>
-                <div>
                     <label class="text-xs font-medium text-gray-500 mb-1 block">Processing Fee</label>
                     <input type="text" name="pf" id="pf" class="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none transition-all" placeholder="PF">
                 </div>
