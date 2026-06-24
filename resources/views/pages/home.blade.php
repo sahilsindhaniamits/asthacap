@@ -57,8 +57,8 @@
             </div>
 
             <!-- Right Content - Hero Visual with 3 Cards -->
-            <div class="col-lg-6 d-none d-lg-block animate-fade-in">
-                <div class="position-relative" style="min-height:380px;">
+            <div class="col-lg-6 animate-fade-in">
+                <div class="position-relative" style="min-height:280px;">
                     <!-- Main Card -->
                     <div class="glass-card p-4 mx-auto" style="max-width:320px;">
                         <div class="d-flex justify-content-between align-items-center mb-3">

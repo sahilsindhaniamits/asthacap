@@ -218,6 +218,12 @@ a { text-decoration: none; transition: all 0.3s ease; }
     .stat-text { font-size: 0.75rem; }
     .footer-dark .row { gap: 1rem; }
     .orb { display: none; }
+    /* Hero floating cards on mobile */
+    .col-lg-6 .position-relative { min-height: 220px !important; margin-top: 1rem; }
+    .col-lg-6 .position-relative .glass-card.p-4.mx-auto { max-width: 260px !important; padding: 1rem !important; }
+    .col-lg-6 .position-relative .glass-card.p-3.position-absolute { padding: 0.5rem 0.75rem !important; }
+    .col-lg-6 .position-relative .glass-card.p-3.position-absolute[style*="top:-10px"] { top: -5px !important; right: 0 !important; }
+    .col-lg-6 .position-relative .glass-card.p-3.position-absolute[style*="bottom:10px"] { bottom: 5px !important; left: -5px !important; }
 }
 
 /* ---- Mobile Scroll Animations ---- */
