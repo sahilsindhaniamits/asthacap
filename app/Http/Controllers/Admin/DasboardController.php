@@ -352,7 +352,7 @@ class DasboardController extends Controller
 
     public function profile()
     {
-        $user = User::with('with_wallet')->first();
+        $user = User::first();
 
         return view('admin.dashboard.profile', compact('user'));
     }
