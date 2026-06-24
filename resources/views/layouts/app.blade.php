@@ -34,10 +34,10 @@
         <div class="container">
             <!-- Logo -->
             <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('home') }}">
-                <img src="{{ asset('images/aastha_capital_finance_logo.png') }}" alt="Aastha Capital" style="height:36px;">
-                <div class="d-none d-sm-block">
-                    <span class="text-white fw-bold fs-5">Aastha</span>
-                    <span class="fw-light fs-5" style="color:#a5b4fc;"> Capital</span>
+                <img src="{{ asset('images/aastha_capital_finance_logo.png') }}" alt="Aastha Capital Finance" style="height:44px;">
+                <div>
+                    <span class="text-white fw-bold fs-5">Aastha Capital</span>
+                    <span class="fw-light fs-5" style="color:#a5b4fc;"> Finance</span>
                 </div>
             </a>
 
@@ -101,7 +101,7 @@
                 <!-- Company Info -->
                 <div class="col-lg-4 col-md-6">
                     <a href="{{ route('home') }}" class="d-flex align-items-center gap-2 mb-3 text-decoration-none">
-                        <img src="{{ asset('images/aastha_capital_finance_logo.png') }}" alt="Aastha Capital Finance" style="height:45px;">
+                        <img src="{{ asset('images/aastha_capital_finance_logo.png') }}" alt="Aastha Capital Finance" style="height:55px;">
                     </a>
                     <p class="text-muted-custom small mb-4">Your trusted financial partner providing fast, transparent, and affordable loan solutions to help you achieve your dreams.</p>
                     <div class="d-flex gap-2">
