@@ -226,6 +226,12 @@ a { text-decoration: none; transition: all 0.3s ease; }
     .reveal.active, .reveal-left.active, .reveal-right.active, .reveal-scale.active { opacity: 1; transform: translateY(0); }
     .glass-card { opacity: 0; transform: translateY(15px); transition: all 0.4s ease; }
     .glass-card.active { opacity: 1; transform: translateY(0); }
+    .glass-card:active { transform: scale(0.97); box-shadow: 0 5px 20px rgba(99,102,241,0.2); }
+    .btn-gradient:active { transform: scale(0.95); }
+    .btn-outline-glass:active { transform: scale(0.95); }
+    .social-icon:active { transform: scale(0.9); background: rgba(99,102,241,0.3); }
+    .icon-box { transition: transform 0.2s ease; }
+    .glass-card:active .icon-box { transform: scale(1.15); }
 }
 
 /* ---- Testimonial Slider ---- */
