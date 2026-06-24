@@ -187,7 +187,7 @@ document.querySelectorAll('.edit').forEach(btn => {
     btn.addEventListener('click', function() {
         const leadId = this.dataset.leadId;
         document.getElementById('editModal').classList.remove('hidden');
-        fetch('loan-request/' + leadId + '/details', { headers: {"X-CSRF-TOKEN": CSRF_TOKEN} })
+        fetch('/admin/lead-details/' + leadId, { headers: {"X-CSRF-TOKEN": CSRF_TOKEN} })
         .then(r => r.json())
         .then(d => {
             document.getElementById('lead-hidden').value = leadId;
@@ -204,8 +204,18 @@ document.querySelectorAll('.edit').forEach(btn => {
 
 // Save Edit
 document.getElementById('request').addEventListener('click', function() {
-    const data = { leadhidden: document.getElementById('lead-hidden').value, leadName: document.getElementById('name').value, leadEmail: document.getElementById('email').value, phone: document.getElementById('phone').value, loan_type: document.getElementById('loan_type').value, loan_amount: document.getElementById('loan_amount').value, state: document.getElementById('state').value, message: document.getElementById('message').value };
-    fetch('loan-request/edit', { method: 'POST', headers: {'Content-Type': 'application/json', 'X-CSRF-TOKEN': CSRF_TOKEN}, body: JSON.stringify(data) })
+    const data = new FormData();
+    data.append('_token', CSRF_TOKEN);
+    data.append('leadId', document.getElementById('lead-hidden').value);
+    data.append('leadName', document.getElementById('name').value);
+    data.append('leadEmail', document.getElementById('email').value);
+    data.append('phone', document.getElementById('phone').value);
+    data.append('loan_type', document.getElementById('loan_type').value);
+    data.append('loan_amount', document.getElementById('loan_amount').value);
+    data.append('state', document.getElementById('state').value);
+    data.append('message', document.getElementById('message').value);
+    data.append('leadhidden', document.getElementById('lead-hidden').value);
+    fetch('/admin/lead-edit', { method: 'POST', body: data })
     .then(() => { alert('Lead Edited Successfully'); closeModal('editModal'); location.reload(); })
     .catch(() => alert('Failed'));
 });
@@ -215,7 +225,7 @@ document.querySelectorAll('.approve').forEach(btn => {
     btn.addEventListener('click', function() {
         const leadId = this.dataset.leadId;
         document.getElementById('approveModal').classList.remove('hidden');
-        fetch('loan-request/' + leadId + '/details', { headers: {"X-CSRF-TOKEN": CSRF_TOKEN} })
+        fetch('/admin/lead-details/' + leadId, { headers: {"X-CSRF-TOKEN": CSRF_TOKEN} })
         .then(r => r.json())
         .then(d => {
             document.getElementById('approve_lead-hidden').value = leadId;
@@ -236,10 +246,11 @@ document.querySelectorAll('.approve').forEach(btn => {
 // Submit Approve
 document.getElementById('approve_request').addEventListener('click', function() {
     const fields = ['approve_lead-hidden:leadhidden','approve_name:leadName','approve_email:leadEmail','approve_phone:phone','approve_loan_type:loan_type','approve_loan_amount:loan_amount','approve_state:state','approve_message:message','UTOKEN:UTOKEN','appno:appno','sanctionamt:sanctionamt','emiamt:emiamt','loant:loant','roi:roi','pf:pf','gst:gst','totalv:totalv','security:security','dummy:dummy','adhaar_number:adhaar_number'];
-    const data = {};
-    fields.forEach(f => { const [id, key] = f.split(':'); data[key] = document.getElementById(id).value; });
-    fetch('loan-request/approve', { method: 'POST', headers: {'Content-Type': 'application/json', 'X-CSRF-TOKEN': CSRF_TOKEN}, body: JSON.stringify(data) })
-    .then(() => { alert('Lead Approved Successfully ✅'); closeModal('approveModal'); setTimeout(() => location.reload(), 1000); })
+    const formData = new FormData();
+    formData.append('_token', CSRF_TOKEN);
+    fields.forEach(f => { const [id, key] = f.split(':'); formData.append(key, document.getElementById(id).value); });
+    fetch('/admin/lead-approve', { method: 'POST', body: formData })
+    .then(r => { if(r.ok) { alert('Lead Approved Successfully ✅'); closeModal('approveModal'); setTimeout(() => location.reload(), 1000); } else { alert('Failed to approve'); } })
     .catch(() => alert('Failed'));
 });
 </script>
