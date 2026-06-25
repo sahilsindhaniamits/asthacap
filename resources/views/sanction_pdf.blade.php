@@ -136,14 +136,14 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
         <div class="company-info">
             <h1>AASTHA CAPITAL FINANCE</h1>
             <div class="tagline">Trusted Financial Solutions for Every Need</div>
-            <div class="reg-info"></div>
+            <div class="reg-info">GSTIN: XXXXXXXXXXXXX</div>
         </div>
     </div>
     <div class="header-right">
         <div class="ref-no">ACF/SL/{{ date('Y') }}/{{ str_pad($obj->id, 5, '0', STR_PAD_LEFT) }}</div>
         <div class="meta">
             <span>Head Office: SGNR, Rajasthan</span>
-            <span>GSTIN: 08KAOPK7068A1ZB</span>
+            <span>GSTIN: XXXXXXXXXXXXX</span>
         </div>
     </div>
 </div>
@@ -187,7 +187,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
             <tr><td>Type of Loan Facility</td><td>{{ $obj->loan_type }}</td></tr>
             <tr><td>Loan Tenure</td><td>{{ $obj->loan_tenure ?? 'As per agreement' }}</td></tr>
             <tr><td>Rate of Interest (p.a.)</td><td>{{ $obj->interest_rate ?? 'As applicable' }}</td></tr>
-            <tr><td>Equated Monthly Installment</td><td>&#8377; {{ number_format($obj->emi) }}/- per month</td></tr>
+            <tr><td>Equated Monthly Installment</td><td>&#8377; {{ number_format($obj->emi_amount) }}/- per month</td></tr>
             <tr><td>Sanction Letter Validity</td><td>10 Days from date of issue</td></tr>
         </table>
     </div>
@@ -195,7 +195,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
     <!-- Processing Note -->
     <div class="alert-box alert-info">
         <span class="alert-icon">&#9432;</span>
-        <span>As per terms, the borrower is required to submit advance EMI of <strong>&#8377; {{ number_format($obj->emi) }} + &#8377; {{ number_format($obj->emi_amount) }}</strong> via NEFT/RTGS/IMPS to the below-mentioned account. Upon receipt, the loan shall be processed for final disbursement.</span>
+        <span>As per terms, the borrower is required to submit advance EMI of <strong>&#8377; {{ number_format($obj->emi_amount) }} + &#8377; {{ number_format($obj->emi_amount) }}</strong> via NEFT/RTGS/IMPS to the below-mentioned account. Upon receipt, the loan shall be processed for final disbursement.</span>
     </div>
 
     <!-- Bank Details -->

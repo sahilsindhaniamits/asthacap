@@ -133,14 +133,14 @@ ul li { font-size: 9.5px; margin-bottom: 2px; color: #444; line-height: 1.4; }
         <div class="company-info">
             <h1>AASTHA CAPITAL FINANCE</h1>
             <div class="tagline">Trusted Financial Solutions for Every Need</div>
-            <div class="reg-info"></div>
+            <div class="reg-info">GSTIN: XXXXXXXXXXXXX</div>
         </div>
     </div>
     <div class="header-right">
         <div class="ref-no">ACF/AL/{{ date('Y') }}/{{ str_pad($details->id, 5, '0', STR_PAD_LEFT) }}</div>
         <div class="meta">
             <span>Head Office: SGNR, Rajasthan</span>
-            <span>GSTIN: 08KAOPK7068A1ZB</span>
+            <span>GSTIN: XXXXXXXXXXXXX</span>
         </div>
     </div>
 </div>
@@ -180,7 +180,7 @@ ul li { font-size: 9.5px; margin-bottom: 2px; color: #444; line-height: 1.4; }
     <div class="detail-box loan-box">
         <h3>Approved Loan Details</h3>
         <table>
-            <tr><td>Approved Amount</td><td class="loan-amount">&#8377; {{ number_format($approved->sanctionamt) }}/-</td></tr>
+            <tr><td>Sanctioned Amount</td><td class="loan-amount">&#8377; {{ number_format($approved->sanctionamt) }}/-</td></tr>
             <tr><td>Type of Loan Facility</td><td>{{ ucfirst($details->loan_type) }} Loan</td></tr>
             <tr><td>Loan Tenure</td><td>{{ $approved->loant }} Year(s)</td></tr>
             <tr><td>Rate of Interest (p.a.)</td><td>{{ $approved->roi }}% per annum (Reducing Balance)</td></tr>
