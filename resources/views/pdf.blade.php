@@ -11,7 +11,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
 .print-btn { position: fixed; top: 12px; right: 18px; padding: 8px 18px; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; z-index: 9999; box-shadow: 0 4px 12px rgba(99,102,241,0.4); }
 @media print { .print-btn { display: none; } }
 
-.page { width: 794px; height: 1123px; margin: auto; position: relative; overflow: hidden; display: flex; flex-direction: column; background: #fff; }
+.page { width: 794px; min-height: 1123px; margin: auto; position: relative; display: flex; flex-direction: column; background: #fff; }
 
 /* Watermark */
 .watermark { position: absolute; top: 44%; left: 50%; transform: translate(-50%, -50%) rotate(-25deg); opacity: 0.03; z-index: 0; pointer-events: none; }
