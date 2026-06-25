@@ -6,7 +6,7 @@
 @section('content')
 
 <!-- ====== HERO SECTION ====== -->
-<section class="position-relative min-vh-100 d-flex align-items-center overflow-hidden">
+<section class="position-relative min-vh-100 d-flex align-items-center overflow-hidden" style="padding-top:5rem;">
     <!-- Background -->
     <div class="position-absolute top-0 start-0 w-100 h-100 gradient-hero"></div>
 
