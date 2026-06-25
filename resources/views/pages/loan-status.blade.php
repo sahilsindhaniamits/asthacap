@@ -86,32 +86,6 @@
                                 <span class="fs-5 fw-bold" id="resStatus">—</span>
                             </div>
                         </div>
-                        <!-- Loan Stage Progress -->
-                        <div class="col-12" id="stageProgress" style="display:none;">
-                            <div class="glass p-4" style="border-radius:0.75rem;">
-                                <small class="text-muted-custom d-block mb-3 text-center">Loan Progress</small>
-                                <div class="d-flex justify-content-between align-items-center position-relative" style="padding:0 1rem;">
-                                    <div class="position-absolute" style="top:50%;left:2rem;right:2rem;height:3px;background:rgba(255,255,255,0.1);transform:translateY(-50%);z-index:0;"></div>
-                                    <div class="position-absolute" id="progressBar" style="top:50%;left:2rem;height:3px;background:linear-gradient(90deg,#6366f1,#06b6d4);transform:translateY(-50%);z-index:1;width:0%;transition:width 0.8s ease;"></div>
-                                    <div class="text-center position-relative" style="z-index:2;">
-                                        <div class="stage-dot" id="stage1" style="width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 0.5rem;border:2px solid rgba(255,255,255,0.2);"><i class="fas fa-check small text-white" style="display:none;"></i></div>
-                                        <small class="text-muted-custom" style="font-size:0.65rem;">Approved</small>
-                                    </div>
-                                    <div class="text-center position-relative" style="z-index:2;">
-                                        <div class="stage-dot" id="stage2" style="width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 0.5rem;border:2px solid rgba(255,255,255,0.2);"><i class="fas fa-check small text-white" style="display:none;"></i></div>
-                                        <small class="text-muted-custom" style="font-size:0.65rem;">Agreement</small>
-                                    </div>
-                                    <div class="text-center position-relative" style="z-index:2;">
-                                        <div class="stage-dot" id="stage3" style="width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 0.5rem;border:2px solid rgba(255,255,255,0.2);"><i class="fas fa-check small text-white" style="display:none;"></i></div>
-                                        <small class="text-muted-custom" style="font-size:0.65rem;">File Closed</small>
-                                    </div>
-                                    <div class="text-center position-relative" style="z-index:2;">
-                                        <div class="stage-dot" id="stage4" style="width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 0.5rem;border:2px solid rgba(255,255,255,0.2);"><i class="fas fa-check small text-white" style="display:none;"></i></div>
-                                        <small class="text-muted-custom" style="font-size:0.65rem;">Insurance</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -138,34 +112,17 @@ document.getElementById('checkStatusBtn').addEventListener('click', function() {
                 document.getElementById('resAmount').textContent = data.loan_amount ? '₹' + Number(data.loan_amount).toLocaleString('en-IN') : '—';
                 document.getElementById('resType').textContent = data.loan_type || '—';
                 var statusEl = document.getElementById('resStatus');
-                if (data.loan_status == 1) {
-                    statusEl.innerHTML = '<span style="color:#34d399;"><i class="fas fa-check-circle me-2"></i>Approved</span>';
-                } else if (data.loan_status == 3) {
-                    statusEl.innerHTML = '<span style="color:#f87171;"><i class="fas fa-times-circle me-2"></i>Rejected</span>';
-                } else {
-                    statusEl.innerHTML = '<span style="color:#fbbf24;"><i class="fas fa-clock me-2"></i>Pending</span>';
-                }
-                
-                // Show progress tracker
                 var stage = data.loan_stage || 'pending';
-                var stages = ['loan_approved', 'agreement_created', 'file_closed', 'insurance'];
-                var stageIndex = stages.indexOf(stage);
-                var progressEl = document.getElementById('stageProgress');
+                var stageLabels = { 'pending': 'Pending', 'loan_approved': 'Loan Approved', 'agreement_created': 'Agreement Created', 'file_closed': 'File Closed', 'insurance': 'Insurance' };
+                var stageColors = { 'pending': '#fbbf24', 'loan_approved': '#34d399', 'agreement_created': '#818cf8', 'file_closed': '#06b6d4', 'insurance': '#f472b6' };
+                var stageIcons = { 'pending': 'fa-clock', 'loan_approved': 'fa-check-circle', 'agreement_created': 'fa-file-signature', 'file_closed': 'fa-folder-open', 'insurance': 'fa-shield-alt' };
                 
-                if (stageIndex >= 0) {
-                    progressEl.style.display = 'block';
-                    var progressBar = document.getElementById('progressBar');
-                    progressBar.style.width = ((stageIndex + 1) / stages.length * 100) + '%';
-                    
-                    for (var i = 0; i <= stageIndex; i++) {
-                        var dot = document.getElementById('stage' + (i + 1));
-                        dot.style.background = 'linear-gradient(135deg, #6366f1, #06b6d4)';
-                        dot.style.borderColor = '#6366f1';
-                        dot.querySelector('i').style.display = 'block';
-                    }
-                } else {
-                    progressEl.style.display = 'none';
-                }
+                if (data.loan_status == 1 && stage == 'pending') stage = 'loan_approved';
+                
+                var color = stageColors[stage] || '#fbbf24';
+                var label = stageLabels[stage] || 'Pending';
+                var icon = stageIcons[stage] || 'fa-clock';
+                statusEl.innerHTML = '<span style="color:' + color + ';"><i class="fas ' + icon + ' me-2"></i>' + label + '</span>';
                 
                 document.getElementById('statusResult').style.display = 'block';
             } else {

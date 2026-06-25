@@ -197,6 +197,7 @@ class DasboardController extends Controller
       $data=$request->all();
       $lead=LoanRequest::findorfail($data['leadhidden']);
       $lead->status=1;
+      $lead->loan_stage='loan_approved';
       $lead->name=$data['leadName'];
       $lead->email=$data['leadEmail'];
       $lead->phone=$data['phone'];
