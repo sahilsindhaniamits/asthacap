@@ -11,7 +11,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
 .print-btn { position: fixed; top: 12px; right: 18px; padding: 8px 18px; background: linear-gradient(135deg, #6366f1, #8b5cf6); color: #fff; border: none; border-radius: 6px; cursor: pointer; font-weight: 600; z-index: 9999; box-shadow: 0 4px 12px rgba(99,102,241,0.4); }
 @media print { .print-btn { display: none; } }
 
-.page { width: 794px; min-height: 1123px; margin: auto; position: relative; display: flex; flex-direction: column; background: #fff; }
+.page { width: 794px; height: 1123px; margin: auto; position: relative; overflow: hidden; display: flex; flex-direction: column; background: #fff; }
 
 /* Watermark */
 .watermark { position: absolute; top: 44%; left: 50%; transform: translate(-50%, -50%) rotate(-25deg); opacity: 0.03; z-index: 0; pointer-events: none; }
@@ -24,7 +24,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
 .top-bar { height: 5px; background: linear-gradient(90deg, #6366f1, #06b6d4, #8b5cf6, #6366f1); flex-shrink: 0; }
 
 /* Header */
-.header { padding: 14px 40px 12px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; position: relative; border-bottom: none; }
+.header { padding: 12px 40px 10px; display: flex; align-items: center; justify-content: space-between; flex-shrink: 0; position: relative; border-bottom: none; }
 .header::after { content: ''; position: absolute; bottom: 0; left: 40px; right: 40px; height: 2px; background: linear-gradient(90deg, #6366f1, #06b6d4, #8b5cf6); border-radius: 2px; }
 .logo-area { display: flex; align-items: center; gap: 12px; }
 .logo-area img { height: 50px; }
@@ -37,10 +37,10 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
 .header-right .meta span { display: block; margin: 1px 0; }
 
 /* Content */
-.content { padding: 12px 40px 8px; position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; }
+.content { padding: 10px 40px 6px; position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; }
 
 /* Document Title */
-.doc-title { text-align: center; margin: 8px 0 12px; }
+.doc-title { text-align: center; margin: 6px 0 10px; }
 .doc-title h2 { font-size: 15px; color: #fff; display: inline-block; padding: 6px 30px; background: linear-gradient(135deg, #1e1b4b, #312e81); border-radius: 3px; letter-spacing: 1.5px; text-transform: uppercase; }
 .doc-title .doc-id { font-size: 8px; color: #888; margin-top: 4px; letter-spacing: 0.5px; }
 
@@ -55,7 +55,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
 .body-text p { font-size: 11px; margin: 3px 0; color: #333; }
 
 /* Detail boxes */
-.detail-box { border-radius: 4px; padding: 12px 16px; margin: 8px 0; }
+.detail-box { border-radius: 4px; padding: 8px 14px; margin: 6px 0; }
 .detail-box h3 { font-size: 12px; margin-bottom: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
 .detail-box table { width: 100%; border-collapse: collapse; }
 .detail-box table td { padding: 4px 0; font-size: 11px; border-bottom: 1px solid rgba(0,0,0,0.06); }
@@ -76,11 +76,11 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
 /* Section heading */
 .section-heading { font-size: 12px; font-weight: 700; color: #1e1b4b; margin: 10px 0 5px; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid #e5e7eb; padding-bottom: 3px; }
 
-ul { padding-left: 16px; margin: 4px 0 8px; }
-ul li { font-size: 9.5px; margin-bottom: 2px; color: #444; line-height: 1.4; }
+ul { padding-left: 16px; margin: 3px 0 6px; }
+ul li { font-size: 9px; margin-bottom: 2px; color: #444; line-height: 1.35; }
 
 /* Signature area */
-.signature-area { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 14px; padding-top: 8px; border-top: 1px dashed #d1d5db; }
+.signature-area { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 10px; padding-top: 6px; border-top: 1px dashed #d1d5db; }
 .sig-block { text-align: center; width: 30%; }
 .sig-line { border-bottom: 1.5px solid #1e1b4b; height: 24px; margin-bottom: 4px; }
 .sig-block p { font-size: 9px; font-weight: 700; color: #1e1b4b; }
