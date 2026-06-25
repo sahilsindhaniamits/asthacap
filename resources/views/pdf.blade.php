@@ -37,7 +37,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
 .header-right .meta span { display: block; margin: 1px 0; }
 
 /* Content */
-.content { padding: 10px 40px 6px; position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; }
+.content { padding: 10px 40px 6px; position: relative; z-index: 1; display: flex; flex-direction: column; }
 
 /* Document Title */
 .doc-title { text-align: center; margin: 6px 0 10px; }
