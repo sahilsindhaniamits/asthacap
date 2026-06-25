@@ -45,6 +45,7 @@
                     <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">State</th>
                     <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Info</th>
                     <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Status</th>
+                    <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Loan Stage</th>
                     <th class="text-left px-4 py-3 text-xs font-semibold text-gray-500 uppercase tracking-wider">Date</th>
                 </tr>
             </thead>
@@ -95,6 +96,15 @@
                             <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> Pending
                         </span>
                         @endif
+                    </td>
+                    <td class="px-4 py-3">
+                        <select class="loan-stage-select text-xs border border-gray-200 rounded-md px-2 py-1.5 bg-white focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none" data-lead-id="{{ $value->id }}" onchange="updateLoanStage(this)">
+                            <option value="pending" {{ ($value->loan_stage ?? 'pending') == 'pending' ? 'selected' : '' }}>Pending</option>
+                            <option value="loan_approved" {{ ($value->loan_stage ?? '') == 'loan_approved' ? 'selected' : '' }}>Loan Approved</option>
+                            <option value="agreement_created" {{ ($value->loan_stage ?? '') == 'agreement_created' ? 'selected' : '' }}>Agreement Created</option>
+                            <option value="file_closed" {{ ($value->loan_stage ?? '') == 'file_closed' ? 'selected' : '' }}>File Closed</option>
+                            <option value="insurance" {{ ($value->loan_stage ?? '') == 'insurance' ? 'selected' : '' }}>Insurance</option>
+                        </select>
                     </td>
                     <td class="px-4 py-3 text-xs text-gray-400">{{ Carbon::parse($value->created_at)->format('d M Y') }}</td>
                 </tr>
@@ -181,6 +191,20 @@
 @section('script')
 <script>
 function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+
+// Update Loan Stage
+function updateLoanStage(el) {
+    const leadId = el.dataset.leadId;
+    const stage = el.value;
+    const formData = new FormData();
+    formData.append('_token', CSRF_TOKEN);
+    formData.append('lead_id', leadId);
+    formData.append('loan_stage', stage);
+    fetch('/admin/update-loan-stage', { method: 'POST', body: formData })
+    .then(r => r.json())
+    .then(d => { if(d.status) { el.style.borderColor = '#10b981'; setTimeout(() => el.style.borderColor = '', 1500); } })
+    .catch(() => alert('Failed to update'));
+}
 
 // Edit Lead
 document.querySelectorAll('.edit').forEach(btn => {

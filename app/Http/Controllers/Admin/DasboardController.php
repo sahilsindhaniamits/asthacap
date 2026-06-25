@@ -63,6 +63,7 @@ class DasboardController extends Controller
        'loan_amount' => $approved->loan_amount,
        'loan_type' => $approved->loan_type,
        'loan_status'    => $approved->loan_status,
+       'loan_stage'     => $approved->loan_stage ?? 'pending',
        'status'  => true
        ],200);
        
@@ -169,6 +170,16 @@ class DasboardController extends Controller
        
     }
     
+   
+   public function update_loan_stage(Request $request){
+       $lead = LoanRequest::find($request->lead_id);
+       if($lead){
+           $lead->loan_stage = $request->loan_stage;
+           $lead->save();
+           return response()->json(['status' => true]);
+       }
+       return response()->json(['status' => false], 404);
+   }
    
    public function lead_delete(Request $request){
        $id= $request->all();

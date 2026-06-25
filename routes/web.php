@@ -68,6 +68,7 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::get('/loan-requests', [DasboardController::class, 'loan_request'])->name('admin.loan_requests');
     Route::post('/lead-delete', [DasboardController::class, 'lead_delete'])->name('admin.lead_delete');
     Route::post('/lead-edit', [DasboardController::class, 'lead_edit'])->name('admin.lead_edit');
+    Route::post('/update-loan-stage', [DasboardController::class, 'update_loan_stage'])->name('admin.update_loan_stage');
     Route::get('/lead-details/{id}', [DasboardController::class, 'get_lead_details'])->name('admin.lead_details');
     Route::post('/lead-approve', [DasboardController::class, 'lead_approve'])->name('admin.lead_approve');
     Route::post('/enquiry-status', [DasboardController::class, 'update_enquiry'])->name('admin.enquiry_status');
