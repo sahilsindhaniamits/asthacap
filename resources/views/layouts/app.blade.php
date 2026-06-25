@@ -151,7 +151,7 @@
                     <ul class="list-unstyled">
                         <li class="d-flex align-items-start gap-2 mb-3">
                             <i class="fas fa-map-marker-alt mt-1" style="color:#818cf8;"></i>
-                            <span class="text-muted-custom small">Aastha Capital Finance<br>India</span>
+                            <span class="text-muted-custom small">Shop no.8, Near Sukharia Circle,<br>SGNR, Rajasthan, 335001</span>
                         </li>
                         <li class="d-flex align-items-center gap-2 mb-3">
                             <i class="fas fa-phone" style="color:#818cf8;"></i>

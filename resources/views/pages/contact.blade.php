@@ -57,7 +57,7 @@
                             </div>
                             <div>
                                 <h6 class="text-white fw-semibold mb-1">Visit Us</h6>
-                                <p class="text-muted-custom small mb-0">Aastha Capital Finance<br>India</p>
+                                <p class="text-muted-custom small mb-0">Shop no.8, Near Sukharia Circle,<br>SGNR, Rajasthan, 335001</p>
                             </div>
                         </div>
                     </div>
