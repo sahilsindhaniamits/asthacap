@@ -109,15 +109,13 @@ a { text-decoration: none; transition: all 0.3s ease; }
 .navbar-glass .dropdown-item i { width: 20px; }
 
 /* ---- Sections ---- */
-.hero-section { min-height: auto; padding-bottom: 2rem; }
-@media (min-width: 992px) { .hero-section { min-height: 100vh; } }
-.section-padding { padding: 2.5rem 0; }
-@media (min-width: 768px) { .section-padding { padding: 3rem 0; } }
+.section-padding { padding: 4rem 0; }
+@media (min-width: 768px) { .section-padding { padding: 5rem 0; } }
 .section-dark { background: var(--bg-dark); position: relative; }
 .section-gradient { background: linear-gradient(180deg, var(--bg-dark) 0%, #1e1b4b 50%, var(--bg-dark) 100%); position: relative; }
 
 /* ---- Page Header (keeps space from fixed navbar) ---- */
-.page-header { padding-top: 8rem; padding-bottom: 4rem; }
+.page-header { padding-top: 7rem; padding-bottom: 3rem; }
 .page-header-breadcrumb { padding-top: 8rem; padding-bottom: 4rem; }
 
 /* ---- Floating Orbs ---- */
@@ -220,12 +218,6 @@ a { text-decoration: none; transition: all 0.3s ease; }
     .stat-text { font-size: 0.75rem; }
     .footer-dark .row { gap: 1rem; }
     .orb { display: none; }
-    /* Hero floating cards on mobile */
-    .col-lg-6 .position-relative { min-height: 220px !important; margin-top: 1rem; }
-    .col-lg-6 .position-relative .glass-card.p-4.mx-auto { max-width: 260px !important; padding: 1rem !important; }
-    .col-lg-6 .position-relative .glass-card.p-3.position-absolute { padding: 0.5rem 0.75rem !important; }
-    .col-lg-6 .position-relative .glass-card.p-3.position-absolute[style*="top:-10px"] { top: -5px !important; right: 0 !important; }
-    .col-lg-6 .position-relative .glass-card.p-3.position-absolute[style*="bottom:10px"] { bottom: 5px !important; left: -5px !important; }
 }
 
 /* ---- Mobile Scroll Animations ---- */
@@ -234,12 +226,6 @@ a { text-decoration: none; transition: all 0.3s ease; }
     .reveal.active, .reveal-left.active, .reveal-right.active, .reveal-scale.active { opacity: 1; transform: translateY(0); }
     .glass-card { opacity: 0; transform: translateY(15px); transition: all 0.4s ease; }
     .glass-card.active { opacity: 1; transform: translateY(0); }
-    .glass-card:active { transform: scale(0.97); box-shadow: 0 5px 20px rgba(99,102,241,0.2); }
-    .btn-gradient:active { transform: scale(0.95); }
-    .btn-outline-glass:active { transform: scale(0.95); }
-    .social-icon:active { transform: scale(0.9); background: rgba(99,102,241,0.3); }
-    .icon-box { transition: transform 0.2s ease; }
-    .glass-card:active .icon-box { transform: scale(1.15); }
 }
 
 /* ---- Testimonial Slider ---- */
@@ -284,7 +270,7 @@ a { text-decoration: none; transition: all 0.3s ease; }
     background: linear-gradient(135deg, rgba(99,102,241,0.12), rgba(6,182,212,0.12));
     border-top: 1px solid rgba(99,102,241,0.15);
     border-bottom: 1px solid rgba(6,182,212,0.15);
-    padding: 0.85rem 0;
+    padding: 1.25rem 0;
     overflow: hidden;
     width: 100%;
 }

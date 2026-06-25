@@ -6,7 +6,7 @@
 @section('content')
 
 <!-- ====== HERO SECTION ====== -->
-<section class="position-relative d-flex align-items-center overflow-hidden hero-section" style="padding-top:5rem;">
+<section class="position-relative min-vh-100 d-flex align-items-center overflow-hidden">
     <!-- Background -->
     <div class="position-absolute top-0 start-0 w-100 h-100 gradient-hero"></div>
 
@@ -16,21 +16,21 @@
     <div class="orb orb-3"></div>
 
     <div class="container position-relative" style="z-index:5;">
-        <div class="row align-items-center g-4 py-4">
+        <div class="row align-items-center g-5 py-5">
             <!-- Left Content -->
             <div class="col-lg-6 animate-slide-up">
                 <span class="badge-glass text-info mb-3">
                     <span class="d-inline-block rounded-circle bg-success me-2" style="width:8px;height:8px;"></span>
                     Trusted by 10,000+ Customers
                 </span>
-                <h1 class="display-4 fw-bold text-white lh-sm mb-3">
+                <h1 class="display-4 fw-bold text-white lh-sm mb-4">
                     Your Dreams,<br>
                     <span class="gradient-text">Our Finance.</span>
                 </h1>
                 <p class="lead text-muted-custom mb-4" style="max-width:500px;">
                     Get instant loan approvals with fast processing. From personal needs to business growth, we've got the right financial solution for you.
                 </p>
-                <div class="d-flex flex-column flex-sm-row gap-3 mb-4">
+                <div class="d-flex flex-column flex-sm-row gap-3 mb-5">
                     <a href="{{ route('loans') }}" class="btn-gradient text-center">
                         Explore Loans <i class="fas fa-arrow-right ms-2"></i>
                     </a>
@@ -40,25 +40,25 @@
                 </div>
 
                 <!-- Stats -->
-                <div class="row g-3">
+                <div class="row g-4">
                     <div class="col-4">
-                        <div class="text-white fw-bold fs-5">10K+</div>
+                        <div class="text-white fw-bold fs-4">10K+</div>
                         <div class="text-muted-custom small">Happy Customers</div>
                     </div>
                     <div class="col-4">
-                        <div class="text-white fw-bold fs-5">&#8377;50Cr+</div>
+                        <div class="text-white fw-bold fs-4">&#8377;50Cr+</div>
                         <div class="text-muted-custom small">Loans Disbursed</div>
                     </div>
                     <div class="col-4">
-                        <div class="text-white fw-bold fs-5">24hrs</div>
+                        <div class="text-white fw-bold fs-4">24hrs</div>
                         <div class="text-muted-custom small">Fast Approval</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Right Content - Hero Visual with 3 Cards (hidden on mobile) -->
+            <!-- Right Content - Hero Visual with 3 Cards -->
             <div class="col-lg-6 d-none d-lg-block animate-fade-in">
-                <div class="position-relative" style="min-height:280px;">
+                <div class="position-relative" style="min-height:380px;">
                     <!-- Main Card -->
                     <div class="glass-card p-4 mx-auto" style="max-width:320px;">
                         <div class="d-flex justify-content-between align-items-center mb-3">
