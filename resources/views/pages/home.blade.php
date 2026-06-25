@@ -139,7 +139,7 @@
 <section class="section-padding section-dark">
     <div class="orb" style="width:350px;height:350px;background:#6366f1;top:10%;right:0;"></div>
     <div class="container position-relative" style="z-index:2;">
-        <div class="text-center mb-4">
+        <div class="text-center mb-5">
             <span class="badge-glass text-info mb-3">Our Services</span>
             <h2 class="display-6 fw-bold text-white mb-2 reveal">Loan Solutions for <span class="gradient-text">Every Need</span></h2>
             <p class="text-muted-custom mx-auto reveal" style="max-width:600px;">Choose from our wide range of loan products designed to meet your specific financial requirements.</p>
@@ -291,7 +291,7 @@
 <!-- ====== HOW IT WORKS ====== -->
 <section class="section-padding section-gradient">
     <div class="container position-relative" style="z-index:2;">
-        <div class="text-center mb-4">
+        <div class="text-center mb-5">
             <span class="badge-glass text-warning mb-3">Simple Process</span>
             <h2 class="display-6 fw-bold text-white mb-3 reveal">How It <span class="gradient-text">Works</span></h2>
             <p class="text-muted-custom mx-auto reveal" style="max-width:600px;">Get your loan in just 3 simple steps. We've made the process quick and hassle-free.</p>
@@ -355,7 +355,7 @@
 <section class="section-padding section-dark">
     <div class="orb" style="width:300px;height:300px;background:#8b5cf6;bottom:10%;left:5%;"></div>
     <div class="container position-relative" style="z-index:2;">
-        <div class="text-center mb-4">
+        <div class="text-center mb-5">
             <span class="badge-glass text-success mb-3">Our Advantage</span>
             <h2 class="display-6 fw-bold text-white mb-3 reveal">Why Choose <span class="gradient-text">Aastha Capital</span></h2>
         </div>
@@ -404,7 +404,7 @@
 <!-- ====== TESTIMONIALS ====== -->
 <section class="section-padding testimonial-section">
     <div class="container position-relative" style="z-index:2;">
-        <div class="text-center mb-4">
+        <div class="text-center mb-5">
             <span class="badge-glass text-info mb-3">Testimonials</span>
             <h2 class="display-6 fw-bold text-white mb-3 reveal">What Our <span class="gradient-text">Customers Say</span></h2>
         </div>
@@ -517,7 +517,7 @@
 <!-- ====== EMI CALCULATOR SECTION ====== -->
 <section class="section-padding section-dark">
     <div class="container position-relative" style="z-index:2;">
-        <div class="text-center mb-4">
+        <div class="text-center mb-5">
             <span class="badge-glass text-warning mb-3">Financial Tool</span>
             <h2 class="display-6 fw-bold text-white mb-2">Loan EMI <span class="gradient-text">Calculator</span></h2>
             <p class="text-muted-custom">Calculate your monthly EMI easily and plan your loan better</p>
