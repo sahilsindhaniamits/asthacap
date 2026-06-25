@@ -233,7 +233,7 @@ ul li { font-size: 9.5px; margin-bottom: 2px; color: #444; line-height: 1.4; }
             <p>Verified By:</p>
         </div>
         <div class="auth-sig-block">
-            <div class="sig-line"></div>
+            <img src="{{ asset('images/parveen.png') }}" alt="Signature" style="height:40px;margin-bottom:2px;">
             <p>Authorized Signatory</p>
             <span class="sig-label">For Aastha Capital Finance</span>
             <span class="sig-label">Branch Manager / Credit Head</span>
