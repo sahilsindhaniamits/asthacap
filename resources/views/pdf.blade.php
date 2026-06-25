@@ -220,6 +220,11 @@ ul li { font-size: 9px; margin-bottom: 2px; color: #444; line-height: 1.35; }
         <li>All disputes subject to exclusive jurisdiction of courts in SGNR, Rajasthan.</li>
     </ul>
 
+    <!-- Declaration -->
+    <div class="body-text" style="margin-top:4px;">
+        <p style="font-size:8.5px; font-weight:600;">Declaration: I, {{ $details->name }}, hereby accept all terms and conditions mentioned in this approval letter.</p>
+    </div>
+
     <!-- Signature Area -->
     <div class="signature-area">
         <div class="sig-block">
