@@ -37,7 +37,7 @@ body { font-family: 'Segoe UI', Arial, sans-serif; background: #fff; color: #1a1
 .header-right .meta span { display: block; margin: 1px 0; }
 
 /* Content */
-.content { padding: 10px 40px 6px; position: relative; z-index: 1; display: flex; flex-direction: column; }
+.content { padding: 10px 40px 6px; position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; }
 
 /* Document Title */
 .doc-title { text-align: center; margin: 6px 0 10px; }
@@ -80,7 +80,7 @@ ul { padding-left: 16px; margin: 3px 0 6px; }
 ul li { font-size: 9px; margin-bottom: 2px; color: #444; line-height: 1.35; }
 
 /* Signature area */
-.signature-area { display: flex; justify-content: space-between; align-items: flex-end; margin-top: 10px; padding-top: 6px; border-top: 1px dashed #d1d5db; }
+.signature-area { display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto; padding-top: 6px; border-top: 1px dashed #d1d5db; }
 .sig-block { text-align: center; width: 30%; }
 .sig-line { border-bottom: 1.5px solid #1e1b4b; height: 24px; margin-bottom: 4px; }
 .sig-block p { font-size: 9px; font-weight: 700; color: #1e1b4b; }
