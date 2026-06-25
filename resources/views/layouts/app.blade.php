@@ -34,12 +34,10 @@
         <div class="container">
             <!-- Logo -->
             <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('home') }}">
-                <div class="icon-box gradient-card-1" style="width:40px;height:40px;border-radius:0.75rem;">
-                    <span class="text-white fw-bold fs-5">A</span>
-                </div>
+                <img src="{{ asset('images/aastha_capital_finance_logo.png') }}" alt="Aastha Capital Finance" style="height:44px;">
                 <div>
-                    <span class="text-white fw-bold fs-5">Aastha</span>
-                    <span class="fw-light fs-5" style="color:#a5b4fc;"> Capital</span>
+                    <span class="text-white fw-bold fs-5">Aastha Capital</span>
+                    <span class="fw-light fs-5" style="color:#a5b4fc;"> Finance</span>
                 </div>
             </a>
 

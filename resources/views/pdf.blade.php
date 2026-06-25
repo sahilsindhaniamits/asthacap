@@ -180,7 +180,7 @@ ul li { font-size: 9.5px; margin-bottom: 2px; color: #444; line-height: 1.4; }
     <div class="detail-box loan-box">
         <h3>Approved Loan Details</h3>
         <table>
-            <tr><td>Sanctioned Amount</td><td class="loan-amount">&#8377; {{ number_format($approved->sanctionamt) }}/-</td></tr>
+            <tr><td>Approved Amount</td><td class="loan-amount">&#8377; {{ number_format($approved->sanctionamt) }}/-</td></tr>
             <tr><td>Type of Loan Facility</td><td>{{ ucfirst($details->loan_type) }} Loan</td></tr>
             <tr><td>Loan Tenure</td><td>{{ $approved->loant }} Year(s)</td></tr>
             <tr><td>Rate of Interest (p.a.)</td><td>{{ $approved->roi }}% per annum (Reducing Balance)</td></tr>
