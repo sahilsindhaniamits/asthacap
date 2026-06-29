@@ -113,9 +113,9 @@ document.getElementById('checkStatusBtn').addEventListener('click', function() {
                 document.getElementById('resType').textContent = data.loan_type || '—';
                 var statusEl = document.getElementById('resStatus');
                 var stage = data.loan_stage || 'pending';
-                var stageLabels = { 'pending': 'Pending', 'loan_approved': 'Loan Approved', 'agreement_created': 'Agreement Created', 'file_closed': 'File Closed', 'insurance': 'Insurance' };
-                var stageColors = { 'pending': '#fbbf24', 'loan_approved': '#34d399', 'agreement_created': '#818cf8', 'file_closed': '#06b6d4', 'insurance': '#f472b6' };
-                var stageIcons = { 'pending': 'fa-clock', 'loan_approved': 'fa-check-circle', 'agreement_created': 'fa-file-signature', 'file_closed': 'fa-folder-open', 'insurance': 'fa-shield-alt' };
+                var stageLabels = { 'pending': 'Pending', 'under_process': 'Under Process', 'loan_approved': 'Loan Approved', 'agreement_created': 'Agreement Created', 'file_closed': 'File Closed', 'insurance': 'Insurance' };
+                var stageColors = { 'pending': '#fbbf24', 'under_process': '#f97316', 'loan_approved': '#34d399', 'agreement_created': '#818cf8', 'file_closed': '#06b6d4', 'insurance': '#f472b6' };
+                var stageIcons = { 'pending': 'fa-clock', 'under_process': 'fa-spinner', 'loan_approved': 'fa-check-circle', 'agreement_created': 'fa-file-signature', 'file_closed': 'fa-folder-open', 'insurance': 'fa-shield-alt' };
                 
                 if (data.loan_status == 1 && stage == 'pending') stage = 'loan_approved';
                 

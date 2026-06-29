@@ -100,6 +100,7 @@
                     <td class="px-4 py-3">
                         <select class="loan-stage-select text-xs border border-gray-200 rounded-md px-2 py-1.5 bg-white focus:ring-2 focus:ring-primary-200 focus:border-primary-400 outline-none" data-lead-id="{{ $value->id }}" onchange="updateLoanStage(this)">
                             <option value="pending" {{ ($value->loan_stage ?? 'pending') == 'pending' ? 'selected' : '' }}>Pending</option>
+                            <option value="under_process" {{ ($value->loan_stage ?? '') == 'under_process' ? 'selected' : '' }}>Under Process</option>
                             <option value="loan_approved" {{ ($value->loan_stage ?? '') == 'loan_approved' ? 'selected' : '' }}>Loan Approved</option>
                             <option value="agreement_created" {{ ($value->loan_stage ?? '') == 'agreement_created' ? 'selected' : '' }}>Agreement Created</option>
                             <option value="file_closed" {{ ($value->loan_stage ?? '') == 'file_closed' ? 'selected' : '' }}>File Closed</option>
