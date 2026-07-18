@@ -121,7 +121,7 @@
     object-fit: contain;">
     
     <div class="gst_details">
-        <div>GSTIN : 08BFAPJ4466F1ZJ</div>
+        <div>GSTIN : 08KAOPK7068A1ZB</div>
         
     </div>
             <!--<div class="app">-->

@@ -140,6 +140,9 @@ ul li {
 <!-- HEADER (same as approval letter) -->
 <div class="header">
   <img src="{{ asset('images/uppfi.jpg') }}" alt="Header">
+  <!-- Hide left GSTIN from image and show correct one on right only -->
+  <div style="position:absolute; top:58px; left:40px; background:#fff; width:220px; height:18px;"></div>
+  <div style="position:absolute; top:58px; right:55px; font-size:11px; font-weight:600; color:#333;">GSTIN: 08KAOPK7068A1ZB</div>
 </div>
 
 <!-- HEADING -->
