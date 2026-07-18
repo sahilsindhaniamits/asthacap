@@ -43,7 +43,7 @@
                         <td>{{ $lead->email }}</td>
                         <td>{{ $lead->phone }}</td>
                         <td><span class="badge bg-info text-dark">{{ $lead->loan_type }}</span></td>
-                        <td class="fw-semibold">{{ number_format($lead->loan_amount) }}</td>
+                        <td class="fw-semibold">{{ number_format((float) $lead->loan_amount) }}</td>
                         <td>{{ $lead->state }}</td>
                         <td>
                             @if($lead->status == 1)
