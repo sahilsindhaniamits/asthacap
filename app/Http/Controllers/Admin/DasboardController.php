@@ -371,21 +371,23 @@ class DasboardController extends Controller
   
    public function send_message_user(Request $request)
 {
-    $message = trim($request->message ?? '');
-    $mobile  = trim($request->input('mobile') ?? '');
+    $message    = trim($request->message ?? '');
+    $mobile     = trim($request->input('mobile') ?? '');
+    $templateId = trim($request->input('template_id') ?? '');
 
     // Basic validation
     if (empty($message)) {
-        return redirect()->back()->with('error', 'Please enter a message');
+        return response()->json(['status' => false, 'message' => 'Please enter a message'], 200);
     }
     if (empty($mobile) || !is_numeric($mobile) || strlen($mobile) < 10) {
-        return redirect()->back()->with('error', 'Please enter a valid 10-digit mobile number');
+        return response()->json(['status' => false, 'message' => 'Please enter a valid 10-digit mobile number'], 200);
     }
 
     // === HIVE MSG V2 CREDENTIALS ===
-    $userId     = env('HIVE_USER_ID', 'pvbl6krfog');
-    $userToken  = env('HIVE_USER_TOKEN', 'bHGlpXGKzZBLufCF3SKxsghe');
-    $senderId   = env('HIVE_SENDER_ID', 'PRMSER');
+    $userId     = 'pvbl6krfog';
+    $userToken  = 'bHGlpXGKzZBLufCF3SKxsghe';
+    $senderId   = 'ACPITL';
+    $entityId   = '1701178236662745524';
 
     $apiUrl = "https://console.hivemsg.com/sms-api/v2/broadcasting";
 
@@ -398,32 +400,44 @@ class DasboardController extends Controller
         'campaignReschedule'  => 'N',
         'countryCodeName'     => 'IN',
         'senderId'            => $senderId,
+        'entityId'            => $entityId,
         'template'            => $message,
         'contacts'            => json_encode([["mobile" => $mobile]]),
         'plan_id'             => 2
     ];
+
+    // Add template ID if selected
+    if (!empty($templateId)) {
+        $apiParams['templateId'] = $templateId;
+    }
 
     try {
         $response = \Illuminate\Support\Facades\Http::get($apiUrl, $apiParams);
 
         // === DEBUG LOGGING ===
         \Log::info('HiveMsg SMS Attempt', [
-            'mobile'     => $mobile,
-            'message'    => substr($message, 0, 100),
-            'status'     => $response->status(),
-            'response'   => $response->body(),
-            'successful' => $response->successful()
+            'mobile'      => $mobile,
+            'message'     => substr($message, 0, 100),
+            'template_id' => $templateId,
+            'status'      => $response->status(),
+            'response'    => $response->body(),
+            'successful'  => $response->successful()
         ]);
 
         if ($response->successful()) {
-            return redirect()->back()->with('success', '✅ SMS Sent Successfully!');
+            $responseData = $response->json();
+            // Check if HiveMsg returned success in response body
+            if (isset($responseData['status']) && $responseData['status'] == 'error') {
+                return response()->json(['status' => false, 'message' => $responseData['message'] ?? 'SMS delivery failed from HiveMsg'], 200);
+            }
+            return response()->json(['status' => true, 'message' => 'SMS Sent Successfully!'], 200);
         } else {
             $errorMsg = $response->body() ?: 'Unknown error from HiveMsg';
-            return redirect()->back()->with('error', '❌ SMS Failed: ' . $errorMsg);
+            return response()->json(['status' => false, 'message' => 'SMS Failed: ' . $errorMsg], 200);
         }
     } catch (\Exception $e) {
         \Log::error('HiveMsg Exception: ' . $e->getMessage());
-        return redirect()->back()->with('error', '❌ Something went wrong. Check logs.');
+        return response()->json(['status' => false, 'message' => 'Something went wrong: ' . $e->getMessage()], 200);
     }
 }
     
